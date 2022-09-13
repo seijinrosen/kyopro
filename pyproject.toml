@@ -13,7 +13,11 @@ python = "~3.8"
 acac = "^0.1.0"
 bandit = "^1.7.4"
 black = "^22.8.0"
+isort = "^5.10.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
