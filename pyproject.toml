@@ -10,7 +10,7 @@ readme = "README.md"
 python = "~3.8"
 
 [tool.poetry.group.dev.dependencies]
-acac = "^0.1.0"
+acac = "^0.2.0"
 bandit = "^1.7.4"
 black = "^22.8.0"
 isort = "^5.10.1"
