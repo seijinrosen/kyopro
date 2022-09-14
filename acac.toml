@@ -1,10 +1,16 @@
 default_lang = "pypy3"
-editor_command = "code"
 templates_dir = "templates"
 
-[new]
+[editor]
+command = "code"
+
+[create]
 auto_editor_open = true
-auto_git_add = false
+auto_git_add = true
+clipboard_message = "Create: ${url}"
+
+[judge]
+clipboard_message = "AC: ${url} ${lang}"
 
 [lang.cpp]
 command = "g++"
