@@ -1,4 +1,9 @@
 {
+  "input ints": {
+    "scope": "python",
+    "prefix": "input ints",
+    "body": "${1:ints} = map(int, input().split())"
+  },
   "input list": {
     "scope": "python",
     "prefix": "input list",
