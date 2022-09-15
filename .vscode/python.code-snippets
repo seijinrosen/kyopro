@@ -1,15 +1,15 @@
 {
-  "input ints": {
+  "ints = map(int, input().split())": {
     "scope": "python",
     "prefix": "input ints",
     "body": "${1:ints} = map(int, input().split())"
   },
-  "input list": {
+  "lst = list(map(int, input().split()))": {
     "scope": "python",
     "prefix": "input list",
     "body": "${1:lst} = list(map(int, input().split()))"
   },
-  "input tuple list": {
+  "lst: 'list[tuple[int, int]]' = [tuple(map(int, input().split())) for _ in range(N)]": {
     "scope": "python",
     "prefix": "input tuple list",
     "body": "${1:lst}: 'list[tuple[int, int]]' = [tuple(map(int, input().split())) for _ in range(${2:N})]"
