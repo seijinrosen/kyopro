@@ -1,0 +1,7 @@
+{
+  "input list": {
+    "scope": "python",
+    "prefix": "input list",
+    "body": "${1:lst} = list(map(int, input().split()))"
+  }
+}

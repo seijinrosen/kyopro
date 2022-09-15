@@ -1,0 +1,7 @@
+{
+  "input array": {
+    "scope": "typescript",
+    "prefix": "input array",
+    "body": "const ${1:arr} = input().split(' ').map(Number);"
+  }
+}

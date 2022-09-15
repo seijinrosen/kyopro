@@ -1,0 +1,10 @@
+{
+  "input vector": {
+    "scope": "cpp",
+    "prefix": "input vector",
+    "body": [
+      "vector<int> ${1:vec}(${2:N});",
+      "for (auto &&${3:x} : ${1:vec}) cin >> ${3:x};"
+    ]
+  }
+}
