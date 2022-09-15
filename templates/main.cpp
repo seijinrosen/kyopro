@@ -9,6 +9,15 @@ template <typename T>
 void print(T value) {
   cout << value << endl;
 }
+template <typename T>
+void print(vector<T> &vec, string sep = " ") {
+  if (vec.empty()) {
+    cout << endl;
+    return;
+  }
+  for (int i = 0; i < vec.size() - 1; i++) cout << vec.at(i) << sep;
+  cout << vec.back() << endl;
+}
 
 template <typename T>
 T sum(vector<T> &vec) {
