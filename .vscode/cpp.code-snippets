@@ -1,10 +1,20 @@
 {
+  "pair<int, int>": {
+    "scope": "cpp",
+    "prefix": "pii",
+    "body": "pair<int, int>"
+  },
+  "vector<int> vec(N);": {
+    "scope": "cpp",
+    "prefix": "vec",
+    "body": "vector<${1:int}> ${2:vec}(${3:N});"
+  },
   "input vector": {
     "scope": "cpp",
     "prefix": "input vector",
     "body": [
-      "vector<int> ${1:vec}(${2:N});",
-      "for (auto &&${3:x} : ${1:vec}) cin >> ${3:x};"
+      "vector<${1:int}> ${2:vec}(${3:N});",
+      "for (auto &&${4:x} : ${2:vec}) cin >> ${4:x};"
     ]
   }
 }
