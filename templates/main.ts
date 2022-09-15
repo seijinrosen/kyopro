@@ -11,6 +11,10 @@ const Counter = <T>(arr: T[]) => {
   return counter;
 };
 
+// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
+const range = (start: number, stop: number, step = 1) =>
+  Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+
 const inputPairArray = (n: number) =>
   [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
 
