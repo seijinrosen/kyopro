@@ -11,4 +11,7 @@ const Counter = <T>(arr: T[]) => {
   return counter;
 };
 
+const inputPairArray = (n: number) =>
+  [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
+
 const N = +input();
