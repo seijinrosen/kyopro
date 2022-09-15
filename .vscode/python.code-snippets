@@ -8,5 +8,10 @@
     "scope": "python",
     "prefix": "input list",
     "body": "${1:lst} = list(map(int, input().split()))"
+  },
+  "input tuple list": {
+    "scope": "python",
+    "prefix": "input tuple list",
+    "body": "${1:lst}: 'list[tuple[int, int]]' = [tuple(map(int, input().split())) for _ in range(${2:N})]"
   }
 }
