@@ -1,19 +1,17 @@
 N, K = map(int, input().split())
 P = list(map(int, input().split()))
 
-lst = [False] * (N + 1)
+bucket = [False] * (N + 1)
 for p in P[:K]:
-    lst[p] = True
+    bucket[p] = True
 
-i = min(P[:K])
-ans_list = [i]
+idx = bucket.index(True)
+ans_list = [idx]
 
 for p in P[K:]:
-    if i < p:
-        i += 1
-        lst[p] = True
-        while not lst[i]:
-            i += 1
-    ans_list.append(i)
+    if idx < p:
+        bucket[p] = True
+        idx = bucket.index(True, idx + 1)
+    ans_list.append(idx)
 
 print(*ans_list, sep="\n")
