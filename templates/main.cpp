@@ -15,7 +15,7 @@ void print(vector<T> &vec, string sep = " ") {
     cout << endl;
     return;
   }
-  for (int i = 0; i < vec.size() - 1; i++) cout << vec.at(i) << sep;
+  for (size_t i = 0; i < vec.size() - 1; i++) cout << vec.at(i) << sep;
   cout << vec.back() << endl;
 }
 
