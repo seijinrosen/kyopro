@@ -1,4 +1,9 @@
 {
+  "vector<int>": {
+    "scope": "cpp",
+    "prefix": "vi",
+    "body": "vector<int>"
+  },
   "pair<int, int>": {
     "scope": "cpp",
     "prefix": "pii",
