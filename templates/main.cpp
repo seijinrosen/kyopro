@@ -19,6 +19,14 @@ void print(vector<T> &vec, string sep = " ") {
   cout << vec.back() << endl;
 }
 
+string yes_no(bool b) { return b ? "Yes" : "No"; }
+
+string reverse(string &s) { return string(s.rbegin(), s.rend()); }
+
+string my_slice(string &s, int start, int stop) {
+  return s.substr(start, stop - start);
+}
+
 template <typename T>
 T sum(vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
