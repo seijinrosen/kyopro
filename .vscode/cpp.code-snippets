@@ -1,4 +1,9 @@
 {
+  "all": {
+    "scope": "cpp",
+    "prefix": "all",
+    "body": "${0:v}.begin(), ${0:v}.end()"
+  },
   "vector<int>": {
     "scope": "cpp",
     "prefix": "vi",
