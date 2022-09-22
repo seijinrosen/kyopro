@@ -26,10 +26,27 @@ string reverse(string &s) { return string(s.rbegin(), s.rend()); }
 string my_slice(string &s, int start, int stop) {
   return s.substr(start, stop - start);
 }
+template <typename T>
+vector<T> my_slice(const vector<T> &vec, int start, int stop = -1) {
+  return {vec.begin() + start, stop == -1 ? vec.end() : vec.begin() + stop};
+}
 
 template <typename T>
 T sum(vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
+}
+
+template <typename T1, typename T2>
+vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
+  vector<pair<T1, T2>> ret;
+  for (size_t i = 0; i < min(a.size(), b.size()); i++)
+    ret.push_back({a[i], b[i]});
+  return ret;
+}
+
+template <typename T>
+vector<pair<T, T>> pairwise(const vector<T> &vec) {
+  return zip(vec, my_slice(vec, 1));
 }
 
 template <typename T>
