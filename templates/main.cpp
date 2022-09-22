@@ -21,7 +21,7 @@ void print(vector<T> &vec, string sep = " ") {
 
 string yes_no(bool b) { return b ? "Yes" : "No"; }
 
-string reverse(string &s) { return string(s.rbegin(), s.rend()); }
+string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
 
 string my_slice(string &s, int start, int stop) {
   return s.substr(start, stop - start);
@@ -34,6 +34,19 @@ vector<T> my_slice(const vector<T> &vec, int start, int stop = -1) {
 template <typename T>
 T sum(vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
+}
+
+vector<pair<int, char>> enumerate(const string &s) {
+  vector<pair<int, char>> ret(s.size());
+  for (size_t i = 0; i < s.size(); i++) ret[i] = {i, s[i]};
+  return ret;
+}
+
+int bin2int(const string &bin) {
+  int ret = 0;
+  for (auto &&[i, c] : enumerate(reverse(bin)))
+    if (c == '1') ret += 1 << i;
+  return ret;
 }
 
 template <typename T1, typename T2>
