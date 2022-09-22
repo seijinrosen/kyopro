@@ -5,8 +5,11 @@ const input = () => inputLines[inputLinesIndex++];
 const print = (...messages: any) => console.log(...messages);
 
 const yesNo = (b: boolean) => (b ? "Yes" : "No");
-const sum = (data: number[]) => data.reduce((a, b) => a + b);
+const sum = (data: number[]) => data.reduce((a, b) => a + b, 0);
 const reverse = (s: string) => s.split("").reverse().join("");
+const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
+  [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
+const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
 const Counter = <T>(arr: T[]) => {
   const counter = new Map<T, number>();
   for (const v of arr) counter.set(v, (counter.get(v) || 0) + 1);
