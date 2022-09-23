@@ -18,6 +18,8 @@ const reverse = (s: string) => s.split("").reverse().join("");
 const sorted = <T extends number | bigint>(array: T[]) =>
   array.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 const sum = (data: number[]) => data.reduce((a, b) => a + b, 0);
+const tails = (str: string): string[] =>
+  [...Array(str.length + 1)].map((_, i) => str.slice(i));
 const yesNo = (b: boolean) => (b ? "Yes" : "No");
 const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
   [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
