@@ -53,6 +53,13 @@ vector<pair<int, char>> enumerate(const string &s) {
   return ret;
 }
 
+string int2bin(int number, int width) {
+  string ret(width, '0');
+  for (size_t i = 0; i < width; i++)
+    if (number & 1 << i) ret[i] = '1';
+  return {ret.rbegin(), ret.rend()};
+}
+
 bool is_odd(int n) { return n % 2 == 1; }
 
 string my_slice(string &s, int start, int stop) {
@@ -101,6 +108,12 @@ vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
   vector<pair<T1, T2>> ret;
   for (size_t i = 0; i < min(a.size(), b.size()); i++)
     ret.push_back({a[i], b[i]});
+  return ret;
+}
+
+vector<int> input_vector(int n) {
+  vector<int> ret(n);
+  for (auto &&i : ret) cin >> i;
   return ret;
 }
 
