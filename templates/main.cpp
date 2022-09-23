@@ -27,9 +27,10 @@ map<T, int> Counter(vector<T> &vec) {
 }
 
 int bin2int(const string &bin) {
+  string reversed = {bin.rbegin(), bin.rend()};
   int ret = 0;
-  for (auto &&[i, c] : enumerate(reverse(bin)))
-    if (c == '1') ret += 1 << i;
+  for (size_t i = 0; i < bin.size(); i++)
+    if (reversed[i] == '1') ret += 1 << i;
   return ret;
 }
 
