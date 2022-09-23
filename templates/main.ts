@@ -17,6 +17,8 @@ const countSerialChar = (str: string): [string, number][] => {
   }
   return ret;
 };
+const int2bin = (num: number, width: number): string =>
+  num.toString(2).padStart(width, "0");
 const isOdd = (n: number): boolean => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
