@@ -12,6 +12,10 @@ def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     return zip(a, b)
 
 
+def tails(s: str) -> "list[str]":
+    return [s[i:] for i in range(len(s) + 1)]
+
+
 def yes_no(b: bool) -> str:
     return "Yes" if b else "No"
 
