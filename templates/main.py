@@ -8,6 +8,10 @@ def count_serial_char(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
 
 
+def int2bin(number: int, width: int) -> str:
+    return bin(number)[2:].zfill(width)
+
+
 def is_odd(n: int) -> bool:
     return n % 2 == 1
 
