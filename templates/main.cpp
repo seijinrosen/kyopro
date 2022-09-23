@@ -9,6 +9,10 @@ template <typename T>
 void print(T value) {
   cout << value << endl;
 }
+template <typename T1, typename T2>
+void print(const pair<T1, T2> &p) {
+  cout << p.first << " " << p.second << endl;
+}
 template <typename T>
 void print(vector<T> &vec, string sep = " ") {
   if (vec.empty()) {
@@ -26,6 +30,17 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
+vector<pair<char, int>> count_serial_char(const string &str) {
+  vector<pair<char, int>> ret = {{str[0], 1}};
+  for (auto &&c : str.substr(1)) {
+    if (c == ret.back().first)
+      ret.back().second++;
+    else
+      ret.push_back({c, 1});
+  }
+  return ret;
+}
+
 template <typename T>
 vector<pair<int, T>> enumerate(const vector<T> &vec) {
   vector<pair<int, T>> ret(vec.size());
@@ -37,6 +52,8 @@ vector<pair<int, char>> enumerate(const string &s) {
   for (size_t i = 0; i < s.size(); i++) ret[i] = {i, s[i]};
   return ret;
 }
+
+bool is_odd(int n) { return n % 2 == 1; }
 
 string my_slice(string &s, int start, int stop) {
   return s.substr(start, stop - start);
