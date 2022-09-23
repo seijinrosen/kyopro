@@ -26,14 +26,6 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
-int bin2int(const string &bin) {
-  string reversed = {bin.rbegin(), bin.rend()};
-  int ret = 0;
-  for (size_t i = 0; i < bin.size(); i++)
-    if (reversed[i] == '1') ret += 1 << i;
-  return ret;
-}
-
 template <typename T>
 vector<pair<int, T>> enumerate(const vector<T> &vec) {
   vector<pair<int, T>> ret(vec.size());
@@ -57,6 +49,14 @@ vector<T> my_slice(const vector<T> &vec, int start, int stop = -1) {
 template <typename T>
 vector<pair<T, T>> pairwise(const vector<T> &vec) {
   return zip(vec, my_slice(vec, 1));
+}
+
+int parse_int(const string &bin) {
+  string reversed = {bin.rbegin(), bin.rend()};
+  int ret = 0;
+  for (size_t i = 0; i < bin.size(); i++)
+    if (reversed[i] == '1') ret += 1 << i;
+  return ret;
 }
 
 string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
