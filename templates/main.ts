@@ -9,6 +9,16 @@ const Counter = <T>(arr: T[]) => {
   for (const v of arr) counter.set(v, (counter.get(v) || 0) + 1);
   return counter;
 };
+const countSerialChar = (str: string): [string, number][] => {
+  const ret: [string, number][] = [[str[0], 1]];
+  for (const c of str.slice(1)) {
+    if (c === ret[ret.length - 1][0]) ret[ret.length - 1][1]++;
+    else ret.push([c, 1]);
+  }
+  return ret;
+};
+const isOdd = (n: number): boolean => n % 2 === 1;
+const last = <T>(array: T[]): T => array[array.length - 1];
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
 const range = (start: number, stop: number, step = 1) =>
@@ -17,7 +27,7 @@ const reverse = (s: string) => s.split("").reverse().join("");
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
 const sorted = <T extends number | bigint>(array: T[]) =>
   array.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
-const sum = (data: number[]) => data.reduce((a, b) => a + b, 0);
+const sum = (array: number[]): number => array.reduce((a, b) => a + b, 0);
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
 const yesNo = (b: boolean) => (b ? "Yes" : "No");
