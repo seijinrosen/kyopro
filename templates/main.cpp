@@ -33,6 +33,12 @@ int bin2int(const string &bin) {
   return ret;
 }
 
+template <typename T>
+vector<pair<int, T>> enumerate(const vector<T> &vec) {
+  vector<pair<int, T>> ret(vec.size());
+  for (size_t i = 0; i < vec.size(); i++) ret[i] = {i, vec[i]};
+  return ret;
+}
 vector<pair<int, char>> enumerate(const string &s) {
   vector<pair<int, char>> ret(s.size());
   for (size_t i = 0; i < s.size(); i++) ret[i] = {i, s[i]};
@@ -54,9 +60,20 @@ vector<pair<T, T>> pairwise(const vector<T> &vec) {
 
 string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
 
+bool startswith(const string &str, const string &prefix) {
+  if (str.size() < prefix.size()) return false;
+  return str.substr(0, prefix.size()) == prefix;
+}
+
 template <typename T>
 T sum(vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
+}
+
+vector<string> tails(const string &str) {
+  vector<string> ret(str.size() + 1);
+  for (size_t i = 0; i <= str.size(); i++) ret[i] = str.substr(i);
+  return ret;
 }
 
 string yes_no(bool b) { return b ? "Yes" : "No"; }
