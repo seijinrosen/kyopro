@@ -1,7 +1,15 @@
-from itertools import tee
+from itertools import groupby, tee
 from typing import Iterable, TypeVar
 
 _T = TypeVar("_T")
+
+
+def count_serial_char(s: str) -> "list[tuple[str, int]]":
+    return [(k, len(list(g))) for k, g in groupby(s)]
+
+
+def is_odd(n: int) -> bool:
+    return n % 2 == 1
 
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
