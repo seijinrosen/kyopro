@@ -83,6 +83,12 @@ int parse_int(const string &bin) {
   return ret;
 }
 
+string repeat(const string &s, int n) {
+  string ret;
+  for (size_t i = 0; i < n; i++) ret += s;
+  return ret;
+}
+
 string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
 
 bool startswith(const string &str, const string &prefix) {
