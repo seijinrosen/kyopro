@@ -85,6 +85,12 @@ int parse_int(const string &bin) {
   return ret;
 }
 
+vector<int> range(int start, int stop) {
+  vector<int> ret(stop - start);
+  iota(ret.begin(), ret.end(), start);
+  return ret;
+}
+
 string repeat(const string &s, int n) {
   string ret;
   for (size_t i = 0; i < n; i++) ret += s;
