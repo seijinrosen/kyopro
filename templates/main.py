@@ -1,5 +1,5 @@
 from itertools import groupby, tee
-from typing import Iterable, TypeVar
+from typing import Iterable, TypeVar, Union
 
 _T = TypeVar("_T")
 
@@ -28,7 +28,7 @@ def tails(s: str) -> "list[str]":
     return [s[i:] for i in range(len(s) + 1)]
 
 
-def yes_no(b: bool) -> str:
+def yes_no(b: Union[bool, int]) -> str:
     return "Yes" if b else "No"
 
 
