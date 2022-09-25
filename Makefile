@@ -1,6 +1,9 @@
 dummy:
 	echo dummy
 
+open:
+	gh repo view --web
+
 update:
 	python -m pip install --upgrade pip setuptools
 	poetry update
