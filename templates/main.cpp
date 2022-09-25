@@ -41,6 +41,8 @@ vector<pair<char, int>> count_serial_char(const string &str) {
   return ret;
 }
 
+int ctoi(char c) { return c - '0'; }
+
 template <typename T>
 vector<pair<int, T>> enumerate(const vector<T> &vec) {
   vector<pair<int, T>> ret(vec.size());
