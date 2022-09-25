@@ -34,7 +34,7 @@ const sorted = <T extends number | bigint>(array: T[]) =>
 const sum = (array: number[]): number => array.reduce((a, b) => a + b, 0);
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
-const yesNo = (b: boolean) => (b ? "Yes" : "No");
+const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
 const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
   [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
 
