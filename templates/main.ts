@@ -21,6 +21,7 @@ const int2bin = (num: number, width: number): string =>
   num.toString(2).padStart(width, "0");
 const isOdd = (n: number): boolean => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
+const max = (data: number[]) => data.reduce((a, b) => Math.max(a, b));
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
 // const range = (start: number, stop: number, step = 1) =>
@@ -32,6 +33,13 @@ const reverse = (s: string) => s.split("").reverse().join("");
 const sorted = <T extends number | bigint>(array: T[]) =>
   array.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 const sum = (array: number[]): number => array.reduce((a, b) => a + b, 0);
+const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
+  const ret: T[] = [];
+  for (const a of array)
+    if (predicate(a)) ret.push(a);
+    else break;
+  return ret;
+};
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
 const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
