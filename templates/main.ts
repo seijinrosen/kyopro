@@ -23,8 +23,10 @@ const isOdd = (n: number): boolean => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
-const range = (start: number, stop: number, step = 1) =>
-  Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+// const range = (start: number, stop: number, step = 1) =>
+//   Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
+const range = (a: number, b?: number): number[] =>
+  b ? [...Array(b - a)].map((_, i) => a + i) : [...Array(a)].map((_, i) => i);
 const reverse = (s: string) => s.split("").reverse().join("");
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
 const sorted = <T extends number | bigint>(array: T[]) =>
