@@ -24,6 +24,11 @@ def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     return zip(a, b)
 
 
+def sum_of_arithmetic_progression(head: int, last: int, count: int) -> int:
+    """等差数列の和"""
+    return (head + last) * count // 2
+
+
 def tails(s: str) -> "list[str]":
     return [s[i:] for i in range(len(s) + 1)]
 
