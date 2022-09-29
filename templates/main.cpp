@@ -130,6 +130,12 @@ vector<int> input_vector(int n) {
   for (auto &&i : ret) cin >> i;
   return ret;
 }
+template <typename T>
+vector<T> input_vector(int n) {
+  vector<T> ret(n);
+  for (auto &&i : ret) cin >> i;
+  return ret;
+}
 
 int main() {
   int N;
