@@ -1,9 +1,8 @@
-[editor]
-command = "code"
-
 [create]
-auto_editor_open = true
-auto_git_add = true
+post_create_commands = [
+    "git add ${dir}/in ${dir}/out ${dir}/metadata.toml",
+    "code . ${source_file}",
+]
 clipboard_message = "Create: ${url}"
 
 [judge]
