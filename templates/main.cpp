@@ -30,7 +30,7 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
-vector<pair<char, int>> count_serial_char(const string &str) {
+vector<pair<char, int>> run_length_encoding(const string &str) {
   vector<pair<char, int>> ret = {{str[0], 1}};
   for (auto &&c : str.substr(1)) {
     if (c == ret.back().first)

@@ -4,7 +4,7 @@ from typing import Iterable, TypeVar, Union
 _T = TypeVar("_T")
 
 
-def count_serial_char(s: str) -> "list[tuple[str, int]]":
+def run_length_encoding(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
 
 

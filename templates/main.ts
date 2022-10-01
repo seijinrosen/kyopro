@@ -9,7 +9,7 @@ const Counter = <T>(arr: T[]) => {
   for (const v of arr) counter.set(v, (counter.get(v) || 0) + 1);
   return counter;
 };
-const countSerialChar = (str: string): [string, number][] => {
+const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
   for (const c of str.slice(1)) {
     if (c === ret[ret.length - 1][0]) ret[ret.length - 1][1]++;
