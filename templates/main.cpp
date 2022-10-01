@@ -85,6 +85,11 @@ int parse_int(const string &bin) {
   return ret;
 }
 
+vector<int> range(int stop) {
+  vector<int> ret(stop);
+  iota(ret.begin(), ret.end(), 0);
+  return ret;
+}
 vector<int> range(int start, int stop) {
   vector<int> ret(stop - start);
   iota(ret.begin(), ret.end(), start);
