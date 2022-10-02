@@ -42,4 +42,8 @@ def input_ints() -> Iterator[int]:
         yield i
 
 
+def input_int_list() -> "list[int]":
+    return list(map(int, input().split()))
+
+
 N = int(input())
