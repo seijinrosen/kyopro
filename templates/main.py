@@ -37,6 +37,7 @@ def yes_no(b: Union[bool, int]) -> str:
     return "Yes" if b else "No"
 
 
+# input functions --------------------------------------------------------------
 def input_ints() -> Iterator[int]:
     for i in map(int, input().split()):
         yield i
@@ -44,6 +45,9 @@ def input_ints() -> Iterator[int]:
 
 def input_int_list() -> "list[int]":
     return list(map(int, input().split()))
+
+
+# input functions --------------------------------------------------------------
 
 
 N = int(input())

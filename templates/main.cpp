@@ -5,6 +5,7 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using ll = long long;
 
+// print functions -------------------------------------------------------------
 template <typename T>
 void print(T value) {
   cout << value << endl;
@@ -22,6 +23,7 @@ void print(vector<T> &vec, string sep = " ") {
   for (size_t i = 0; i < vec.size() - 1; i++) cout << vec.at(i) << sep;
   cout << vec.back() << endl;
 }
+// print functions -------------------------------------------------------------
 
 template <typename T>
 map<T, int> Counter(vector<T> &vec) {
@@ -137,6 +139,7 @@ vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
   return ret;
 }
 
+// input functions -------------------------------------------------------------
 vector<int> input_vector(int n) {
   vector<int> ret(n);
   for (auto &&i : ret) cin >> i;
@@ -148,6 +151,7 @@ vector<T> input_vector(int n) {
   for (auto &&i : ret) cin >> i;
   return ret;
 }
+// input functions -------------------------------------------------------------
 
 int main() {
   int N;
