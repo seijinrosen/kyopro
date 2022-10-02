@@ -47,6 +47,7 @@ const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
 const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
   [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
 
+const inputNumberArray = (): number[] => input().split(" ").map(Number);
 const inputPairArray = (n: number) =>
   [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
 
