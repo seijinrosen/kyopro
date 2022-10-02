@@ -30,6 +30,13 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
+template <typename T>
+bool contains(const vector<T> &vec, T value) {
+  for (auto &&x : vec)
+    if (x == value) return true;
+  return false;
+}
+
 vector<pair<char, int>> run_length_encoding(const string &str) {
   vector<pair<char, int>> ret = {{str[0], 1}};
   for (auto &&c : str.substr(1)) {
