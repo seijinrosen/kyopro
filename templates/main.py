@@ -1,5 +1,5 @@
 from itertools import groupby, tee
-from typing import Iterable, Iterator, TypeVar, Union
+from typing import Iterable, TypeVar, Union
 
 _T = TypeVar("_T")
 
@@ -38,16 +38,8 @@ def yes_no(b: Union[bool, int]) -> str:
 
 
 # input functions --------------------------------------------------------------
-def input_ints() -> Iterator[int]:
-    for i in map(int, input().split()):
-        yield i
-
-
 def input_int_list() -> "list[int]":
     return list(map(int, input().split()))
-
-
-# input functions --------------------------------------------------------------
 
 
 N = int(input())
