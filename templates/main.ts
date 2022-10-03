@@ -9,6 +9,14 @@ const Counter = <T>(arr: T[]) => {
   for (const v of arr) counter.set(v, (counter.get(v) || 0) + 1);
   return counter;
 };
+const combinations3 = <T>(array: T[]): [T, T, T][] => {
+  const n = array.length;
+  const ret: [T, T, T][] = [];
+  for (let i = 0; i < n - 2; i++)
+    for (let j = i + 1; j < n - 1; j++)
+      for (let k = j + 1; k < n; k++) ret.push([array[i], array[j], array[k]]);
+  return ret;
+};
 const enumerate = <T>(array: T[]): [number, T][] => array.map((v, i) => [i, v]);
 const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
