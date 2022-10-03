@@ -9,8 +9,10 @@ clipboard_message = "Create: ${url}"
 copy_source_code_when_ac = true
 clipboard_message = "AC: ${url} ${lang}"
 
+
 [language]
 default = "pypy3"
+
 
 [language.settings.cpp]
 source_file_name = "main.cpp"
@@ -23,6 +25,19 @@ pre_execute = [
 execute = "${dir_path}/a.out"
 post_execute = ["rm ${dir_path}/a.out"]
 
+
+[language.settings.hs]
+source_file_name = "main.hs"
+template_file_path = "templates/main.hs"
+[language.settings.hs.commands]
+pre_execute = [
+    "ghc --version",
+    "ghc ${dir_path}/${source_file_name}",
+]
+execute = "${dir_path}/main"
+post_execute = ["rm ${dir_path}/main ${dir_path}/main.hi ${dir_path}/main.o"]
+
+
 [language.settings.pypy3]
 source_file_name = "main.py"
 template_file_path = "templates/main.py"
@@ -30,12 +45,14 @@ template_file_path = "templates/main.py"
 pre_execute = ["~/pypy3.6-v7.3.0-osx64/bin/pypy3 --version"]
 execute = "~/pypy3.6-v7.3.0-osx64/bin/pypy3 ${dir_path}/${source_file_name}"
 
+
 [language.settings.python3]
 source_file_name = "main.py"
 template_file_path = "templates/main.py"
 [language.settings.python3.commands]
 pre_execute = ["python3 --version"]
 execute = "python3 ${dir_path}/${source_file_name}"
+
 
 [language.settings.ts]
 source_file_name = "main.ts"

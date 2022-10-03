@@ -1,6 +1,8 @@
 .venv/
 node_modules/
 
+*.hi
+*.o
 a.out
 cache.html
 main.js
