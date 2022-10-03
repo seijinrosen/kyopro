@@ -52,8 +52,29 @@ const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
 const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
-const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
-  [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
+// const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
+//   [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
+const zip: {
+  (a: string, b: string): [string, string][];
+  <B>(a: string, b: B[]): [string, B][];
+  <A>(a: A[], b: string): [A, string][];
+  <A, B>(a: A[], b: B[]): [A, B][];
+} = <A, B>(a: string | A[], b: string | B[]) =>
+  typeof a === "string" && typeof b === "string"
+    ? [...Array(Math.min(a.length, b.length))].map(
+        (_, i) => [a[i], b[i]] as [string, string]
+      )
+    : typeof a === "string" && typeof b !== "string"
+    ? [...Array(Math.min(a.length, b.length))].map(
+        (_, i) => [a[i], b[i]] as [string, B]
+      )
+    : typeof a !== "string" && typeof b === "string"
+    ? [...Array(Math.min(a.length, b.length))].map(
+        (_, i) => [a[i], b[i]] as [A, string]
+      )
+    : [...Array(Math.min(a.length, b.length))].map(
+        (_, i) => [a[i], b[i]] as [A, B]
+      );
 
 // input functions -------------------------------------------------------------
 const inputNumberArray = (): number[] => input().split(" ").map(Number);
