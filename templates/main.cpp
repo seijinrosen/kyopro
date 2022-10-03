@@ -33,6 +33,17 @@ map<T, int> Counter(vector<T> &vec) {
 }
 
 template <typename T>
+vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
+  size_t n = vec.size();
+  vector<tuple<T, T, T>> ret;
+  for (size_t i = 0; i < n - 2; i++)
+    for (size_t j = i + 1; j < n - 1; j++)
+      for (size_t k = j + 1; k < n; k++)
+        ret.push_back({vec[i], vec[j], vec[k]});
+  return ret;
+}
+
+template <typename T>
 bool contains(const vector<T> &vec, T value) {
   for (auto &&x : vec)
     if (x == value) return true;
