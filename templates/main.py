@@ -42,4 +42,11 @@ def input_int_list() -> "list[int]":
     return list(map(int, input().split()))
 
 
-N = int(input())
+def main() -> None:
+    N = int(input())
+
+    ans = N
+    print(ans)
+
+
+main()
