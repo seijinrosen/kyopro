@@ -46,7 +46,7 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
 }
 
 template <typename T>
-bool contains(const vector<T> &vec, T value) {
+bool elem(T value, const vector<T> &vec) {
   for (auto &&x : vec)
     if (x == value) return true;
   return false;
