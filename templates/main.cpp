@@ -5,6 +5,8 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 using ll = long long;
 
+const string ascii_lowercase = "abcdefghijklmnopqrstuvwxyz";
+
 // print functions -------------------------------------------------------------
 template <typename T>
 void print(T value) {
