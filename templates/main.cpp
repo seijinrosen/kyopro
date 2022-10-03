@@ -142,6 +142,12 @@ vector<string> tails(const string &str) {
 
 string yes_no(bool b) { return b ? "Yes" : "No"; }
 
+vector<pair<char, char>> zip(const string &a, const string &b) {
+  size_t n = min(a.size(), b.size());
+  vector<pair<char, char>> ret(n);
+  for (size_t i = 0; i < n; i++) ret[i] = {a[i], b[i]};
+  return ret;
+}
 template <typename T1, typename T2>
 vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
   vector<pair<T1, T2>> ret;
