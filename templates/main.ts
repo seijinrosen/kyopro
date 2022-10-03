@@ -61,4 +61,8 @@ const inputPairArray = (n: number) =>
   [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
 // input functions -------------------------------------------------------------
 
-const N = +input();
+const main = () => {
+  const N = +input();
+};
+
+main();
