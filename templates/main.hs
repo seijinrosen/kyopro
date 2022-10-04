@@ -24,6 +24,9 @@ combinations _ 0 = [[]]
 combinations [] _ = []
 combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs n
 
+evenOdd :: Int -> String
+evenOdd x = if odd x then "Odd" else "Even"
+
 isDivisorOf100 :: Int -> Bool
 isDivisorOf100 x = 100 `mod` x == 0
 
