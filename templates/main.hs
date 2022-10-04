@@ -1,17 +1,22 @@
 main :: IO ()
 main = do
-  n <- readLn
-  [a, b] <- map read . words <$> getLine
-  [n, x] <- words <$> getLine
-  a <- words <$> getLine
-  p <- map read . words <$> getLine
+  n <- getInt
+  [a, b] <- getIntList
 
-  let ans = n * n
   let ans = a + b
+
   print ans
-  let ans = x `elem` a
-  putStrLn $ yesNo ans
-  putStrLn $ map toLowerAlphabet p
+
+-- input functions
+getInt :: IO Int
+getInt = readLn
+
+getIntList :: IO [Int]
+getIntList = map read . words <$> getLine
+
+-- functions
+isDivisorOf100 :: Int -> Bool
+isDivisorOf100 x = 100 `mod` x == 0
 
 toLowerAlphabet :: Int -> Char
 toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
