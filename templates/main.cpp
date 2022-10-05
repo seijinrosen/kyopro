@@ -161,6 +161,12 @@ T sum(const vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
 }
 
+int sum_of_each_digit(int i) {
+  int ret = 0;
+  for (auto &&c : to_string(i)) ret += c - '0';
+  return ret;
+}
+
 vector<string> tails(const string &str) {
   vector<string> ret(str.size() + 1);
   for (size_t i = 0; i <= str.size(); i++) ret[i] = str.substr(i);
