@@ -128,13 +128,20 @@ string repeat(const string &s, int n) {
 
 string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
 
+template <typename T>
+vector<T> sorted(const vector<T> &vec) {
+  vector<T> ret = {vec.begin(), vec.end()};
+  sort(ret.begin(), ret.end());
+  return ret;
+}
+
 bool startswith(const string &str, const string &prefix) {
   if (str.size() < prefix.size()) return false;
   return str.substr(0, prefix.size()) == prefix;
 }
 
 template <typename T>
-T sum(vector<T> &vec) {
+T sum(const vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
 }
 
@@ -142,6 +149,11 @@ vector<string> tails(const string &str) {
   vector<string> ret(str.size() + 1);
   for (size_t i = 0; i <= str.size(); i++) ret[i] = str.substr(i);
   return ret;
+}
+
+template <typename T>
+vector<T> take(int n, const vector<T> &vec) {
+  return {vec.begin(), vec.begin() + n};
 }
 
 string yes_no(bool b) { return b ? "Yes" : "No"; }
