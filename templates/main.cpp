@@ -45,6 +45,8 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
   return ret;
 }
 
+int count(char x, const string &s) { return count(s.begin(), s.end(), x); }
+
 template <typename T>
 bool elem(T value, const vector<T> &vec) {
   for (auto &&x : vec)
