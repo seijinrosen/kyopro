@@ -1,3 +1,5 @@
+import Data.Char (digitToInt)
+
 main :: IO ()
 main = do
   n <- getInt
@@ -40,6 +42,9 @@ primeFactor2 :: Int -> Int
 primeFactor2 n
   | odd n = 0
   | otherwise = primeFactor2 (n `div` 2) + 1
+
+sumOfEachDigit :: Int -> Int
+sumOfEachDigit i = sum $ map digitToInt $ show i
 
 toLowerAlphabet :: Int -> Char
 toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
