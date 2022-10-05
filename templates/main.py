@@ -1,3 +1,4 @@
+from collections import Counter
 from itertools import groupby, tee
 from typing import Iterable, TypeVar, Union
 
@@ -22,6 +23,23 @@ def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     a, b = tee(iterable)
     next(b, None)
     return zip(a, b)
+
+
+def prime_factorize(n: int) -> "Counter[int]":
+    """素因数分解"""
+    counter: Counter[int] = Counter()
+    p = 2
+    while p * p <= n:
+        e = 0
+        while n % p == 0:
+            e += 1
+            n //= p
+        if e != 0:
+            counter[p] = e
+        p += 1
+    if n != 1:
+        counter[n] = 1
+    return counter
 
 
 def sum_of_arithmetic_progression(head: int, last: int, count: int) -> int:
