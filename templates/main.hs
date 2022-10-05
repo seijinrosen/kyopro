@@ -43,6 +43,11 @@ primeFactor2 n
   | odd n = 0
   | otherwise = primeFactor2 (n `div` 2) + 1
 
+step2 :: [a] -> [a]
+step2 [] = []
+step2 [x] = [x]
+step2 (x : y : xs) = x : step2 xs
+
 sumOfEachDigit :: Int -> Int
 sumOfEachDigit i = sum $ map digitToInt $ show i
 
