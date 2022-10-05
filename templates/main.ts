@@ -19,6 +19,8 @@ const combinations3 = <T>(array: T[]): [T, T, T][] => {
       for (let k = j + 1; k < n; k++) ret.push([array[i], array[j], array[k]]);
   return ret;
 };
+const count = (x: string, s: string) =>
+  s.split("").filter((c) => c === x).length;
 const enumerate = <T>(array: T[]): [number, T][] => array.map((v, i) => [i, v]);
 const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
