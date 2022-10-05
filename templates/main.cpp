@@ -109,6 +109,22 @@ int parse_int(const string &bin) {
   return ret;
 }
 
+map<int, int> prime_factorize(int n) {
+  map<int, int> counter;
+  int p = 2;
+  while (p * p <= n) {
+    int e = 0;
+    while (n % p == 0) {
+      e++;
+      n /= p;
+    }
+    if (e != 0) counter[p] = e;
+    p++;
+  }
+  if (n != 1) counter[n] = 1;
+  return counter;
+}
+
 vector<int> range(int stop) {
   vector<int> ret(stop);
   iota(ret.begin(), ret.end(), 0);
