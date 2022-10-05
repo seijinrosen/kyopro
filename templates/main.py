@@ -47,6 +47,10 @@ def sum_of_arithmetic_progression(head: int, last: int, count: int) -> int:
     return (head + last) * count // 2
 
 
+def sum_of_each_digit(i: int) -> int:
+    return sum(map(int, str(i)))
+
+
 def tails(s: str) -> "list[str]":
     return [s[i:] for i in range(len(s) + 1)]
 
