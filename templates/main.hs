@@ -36,6 +36,11 @@ isDivisorOf100 x = 100 `mod` x == 0
 itertoolsProduct :: [a] -> [b] -> [(a, b)]
 itertoolsProduct ps qs = [(p, q) | p <- ps, q <- qs]
 
+primeFactor2 :: Int -> Int
+primeFactor2 n
+  | odd n = 0
+  | otherwise = primeFactor2 (n `div` 2) + 1
+
 toLowerAlphabet :: Int -> Char
 toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
 
