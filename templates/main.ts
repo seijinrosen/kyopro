@@ -34,8 +34,24 @@ const int2bin = (num: number, width: number): string =>
   num.toString(2).padStart(width, "0");
 const isOdd = (n: number): boolean => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
-const max = (data: number[]) => data.reduce((a, b) => Math.max(a, b));
+const max = (array: number[]) => array.reduce((a, b) => Math.max(a, b));
+const min = (array: number[]) => array.reduce((a, b) => Math.min(a, b));
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
+const prime_factorize = (n: number) => {
+  const counter = new Map<number, number>();
+  let p = 2;
+  while (p * p <= n) {
+    let e = 0;
+    while (n % p === 0) {
+      e++;
+      n /= p;
+    }
+    if (e !== 0) counter.set(p, e);
+    p++;
+  }
+  if (n !== 1) counter.set(n, 1);
+  return counter;
+};
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
 // const range = (start: number, stop: number, step = 1) =>
 //   Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
@@ -81,7 +97,7 @@ const zip: {
       );
 
 // input functions -------------------------------------------------------------
-const inputNumberArray = (): number[] => input().split(" ").map(Number);
+const inputNumberArray = () => input().split(" ").map(Number);
 const inputPairArray = (n: number) =>
   [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
 // input functions -------------------------------------------------------------
