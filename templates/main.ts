@@ -44,7 +44,7 @@ const range = (a: number, b?: number): number[] =>
 const reverse = (s: string) => s.split("").reverse().join("");
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
 const sorted = <T extends number | bigint>(array: T[]) =>
-  array.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+  array.slice().sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 const sum = (array: number[]): number => array.reduce((a, b) => a + b, 0);
 const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
   const ret: T[] = [];
