@@ -19,8 +19,10 @@ const combinations3 = <T>(array: T[]): [T, T, T][] => {
       for (let k = j + 1; k < n; k++) ret.push([array[i], array[j], array[k]]);
   return ret;
 };
-const count = (x: string, s: string) =>
-  s.split("").filter((c) => c === x).length;
+const count = <T>(x: string | T, iterable: string | T[]) =>
+  typeof iterable === "string"
+    ? iterable.split("").filter((a) => a === x).length
+    : iterable.filter((a) => a === x).length;
 const enumerate = <T>(array: T[]): [number, T][] => array.map((v, i) => [i, v]);
 const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
@@ -55,7 +57,7 @@ const prime_factorize = (n: number) => {
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/from#連番の生成_範囲指定
 // const range = (start: number, stop: number, step = 1) =>
 //   Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step);
-const range = (a: number, b?: number): number[] =>
+const range = (a: number, b?: number) =>
   b ? [...Array(b - a)].map((_, i) => a + i) : [...Array(a)].map((_, i) => i);
 const reverse = (s: string) => s.split("").reverse().join("");
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
