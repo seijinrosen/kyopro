@@ -23,6 +23,12 @@ const count = <T>(x: string | T, iterable: string | T[]) =>
   typeof iterable === "string"
     ? iterable.split("").filter((a) => a === x).length
     : iterable.filter((a) => a === x).length;
+// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set#基本的な集合演算の実装
+const difference = <T>(setA: Set<T>, setB: Set<T>) => {
+  const _difference = new Set(setA);
+  for (const elem of setB) _difference.delete(elem);
+  return _difference;
+};
 const enumerate = <T>(array: T[]): [number, T][] => array.map((v, i) => [i, v]);
 const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
