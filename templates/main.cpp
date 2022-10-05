@@ -145,15 +145,26 @@ string repeat(const string &s, int n) {
 string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
 
 template <typename T>
-vector<T> sorted(const vector<T> &vec) {
+vector<T> sort(const vector<T> &vec, bool reverse = false) {
   vector<T> ret = {vec.begin(), vec.end()};
-  sort(ret.begin(), ret.end());
+  if (reverse)
+    sort(ret.begin(), ret.end(), greater());
+  else
+    sort(ret.begin(), ret.end());
   return ret;
 }
 
 bool startswith(const string &str, const string &prefix) {
   if (str.size() < prefix.size()) return false;
   return str.substr(0, prefix.size()) == prefix;
+}
+
+template <typename T>
+vector<T> step2(const vector<T> &vec) {
+  vector<T> ret;
+  for (size_t i = 0; i < vec.size(); i++)
+    if (i % 2 == 0) ret.push_back(vec[i]);
+  return ret;
 }
 
 template <typename T>
@@ -165,6 +176,11 @@ int sum_of_each_digit(int i) {
   int ret = 0;
   for (auto &&c : to_string(i)) ret += c - '0';
   return ret;
+}
+
+template <typename T>
+vector<T> tail(const vector<T> &vec) {
+  return {vec.begin() + 1, vec.end()};
 }
 
 vector<string> tails(const string &str) {
