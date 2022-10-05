@@ -24,6 +24,9 @@ combinations _ 0 = [[]]
 combinations [] _ = []
 combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs n
 
+count :: Eq a => a -> [a] -> Int
+count x s = length $ filter (== x) s
+
 evenOdd :: Int -> String
 evenOdd x = if odd x then "Odd" else "Even"
 
