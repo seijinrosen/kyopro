@@ -61,8 +61,11 @@ const range = (a: number, b?: number) =>
   b ? [...Array(b - a)].map((_, i) => a + i) : [...Array(a)].map((_, i) => i);
 const reverse = (s: string) => s.split("").reverse().join("");
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
-const sorted = <T extends number | bigint>(array: T[]) =>
-  array.slice().sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+const sort = <T extends number | bigint>(array: T[], reverse = false) =>
+  reverse
+    ? array.slice().sort((a, b) => (a > b ? -1 : a < b ? 1 : 0))
+    : array.slice().sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+const step2 = <T>(array: T[]) => array.filter((_, i) => i % 2 === 0);
 const sum = (array: number[]) => array.reduce((a, b) => a + b, 0);
 const sumOfEachDigit = (i: number) => sum(i.toString().split("").map(Number));
 const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
@@ -72,6 +75,7 @@ const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
     else break;
   return ret;
 };
+const tail = <T>(array: T[]) => array.slice(1);
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
 const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
