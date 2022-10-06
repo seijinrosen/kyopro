@@ -1,5 +1,6 @@
 import Control.Monad (replicateM)
 import Data.Char (digitToInt)
+import Data.List (find, isPrefixOf)
 
 main :: IO ()
 main = do
@@ -35,6 +36,9 @@ count x s = length $ filter (== x) s
 
 evenOdd :: Int -> String
 evenOdd x = if odd x then "Odd" else "Even"
+
+findPrefix :: String -> [String] -> Maybe String
+findPrefix s = find (`isPrefixOf` s)
 
 isDivisorOf100 :: Int -> Bool
 isDivisorOf100 x = 100 `mod` x == 0
