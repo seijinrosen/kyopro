@@ -16,6 +16,10 @@ template <typename T1, typename T2>
 void print(const pair<T1, T2> &p) {
   cout << p.first << " " << p.second << endl;
 }
+template <typename T1, typename T2, typename T3>
+void print(const tuple<T1, T2, T3> &t) {
+  cout << get<0>(t) << " " << get<1>(t) << " " << get<2>(t) << endl;
+}
 template <typename T>
 void print(const vector<T> &vec, string sep = " ") {
   if (vec.empty()) {
