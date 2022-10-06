@@ -1,4 +1,4 @@
-import Data.List (find, isPrefixOf, stripPrefix)
+import Data.List (stripPrefix)
 
 candidates :: [String]
 candidates = ["dream", "dreamer", "erase", "eraser"]
@@ -16,12 +16,13 @@ main = do
 
 solve :: String -> Bool
 solve "" = True
-solve s = case findPrefix s reversedCandidates of
-  Nothing -> False
-  Just prefix -> maybe False solve (stripPrefix prefix s)
+solve s = maybe False solve (stripPrefixFromList reversedCandidates s)
 
-findPrefix :: String -> [String] -> Maybe String
-findPrefix s = find (`isPrefixOf` s)
+stripPrefixFromList :: [String] -> String -> Maybe String
+stripPrefixFromList [] _ = Nothing
+stripPrefixFromList (prefix : prefixes) s = case stripPrefix prefix s of
+  Just x -> Just x
+  Nothing -> stripPrefixFromList prefixes s
 
 yesNo :: Bool -> String
 yesNo False = "NO"
