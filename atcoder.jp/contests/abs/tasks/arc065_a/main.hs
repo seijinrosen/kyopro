@@ -16,14 +16,12 @@ main = do
 
 solve :: String -> Bool
 solve "" = True
-solve s = case prefix of
+solve s = case findPrefix s reversedCandidates of
   Nothing -> False
-  Just p -> maybe False solve (stripPrefix p s)
-  where
-    prefix = findPrefix s
+  Just prefix -> maybe False solve (stripPrefix prefix s)
 
-findPrefix :: String -> Maybe String
-findPrefix s = find (`isPrefixOf` s) reversedCandidates
+findPrefix :: String -> [String] -> Maybe String
+findPrefix s = find (`isPrefixOf` s)
 
 yesNo :: Bool -> String
 yesNo False = "NO"
