@@ -48,6 +48,14 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
 int count(char x, const string &s) { return count(s.begin(), s.end(), x); }
 
 template <typename T>
+set<T> difference(const set<T> &set_a, const set<T> &set_b) {
+  set<T> result;
+  set_difference(set_a.begin(), set_a.end(), set_b.begin(), set_b.end(),
+                 inserter(result, result.end()));
+  return result;
+}
+
+template <typename T>
 bool elem(T value, const vector<T> &vec) {
   for (auto &&x : vec)
     if (x == value) return true;
@@ -79,6 +87,11 @@ vector<pair<int, char>> enumerate(const string &s) {
   return ret;
 }
 
+template <typename T>
+T head(const set<T> &st) {
+  return *st.begin();
+}
+
 string int2bin(int number, int width) {
   string ret(width, '0');
   for (size_t i = 0; i < width; i++)
@@ -94,6 +107,11 @@ string my_slice(string &s, int start, int stop) {
 template <typename T>
 vector<T> my_slice(const vector<T> &vec, int start, int stop = -1) {
   return {vec.begin() + start, stop == -1 ? vec.end() : vec.begin() + stop};
+}
+
+template <typename T>
+set<T> new_set(const vector<T> &vec) {
+  return {vec.begin(), vec.end()};
 }
 
 template <typename T>
