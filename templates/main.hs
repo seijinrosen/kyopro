@@ -1,3 +1,4 @@
+import Control.Monad (replicateM)
 import Data.Char (digitToInt)
 
 main :: IO ()
@@ -17,6 +18,9 @@ getInt = readLn
 
 getIntList :: IO [Int]
 getIntList = map read . words <$> getLine
+
+getVerticalIntList :: Int -> IO [Int]
+getVerticalIntList n = replicateM n getInt
 
 -- functions
 
