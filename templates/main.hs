@@ -1,6 +1,6 @@
 import Control.Monad (replicateM)
 import Data.Char (digitToInt)
-import Data.List (find, isPrefixOf)
+import Data.List (find, isPrefixOf, stripPrefix)
 
 main :: IO ()
 main = do
@@ -58,6 +58,12 @@ step2 :: [a] -> [a]
 step2 [] = []
 step2 [x] = [x]
 step2 (x : y : xs) = x : step2 xs
+
+stripPrefixFromList :: [String] -> String -> Maybe String
+stripPrefixFromList [] _ = Nothing
+stripPrefixFromList (prefix : prefixes) s = case stripPrefix prefix s of
+  Just x -> Just x
+  Nothing -> stripPrefixFromList prefixes s
 
 sumOfEachDigit :: Int -> Int
 sumOfEachDigit i = sum $ map digitToInt $ show i
