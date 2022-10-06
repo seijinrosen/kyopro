@@ -17,7 +17,7 @@ void print(const pair<T1, T2> &p) {
   cout << p.first << " " << p.second << endl;
 }
 template <typename T>
-void print(vector<T> &vec, string sep = " ") {
+void print(const vector<T> &vec, string sep = " ") {
   if (vec.empty()) {
     cout << endl;
     return;
