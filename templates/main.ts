@@ -30,6 +30,7 @@ const difference = <T>(setA: Set<T>, setB: Set<T>) => {
   return _difference;
 };
 const enumerate = <T>(array: T[]): [number, T][] => array.map((v, i) => [i, v]);
+const even = (n: number) => n % 2 === 0;
 const runLengthEncoding = (str: string): [string, number][] => {
   const ret: [string, number][] = [[str[0], 1]];
   for (const c of str.slice(1)) {
@@ -110,9 +111,13 @@ const zip: {
       );
 
 // input functions -------------------------------------------------------------
+type Pair = [number, number];
+type Tuple = [number, number, number];
 const inputNumberArray = () => input().split(" ").map(Number);
 const inputPairArray = (n: number) =>
-  [...Array(n)].map(() => input().split(" ").map(Number) as [number, number]);
+  [...Array(n)].map(() => input().split(" ").map(Number) as Pair);
+const inputTupleArray = (n: number) =>
+  [...Array(n)].map(() => input().split(" ").map(Number) as Tuple);
 // input functions -------------------------------------------------------------
 
 const main = () => {
