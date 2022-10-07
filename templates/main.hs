@@ -20,6 +20,9 @@ getInt = readLn
 getIntList :: IO [Int]
 getIntList = map read . words <$> getLine
 
+getIntListList :: Int -> IO [[Int]]
+getIntListList n = replicateM n getIntList
+
 getVerticalIntList :: Int -> IO [Int]
 getVerticalIntList n = replicateM n getInt
 
@@ -45,6 +48,9 @@ isDivisorOf100 x = 100 `mod` x == 0
 
 itertoolsProduct :: [a] -> [b] -> [(a, b)]
 itertoolsProduct ps qs = [(p, q) | p <- ps, q <- qs]
+
+pairwise :: [b] -> [(b, b)]
+pairwise iterable = zip iterable $ tail iterable
 
 primeFactor2 :: Int -> Int
 primeFactor2 n
