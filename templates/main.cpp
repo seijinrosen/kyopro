@@ -38,6 +38,13 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
+template <typename P, typename T>
+bool all(P pred, const vector<T> &vec) {
+  for (auto &&x : vec)
+    if (!pred(x)) return false;
+  return true;
+}
+
 template <typename T>
 vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
   size_t n = vec.size();
@@ -91,6 +98,8 @@ vector<pair<int, char>> enumerate(const string &s) {
   return ret;
 }
 
+bool even(int n) { return n % 2 == 0; }
+
 template <typename T>
 T head(const set<T> &st) {
   return *st.begin();
@@ -120,7 +129,10 @@ set<T> new_set(const vector<T> &vec) {
 
 template <typename T>
 vector<pair<T, T>> pairwise(const vector<T> &vec) {
-  return zip(vec, my_slice(vec, 1));
+  size_t n = vec.size() - 1;
+  vector<pair<T, T>> ret(n);
+  for (size_t i = 0; i < n; i++) ret[i] = {vec[i], vec[i + 1]};
+  return ret;
 }
 
 int parse_int(const string &bin) {
@@ -233,6 +245,7 @@ vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
 }
 
 // input functions -------------------------------------------------------------
+using tiii = tuple<int, int, int>;
 vector<int> input_vector(int n) {
   vector<int> ret(n);
   for (auto &&i : ret) cin >> i;
@@ -242,6 +255,11 @@ template <typename T>
 vector<T> input_vector(int n) {
   vector<T> ret(n);
   for (auto &&i : ret) cin >> i;
+  return ret;
+}
+vector<tuple<int, int, int>> input_tuple_vector(int n) {
+  vector<tuple<int, int, int>> ret(n);
+  for (auto &&[a, b, c] : ret) cin >> a >> b >> c;
   return ret;
 }
 // input functions -------------------------------------------------------------
