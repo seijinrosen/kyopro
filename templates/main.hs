@@ -1,5 +1,5 @@
 import Control.Monad (replicateM)
-import Data.Char (digitToInt)
+import Data.Char (digitToInt, intToDigit)
 import Data.List (find, isPrefixOf, stripPrefix)
 
 main :: IO ()
@@ -43,6 +43,11 @@ evenOdd x = if odd x then "Odd" else "Even"
 findPrefix :: String -> [String] -> Maybe String
 findPrefix s = find (`isPrefixOf` s)
 
+int2bin :: Int -> String
+int2bin 0 = "0"
+int2bin 1 = "1"
+int2bin num = int2bin (num `div` 2) ++ [intToDigit $ num `mod` 2]
+
 isDivisorOf100 :: Int -> Bool
 isDivisorOf100 x = 100 `mod` x == 0
 
@@ -80,3 +85,10 @@ toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
 yesNo :: Bool -> String
 yesNo False = "No"
 yesNo True = "Yes"
+
+zfill :: Int -> String -> String
+zfill width s
+  | diff <= 0 = s
+  | otherwise = replicate diff '0' ++ s
+  where
+    diff = width - length s
