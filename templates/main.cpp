@@ -164,7 +164,7 @@ string repeat(const string &s, int n) {
   return ret;
 }
 
-string reverse(const string &s) { return string(s.rbegin(), s.rend()); }
+string reverse(const string &s) { return {s.rbegin(), s.rend()}; }
 
 template <typename T>
 vector<T> sort(const vector<T> &vec, bool reverse = false) {
@@ -176,9 +176,9 @@ vector<T> sort(const vector<T> &vec, bool reverse = false) {
   return ret;
 }
 
-bool startswith(const string &str, const string &prefix) {
-  if (str.size() < prefix.size()) return false;
-  return str.substr(0, prefix.size()) == prefix;
+bool is_prefix(const string &prefix, const string &s) {
+  if (s.size() < prefix.size()) return false;
+  return s.substr(0, prefix.size()) == prefix;
 }
 
 template <typename T>
