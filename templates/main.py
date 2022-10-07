@@ -17,6 +17,10 @@ def is_odd(n: int) -> bool:
     return n % 2 == 1
 
 
+def is_same_parity(x: int, y: int) -> bool:
+    return x % 2 == y % 2
+
+
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     # https://docs.python.org/ja/3/library/itertools.html#itertools.pairwise
     # pairwise('ABCDEFG') --> AB BC CD DE EF FG
@@ -62,6 +66,10 @@ def yes_no(b: Union[bool, int]) -> str:
 # input functions --------------------------------------------------------------
 def input_int_list() -> "list[int]":
     return list(map(int, input().split()))
+
+
+def input_int_tuple_list(n: int) -> "list[tuple[int, int, int]]":
+    return [tuple(map(int, input().split())) for _ in range(n)]
 
 
 def main() -> None:
