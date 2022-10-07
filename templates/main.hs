@@ -9,6 +9,7 @@ main = do
   ps <- getIntList
 
   let ans = a `elem` ps
+
   print ans
   putStrLn $ yesNo ans
 
@@ -28,6 +29,9 @@ getVerticalIntList n = replicateM n getInt
 
 -- functions
 
+bin2int :: String -> Int
+bin2int b = sum [2 ^ i | (i, c) <- enumerate $ reverse b, c == '1']
+
 -- https://wiki.haskell.jp/Old/sampou.org/Programming_玉手箱#組合せの生成
 combinations :: [a] -> Int -> [[a]]
 combinations _ 0 = [[]]
@@ -36,6 +40,9 @@ combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs
 
 count :: Eq a => a -> [a] -> Int
 count x s = length $ filter (== x) s
+
+enumerate :: [b] -> [(Int, b)]
+enumerate = zip [0 ..]
 
 evenOdd :: Int -> String
 evenOdd x = if odd x then "Odd" else "Even"
