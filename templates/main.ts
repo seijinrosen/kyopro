@@ -11,6 +11,7 @@ const Counter = <T>(arr: T[]) => {
   for (const v of arr) counter.set(v, (counter.get(v) || 0) + 1);
   return counter;
 };
+const bin2int = (b: string) => parseInt(b, 2);
 const combinations3 = <T>(array: T[]): [T, T, T][] => {
   const n = array.length;
   const ret: [T, T, T][] = [];
