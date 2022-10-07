@@ -9,6 +9,10 @@ def run_length_encoding(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
 
 
+def bin2int(b: str) -> int:
+    return int(b, 2)
+
+
 def int2bin(number: int, width: int) -> str:
     return bin(number)[2:].zfill(width)
 
@@ -76,6 +80,7 @@ def main() -> None:
     N = int(input())
 
     ans = N
+
     print(ans)
 
 
