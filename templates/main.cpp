@@ -135,7 +135,7 @@ vector<pair<T, T>> pairwise(const vector<T> &vec) {
   return ret;
 }
 
-int parse_int(const string &bin) {
+int int2bin(const string &bin) {
   string reversed = {bin.rbegin(), bin.rend()};
   int ret = 0;
   for (size_t i = 0; i < bin.size(); i++)
