@@ -8,21 +8,20 @@ def yes_no(b: Union[bool, int]) -> str:
     return "YES" if b else "NO"
 
 
+def solve(s: str) -> bool:
+    while s:
+        try:
+            prefix = next(p for p in REVERSED_CANDIDATES if s.startswith(p))
+        except StopIteration:
+            return False
+        s = s[len(prefix) :]
+    return True
+
+
 def main() -> None:
     S = input()
 
-    s = S[::-1]
-
-    while s:
-        for candidate in REVERSED_CANDIDATES:
-            if s.startswith(candidate):
-                s = s[len(candidate) :]
-                break
-        else:
-            ans = False
-            break
-    else:
-        ans = True
+    ans = solve(S[::-1])
 
     print(yes_no(ans))
 
