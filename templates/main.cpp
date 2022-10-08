@@ -230,6 +230,7 @@ vector<string> tails(const string &str) {
   return ret;
 }
 
+string take(int n, const string &s) { return s.substr(0, n); }
 template <typename T>
 vector<T> take(int n, const vector<T> &vec) {
   return {vec.begin(), vec.begin() + n};
