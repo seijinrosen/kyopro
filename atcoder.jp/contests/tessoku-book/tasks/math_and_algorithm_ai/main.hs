@@ -1,4 +1,5 @@
 import Control.Monad (replicateM)
+import Data.Vector (fromList, (!))
 
 main :: IO ()
 main = do
@@ -6,8 +7,8 @@ main = do
   a <- getIntList
   lr <- getIntPairList q
 
-  let acc = 0 : accumulate a
-      ans = [acc !! r - acc !! (l -1) | (l, r) <- lr]
+  let acc = fromList $ 0 : accumulate a
+      ans = [acc ! r - acc ! (l -1) | (l, r) <- lr]
 
   printVertically ans
 
