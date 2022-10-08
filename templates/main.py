@@ -80,12 +80,14 @@ def input_int_tuple_list(n: int) -> "list[tuple[int, int, int]]":
     return [tuple(map(int, input().split())) for _ in range(n)]
 
 
-def main() -> None:
-    N = int(input())
-
-    ans = N
-
-    print(ans)
+N = int(input())
 
 
-main()
+def solve():
+    return
+
+
+ans = solve()
+
+
+print(ans)
