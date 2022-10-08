@@ -38,6 +38,13 @@ map<T, int> Counter(vector<T> &vec) {
   return counter;
 }
 
+vector<int> accumulate(const vector<int> &vec) {
+  size_t n = vec.size();
+  vector<int> acc(n + 1);
+  for (size_t i = 0; i < n; i++) acc[i + 1] = acc[i] + vec[i];
+  return acc;
+}
+
 template <typename P, typename T>
 bool all(P pred, const vector<T> &vec) {
   for (auto &&x : vec)
@@ -255,6 +262,11 @@ template <typename T>
 vector<T> input_vector(int n) {
   vector<T> ret(n);
   for (auto &&i : ret) cin >> i;
+  return ret;
+}
+vector<pair<int, int>> input_pair_vector(int n) {
+  vector<pair<int, int>> ret(n);
+  for (auto &&[a, b] : ret) cin >> a >> b;
   return ret;
 }
 vector<tuple<int, int, int>> input_tuple_vector(int n) {
