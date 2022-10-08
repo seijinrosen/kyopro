@@ -42,6 +42,9 @@ getIntPairList n = replicateM n getIntPair
 printVertically :: (Foldable t, Show a) => t a -> IO ()
 printVertically = mapM_ print
 
+putStrLnVertically :: [String] -> IO ()
+putStrLnVertically = mapM_ putStrLn
+
 -- functions
 
 accumulate :: [Int] -> [Int]
