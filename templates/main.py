@@ -13,11 +13,15 @@ def bin2int(b: str) -> int:
     return int(b, 2)
 
 
+def even(n: int) -> bool:
+    return n % 2 == 0
+
+
 def int2bin(number: int, width: int) -> str:
     return bin(number)[2:].zfill(width)
 
 
-def is_odd(n: int) -> bool:
+def odd(n: int) -> bool:
     return n % 2 == 1
 
 
