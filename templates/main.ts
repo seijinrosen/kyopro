@@ -80,6 +80,7 @@ const sort = <T extends number | bigint>(array: T[], reverse = false) =>
 const step2 = <T>(array: T[]) => array.filter((_, i) => i % 2 === 0);
 const sum = (array: number[]) => array.reduce((a, b) => a + b, 0);
 const sumOfEachDigit = (i: number) => sum(i.toString().split("").map(Number));
+const take = (n: number, s: string) => s.slice(0, n);
 const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
   const ret: T[] = [];
   for (const a of array)
