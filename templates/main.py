@@ -1,5 +1,5 @@
 from collections import Counter
-from itertools import groupby, tee
+from itertools import accumulate, groupby, tee
 from typing import Iterable, TypeVar, Union
 
 _T = TypeVar("_T")
@@ -7,6 +7,11 @@ _T = TypeVar("_T")
 
 def run_length_encoding(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
+
+
+def accumulate_2d(table: "list[list[int]]") -> "list[list[int]]":
+    acc = [[0, *accumulate(row)] for row in table]
+    return transpose([[0, *accumulate(column)] for column in transpose(acc)])
 
 
 def bin2int(b: str) -> int:
@@ -81,6 +86,10 @@ def tails(s: str) -> "list[str]":
     return [s[i:] for i in range(len(s) + 1)]
 
 
+def transpose(table: "list[list[_T]]") -> "list[list[_T]]":
+    return list(map(list, zip(*table)))
+
+
 def yes_no(b: Union[bool, int]) -> str:
     return "Yes" if b else "No"
 
@@ -101,11 +110,7 @@ def input_int_tuple_list(n: int) -> "list[tuple[int, int, int]]":
 N = int(input())
 
 
-def solve():
-    return
-
-
-ans = solve()
+ans = N
 
 
 print(ans)
