@@ -46,7 +46,7 @@ const runLengthEncoding = (str: string): [string, number][] => {
 };
 const int2bin = (num: number, width: number): string =>
   num.toString(2).padStart(width, "0");
-const isOdd = (n: number): boolean => n % 2 === 1;
+const odd = (n: number) => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
 const max = (array: number[]) => array.reduce((a, b) => Math.max(a, b));
 const min = (array: number[]) => array.reduce((a, b) => Math.min(a, b));
