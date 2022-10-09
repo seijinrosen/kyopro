@@ -13,6 +13,20 @@ def bin2int(b: str) -> int:
     return int(b, 2)
 
 
+def bool2score(x: Union[bool, int]) -> int:
+    """
+    >>> bool2score(False)
+    -1
+    >>> bool2score(True)
+    1
+    >>> bool2score(0)
+    -1
+    >>> bool2score(1)
+    1
+    """
+    return 2 * x - 1
+
+
 def even(n: int) -> bool:
     return n % 2 == 0
 
@@ -95,3 +109,9 @@ ans = solve()
 
 
 print(ans)
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
