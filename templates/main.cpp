@@ -119,7 +119,7 @@ string int2bin(int number, int width) {
   return {ret.rbegin(), ret.rend()};
 }
 
-bool is_odd(int n) { return n % 2 == 1; }
+bool odd(int n) { return n % 2 == 1; }
 
 string my_slice(string &s, int start, int stop) {
   return s.substr(start, stop - start);
