@@ -81,6 +81,13 @@ int2bin num = int2bin (num `div` 2) ++ [intToDigit $ num `mod` 2]
 isDivisorOf100 :: Int -> Bool
 isDivisorOf100 x = 100 `mod` x == 0
 
+isLeapYear :: Int -> Bool
+isLeapYear n
+  | n `mod` 400 == 0 = True
+  | n `mod` 100 == 0 = False
+  | n `mod` 4 == 0 = True
+  | otherwise = False
+
 itertoolsProduct :: [a] -> [b] -> [(a, b)]
 itertoolsProduct ps qs = [(p, q) | p <- ps, q <- qs]
 
