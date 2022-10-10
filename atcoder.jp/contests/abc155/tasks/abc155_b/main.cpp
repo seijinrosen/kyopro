@@ -8,9 +8,7 @@ void print(T value) {
 
 template <typename P, typename T>
 bool all(P pred, const vector<T> &vec) {
-  for (auto &&x : vec)
-    if (!pred(x)) return false;
-  return true;
+  return all_of(vec.begin(), vec.end(), pred);
 }
 
 bool even(int n) { return n % 2 == 0; }

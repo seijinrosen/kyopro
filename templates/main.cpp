@@ -47,9 +47,7 @@ vector<int> accumulate(const vector<int> &vec) {
 
 template <typename P, typename T>
 bool all(P pred, const vector<T> &vec) {
-  for (auto &&x : vec)
-    if (!pred(x)) return false;
-  return true;
+  return all_of(vec.begin(), vec.end(), pred);
 }
 
 template <typename T>
