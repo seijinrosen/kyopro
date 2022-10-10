@@ -1,6 +1,7 @@
 import Control.Monad (replicateM)
 import Data.Char (digitToInt, intToDigit)
 import Data.List (find, isPrefixOf, stripPrefix)
+import qualified Data.Map as Map
 
 main :: IO ()
 main = do
@@ -63,6 +64,9 @@ combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs
 
 count :: Eq a => a -> [a] -> Int
 count x s = length $ filter (== x) s
+
+counter :: (Ord k, Num a) => [k] -> Map.Map k a
+counter xs = Map.fromListWith (+) $ zip xs (repeat 1)
 
 enumerate :: [b] -> [(Int, b)]
 enumerate = zip [0 ..]
