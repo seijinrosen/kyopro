@@ -107,6 +107,14 @@ vector<pair<int, char>> enumerate(const string &s) {
 
 bool even(int n) { return n % 2 == 0; }
 
+template <typename P, typename T>
+vector<T> filter(P pred, const vector<T> &vec) {
+  vector<T> ret;
+  for (auto &&x : vec)
+    if (pred(x)) ret.push_back(x);
+  return ret;
+}
+
 template <typename T>
 T head(const set<T> &st) {
   return *st.begin();
