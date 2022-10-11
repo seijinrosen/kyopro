@@ -1,0 +1,6 @@
+4 3
+ramen 700
+chahan 500
+gyoza 250
+mizu 0
+ramen gyoza gyoza
