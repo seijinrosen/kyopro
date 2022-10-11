@@ -1,6 +1,6 @@
 from collections import Counter
 from itertools import accumulate, groupby, tee
-from typing import Iterable, TypeVar, Union
+from typing import Iterable, List, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
 
@@ -103,7 +103,10 @@ def input_int_pair_list(n: int) -> "list[tuple[int, int]]":
     return [tuple(map(int, input().split())) for _ in range(n)]
 
 
-def input_int_tuple_list(n: int) -> "list[tuple[int, int, int]]":
+Info = Tuple[int, int, int]
+
+
+def input_int_tuple_list(n: int) -> List[Info]:
     return [tuple(map(int, input().split())) for _ in range(n)]
 
 

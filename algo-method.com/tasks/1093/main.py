@@ -1,6 +1,6 @@
-INFO: "list[tuple[int, int, int, int]]" = [
-    tuple(map(int, input().split())) for _ in range(30)
-]
+from typing import List, Tuple
+
+Info = Tuple[int, int, int, int]
 
 
 def to_minute(h: int, m: int) -> int:
@@ -16,10 +16,12 @@ def subtract_break_time(m: int) -> int:
         return m - 60
 
 
-def func(info: "tuple[int, int, int, int]") -> int:
-    total_m = to_minute(info[2], info[3]) - to_minute(info[0], info[1])
-    return subtract_break_time(total_m)
+def func(info: Info) -> int:
+    sh, sm, eh, em = info
+    return subtract_break_time(to_minute(eh, em) - to_minute(sh, sm))
 
+
+INFO: List[Info] = [tuple(map(int, input().split())) for _ in range(30)]
 
 total_m = sum(map(func, INFO))
 
