@@ -8,7 +8,7 @@ main = do
 
   putStrLn $ show (fst ans) ++ " " ++ show (snd ans)
 
-solve :: [(Int, Int, Int, Int)] -> (Int, Int)
+solve :: [Tuple] -> (Int, Int)
 solve info = toHourAndMinute . sum $ [subtractBreakTime $ toMinute eh em - toMinute sh sm | (sh, sm, eh, em) <- info]
 
 toMinute :: Int -> Int -> Int
@@ -24,13 +24,14 @@ toHourAndMinute :: Int -> (Int, Int)
 toHourAndMinute m = (m `div` 60, m `mod` 60)
 
 -- input functions
+type Tuple = (Int, Int, Int, Int)
 
-toTuple :: [Int] -> (Int, Int, Int, Int)
+toTuple :: [Int] -> Tuple
 toTuple [p, q, r, s] = (p, q, r, s)
 toTuple _ = (0, 0, 0, 0)
 
-getIntTuple :: IO (Int, Int, Int, Int)
+getIntTuple :: IO Tuple
 getIntTuple = toTuple . map read . words <$> getLine
 
-getIntTupleList :: Int -> IO [(Int, Int, Int, Int)]
+getIntTupleList :: Int -> IO [Tuple]
 getIntTupleList n = replicateM n getIntTuple

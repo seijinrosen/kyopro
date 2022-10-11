@@ -38,6 +38,18 @@ getIntPair = toPair . map read . words <$> getLine
 getIntPairList :: Int -> IO [(Int, Int)]
 getIntPairList n = replicateM n getIntPair
 
+type Tuple = (Int, Int, Int, Int)
+
+toTuple :: [Int] -> Tuple
+toTuple [p, q, r, s] = (p, q, r, s)
+toTuple _ = (0, 0, 0, 0)
+
+getIntTuple :: IO Tuple
+getIntTuple = toTuple . map read . words <$> getLine
+
+getIntTupleList :: Int -> IO [Tuple]
+getIntTupleList n = replicateM n getIntTuple
+
 -- print functions
 
 printVertically :: (Foldable t, Show a) => t a -> IO ()
