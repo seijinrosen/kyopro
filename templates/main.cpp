@@ -259,7 +259,6 @@ vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
 }
 
 // input functions -------------------------------------------------------------
-using tiii = tuple<int, int, int>;
 vector<int> input_vector(int n) {
   vector<int> ret(n);
   for (auto &&i : ret) cin >> i;
@@ -271,13 +270,15 @@ vector<T> input_vector(int n) {
   for (auto &&i : ret) cin >> i;
   return ret;
 }
-vector<pair<int, int>> input_pair_vector(int n) {
-  vector<pair<int, int>> ret(n);
+using Pair = pair<int, int>;
+vector<Pair> input_pair_vector(int n) {
+  vector<Pair> ret(n);
   for (auto &&[a, b] : ret) cin >> a >> b;
   return ret;
 }
-vector<tuple<int, int, int>> input_tuple_vector(int n) {
-  vector<tuple<int, int, int>> ret(n);
+using Tuple = tuple<int, int, int>;
+vector<Tuple> input_tuple_vector(int n) {
+  vector<Tuple> ret(n);
   for (auto &&[a, b, c] : ret) cin >> a >> b >> c;
   return ret;
 }
