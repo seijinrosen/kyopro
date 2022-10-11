@@ -97,10 +97,7 @@ def yes_no(b: Union[bool, int]) -> str:
 # input functions --------------------------------------------------------------
 Pair = Tuple[int, int]
 Triple = Tuple[int, int, int]
-
-
-def input_int_list() -> "list[int]":
-    return list(map(int, input().split()))
+input_int_list = lambda: list(map(int, input().split()))
 
 
 def input_int_pair_list(n: int) -> List[Pair]:
