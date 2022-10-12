@@ -1,5 +1,6 @@
 import Control.Monad (replicateM)
 import Data.Char (digitToInt, intToDigit)
+import Data.Function ((&))
 import Data.List (find, isPrefixOf, stripPrefix)
 import qualified Data.Map as Map
 
