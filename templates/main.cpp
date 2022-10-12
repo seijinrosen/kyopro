@@ -135,6 +135,11 @@ vector<T> my_slice(const vector<T> &vec, int start, int stop = -1) {
   return {vec.begin() + start, stop == -1 ? vec.end() : vec.begin() + stop};
 }
 
+template <typename K, typename V>
+map<K, V> new_map(const vector<pair<K, V>> &vec) {
+  return {vec.begin(), vec.end()};
+}
+
 template <typename T>
 set<T> new_set(const vector<T> &vec) {
   return {vec.begin(), vec.end()};
