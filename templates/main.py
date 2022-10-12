@@ -100,6 +100,10 @@ Triple = Tuple[int, int, int]
 input_int_list = lambda: list(map(int, input().split()))
 
 
+def input_pair() -> Tuple[str, str]:
+    return tuple(input().split())
+
+
 def input_int_pair_list(n: int) -> List[Pair]:
     return [tuple(map(int, input().split())) for _ in range(n)]
 
