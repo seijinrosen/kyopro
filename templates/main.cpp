@@ -206,6 +206,21 @@ vector<T> sort(const vector<T> &vec, bool reverse = false) {
   return ret;
 }
 
+vector<string> split(char x, const string &s) {
+  vector<string> ret;
+  string now = "";
+  for (auto &&c : s) {
+    if (c == x) {
+      ret.push_back(now);
+      now = "";
+    } else {
+      now += c;
+    }
+  }
+  if (!now.empty()) ret.push_back(now);
+  return ret;
+}
+
 bool is_prefix(const string &prefix, const string &s) {
   if (s.size() < prefix.size()) return false;
   return s.substr(0, prefix.size()) == prefix;
