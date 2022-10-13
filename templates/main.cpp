@@ -272,9 +272,9 @@ vector<pair<char, char>> zip(const string &a, const string &b) {
 }
 template <typename T1, typename T2>
 vector<pair<T1, T2>> zip(const vector<T1> &a, const vector<T2> &b) {
-  vector<pair<T1, T2>> ret;
-  for (size_t i = 0; i < min(a.size(), b.size()); i++)
-    ret.push_back({a[i], b[i]});
+  size_t n = min(a.size(), b.size());
+  vector<pair<T1, T2>> ret(n);
+  for (size_t i = 0; i < n; i++) ret[i] = {a[i], b[i]};
   return ret;
 }
 
