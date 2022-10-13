@@ -1,6 +1,6 @@
 from collections import Counter
 from itertools import accumulate, groupby, tee
-from typing import Iterable, List, Tuple, TypeVar, Union
+from typing import Any, Iterable, List, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
 
@@ -34,6 +34,10 @@ def bool2score(x: Union[bool, int]) -> int:
 
 def even(n: int) -> bool:
     return n % 2 == 0
+
+
+def fst(x: Tuple[_T, Any]) -> _T:
+    return x[0]
 
 
 def int2bin(number: int, width: int) -> str:
@@ -71,6 +75,10 @@ def prime_factorize(n: int) -> "Counter[int]":
     if n != 1:
         counter[n] = 1
     return counter
+
+
+def snd(x: Tuple[Any, _T]) -> _T:
+    return x[1]
 
 
 def sum_of_arithmetic_progression(head: int, last: int, count: int) -> int:
