@@ -6,11 +6,13 @@ import qualified Data.Map as Map
 
 main :: IO ()
 main = do
-  n <- getInt
+  n <- readLn :: IO Int
+  as <- map read . words <$> getLine :: IO [Int]
   [a, b] <- getIntList
   ps <- getIntList
 
   let ans = a `elem` ps
+  let acc = scanl1 max as
 
   print ans
   putStrLn $ yesNo ans
