@@ -45,12 +45,11 @@ vector<int> accumulate(const vector<int> &vec) {
   return acc;
 }
 
-vector<int> accumulate_max(const vector<int> &vec) {
-  size_t n = vec.size();
-  vector<int> acc(n);
-  acc[0] = vec[0];
-  for (size_t i = 1; i < n; i++) acc[i] = max(acc[i - 1], vec[i]);
-  return acc;
+vector<int> scanl_max(const vector<int> &vec) {
+  vector<int> result(vec.size());
+  partial_sum(vec.begin(), vec.end(), result.begin(),
+              [](int a, int b) { return max(a, b); });
+  return result;
 }
 
 template <typename P, typename T>
