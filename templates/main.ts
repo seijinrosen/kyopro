@@ -15,6 +15,10 @@ const accumulate = (array: number[]) => {
   let now = 0;
   return array.map((v) => (now += v));
 };
+const accumulateMax = (array: number[]) => {
+  let now = -Infinity;
+  return array.map((v) => (now = Math.max(now, v)));
+};
 const bin2int = (b: string) => parseInt(b, 2);
 const combinations3 = <T>(array: T[]): [T, T, T][] => {
   const n = array.length;
