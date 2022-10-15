@@ -66,6 +66,11 @@ accumulate [] = []
 accumulate [x] = [x]
 accumulate (x : y : xs) = x : accumulate (x + y : xs)
 
+accumulateMax :: [Int] -> [Int]
+accumulateMax [] = []
+accumulateMax [x] = [x]
+accumulateMax (x : y : xs) = x : accumulateMax (max x y : xs)
+
 bin2int :: String -> Int
 bin2int b = sum [2 ^ i | (i, c) <- enumerate $ reverse b, c == '1']
 
