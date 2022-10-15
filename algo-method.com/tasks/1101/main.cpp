@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> accumulateMax(const vector<int> &vec) {
-  size_t n = vec.size();
-  vector<int> acc(n);
-  acc[0] = vec[0];
-  for (size_t i = 1; i < n; i++) acc[i] = max(acc[i - 1], vec[i]);
-  return acc;
+vector<int> scanl_max(const vector<int> &vec) {
+  vector<int> result(vec.size());
+  partial_sum(vec.begin(), vec.end(), result.begin(),
+              [](int a, int b) { return max(a, b); });
+  return result;
 }
 
 vector<int> input_vector(int n) {
@@ -20,6 +19,6 @@ int main() {
   cin >> N;
   auto A = input_vector(N);
 
-  auto ans = accumulateMax(A);
+  auto ans = scanl_max(A);
   for (auto &&i : ans) cout << i << endl;
 }
