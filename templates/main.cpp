@@ -45,6 +45,14 @@ vector<int> accumulate(const vector<int> &vec) {
   return acc;
 }
 
+vector<int> accumulate_max(const vector<int> &vec) {
+  size_t n = vec.size();
+  vector<int> acc(n);
+  acc[0] = vec[0];
+  for (size_t i = 1; i < n; i++) acc[i] = max(acc[i - 1], vec[i]);
+  return acc;
+}
+
 template <typename P, typename T>
 bool all(P pred, const vector<T> &vec) {
   return all_of(vec.begin(), vec.end(), pred);
