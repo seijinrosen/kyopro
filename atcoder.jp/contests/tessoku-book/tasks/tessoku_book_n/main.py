@@ -1,4 +1,3 @@
-from bisect import bisect_left
 from itertools import product
 from typing import Union
 
@@ -14,15 +13,7 @@ C = list(map(int, input().split()))
 D = list(map(int, input().split()))
 
 P = [a + b for a, b in product(A, B)]
-Q = [c + d for c, d in product(C, D)]
-Q.sort()
+Q = {c + d for c, d in product(C, D)}
 
-for p in P:
-    pos1 = bisect_left(Q, K - p)
-    if pos1 < N * N and Q[pos1] == K - p:
-        ans = True
-        break
-else:
-    ans = False
-
+ans = any(K - p in Q for p in P)
 print(yes_no(ans))
