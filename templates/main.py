@@ -1,4 +1,5 @@
 from collections import Counter
+from decimal import ROUND_HALF_UP, Decimal
 from itertools import accumulate, groupby, tee
 from typing import Any, Iterable, List, Tuple, TypeVar, Union
 
@@ -75,6 +76,15 @@ def prime_factorize(n: int) -> "Counter[int]":
     if n != 1:
         counter[n] = 1
     return counter
+
+
+def round_half_up(number: int, ndigits: int) -> int:
+    """四捨五入
+    参考: https://note.nkmk.me/python-round-decimal-quantize/
+    """
+    return int(
+        Decimal(number).quantize(Decimal(f"1E{-ndigits}"), rounding=ROUND_HALF_UP)
+    )
 
 
 def snd(x: Tuple[Any, _T]) -> _T:
