@@ -13,5 +13,5 @@ def round_half_up(number: int, ndigits: int) -> int:
 
 X, K = map(int, input().split())
 
-ans = reduce(lambda x, i: round_half_up(x, -i), range(1, K + 1), X)
+ans = reduce(round_half_up, range(-1, -K - 1, -1), X)
 print(ans)
