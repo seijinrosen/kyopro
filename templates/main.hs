@@ -83,7 +83,7 @@ combinations [] _ = []
 combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs n
 
 count :: Eq a => a -> [a] -> Int
-count x s = length $ filter (== x) s
+count x = length . filter (== x)
 
 counter :: (Ord k, Num a) => [k] -> Map.Map k a
 counter xs = Map.fromListWith (+) $ zip xs (repeat 1)
