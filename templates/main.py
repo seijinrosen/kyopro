@@ -1,4 +1,3 @@
-from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from itertools import accumulate, compress, groupby, product, tee
@@ -47,8 +46,8 @@ def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
     >>> coordinate_compression([8, 100, 33, 12, 6, 1211])
     [1, 4, 3, 2, 0, 5]
     """
-    sorted_unique_list = sorted(set(lst))
-    return [bisect_left(sorted_unique_list, x) + start for x in lst]
+    d = {x: i for i, x in enumerate(sorted(set(lst)), start=start)}
+    return [d[x] for x in lst]
 
 
 def even(n: int) -> bool:
