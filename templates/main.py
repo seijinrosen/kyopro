@@ -93,6 +93,14 @@ def prime_factorize(n: int) -> "Counter[int]":
 def round_half_up(number: int, ndigits: int) -> int:
     """四捨五入
     参考: https://note.nkmk.me/python-round-decimal-quantize/
+    >>> round_half_up(2048, -1)
+    2050
+    >>> round_half_up(2050, -2)
+    2100
+    >>> round_half_up(1, -1)
+    0
+    >>> round_half_up(999, -1)
+    1000
     """
     return int(
         Decimal(number).quantize(Decimal(f"1E{-ndigits}"), rounding=ROUND_HALF_UP)
