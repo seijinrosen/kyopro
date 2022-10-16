@@ -1,0 +1,1 @@
+X=[[*map(int,input().split())]for _ in range(5)];Q={c+d for c in X[3]for d in X[4]};print("Yes"if any(X[0][1]-a-b in Q for a in X[1]for b in X[2])else"No")
