@@ -1,7 +1,7 @@
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
-from itertools import accumulate, groupby, tee
-from typing import Any, Iterable, List, Tuple, TypeVar, Union
+from itertools import accumulate, compress, groupby, product, tee
+from typing import Any, Iterable, Iterator, List, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
 
@@ -17,6 +17,12 @@ def accumulate_2d(table: "list[list[int]]") -> "list[list[int]]":
 
 def bin2int(b: str) -> int:
     return int(b, 2)
+
+
+def bitset(n: int) -> Iterator[Tuple[int, ...]]:
+    """bit 全探索"""
+    for bits in product((0, 1), repeat=n):
+        yield bits
 
 
 def bool2score(x: Union[bool, int]) -> int:
@@ -39,6 +45,12 @@ def even(n: int) -> bool:
 
 def fst(x: Tuple[_T, Any]) -> _T:
     return x[0]
+
+
+def full_enumerate(lst: List[_T]) -> "Iterator[compress[_T]]":
+    """全列挙"""
+    for bits in product((0, 1), repeat=len(lst)):
+        yield compress(lst, bits)
 
 
 def int2bin(number: int, width: int) -> str:
