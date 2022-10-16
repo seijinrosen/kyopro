@@ -28,7 +28,10 @@ const combinations3 = <T>(array: T[]): [T, T, T][] => {
       for (let k = j + 1; k < n; k++) ret.push([array[i], array[j], array[k]]);
   return ret;
 };
-const count = <T>(x: string | T, iterable: string | T[]) =>
+const count: {
+  (x: string, iterable: string): number;
+  <T>(x: T, iterable: T[]): number;
+} = <T>(x: string | T, iterable: string | T[]) =>
   typeof iterable === "string"
     ? iterable.split("").filter((a) => a === x).length
     : iterable.filter((a) => a === x).length;
