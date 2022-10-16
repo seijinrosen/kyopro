@@ -1,3 +1,4 @@
+from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from itertools import accumulate, compress, groupby, product, tee
@@ -37,6 +38,17 @@ def bool2score(x: Union[bool, int]) -> int:
     1
     """
     return 2 * x - 1
+
+
+def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
+    """座標圧縮
+    >>> coordinate_compression([46, 80, 11, 77, 46], start=1)
+    [2, 4, 1, 3, 2]
+    >>> coordinate_compression([8, 100, 33, 12, 6, 1211])
+    [1, 4, 3, 2, 0, 5]
+    """
+    sorted_unique_list = sorted(set(lst))
+    return [bisect_left(sorted_unique_list, x) + start for x in lst]
 
 
 def even(n: int) -> bool:
@@ -150,13 +162,8 @@ def input_int_tuple_list(n: int) -> List[Triple]:
     return [tuple(map(int, input().split())) for _ in range(n)]
 
 
-N = int(input())
-
-
-ans = N
-
-
-print(ans)
+# N = int(input())
+# A = list(map(int, input().split()))
 
 
 if __name__ == "__main__":
