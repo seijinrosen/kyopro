@@ -69,6 +69,10 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
 }
 
 int count(char x, const string &s) { return count(s.begin(), s.end(), x); }
+template <typename P, typename T>
+int count(P pred, const vector<T> &vec) {
+  return count_if(vec.begin(), vec.end(), pred);
+}
 
 template <typename T>
 set<T> difference(const set<T> &set_a, const set<T> &set_b) {
@@ -303,6 +307,12 @@ vector<Pair> input_pair_vector(int n) {
   for (auto &&[a, b] : ret) cin >> a >> b;
   return ret;
 }
+template <typename T1, typename T2>
+vector<pair<T1, T2>> input_pair_vector(int n) {
+  vector<pair<T1, T2>> ret(n);
+  for (auto &&[a, b] : ret) cin >> a >> b;
+  return ret;
+}
 using Tuple = tuple<int, int, int>;
 vector<Tuple> input_tuple_vector(int n) {
   vector<Tuple> ret(n);
@@ -314,4 +324,9 @@ vector<Tuple> input_tuple_vector(int n) {
 int main() {
   int N;
   cin >> N;
+
+  // auto func = [&](const pair<int, int> &p) {
+  //   auto [x, y] = p;
+  //   return pow(x, 2) + pow(y, 2) <= pow(D, 2);
+  // };
 }
