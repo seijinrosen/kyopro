@@ -35,6 +35,7 @@ const count: {
   typeof iterable === "string"
     ? iterable.split("").filter((a) => a === x).length
     : iterable.filter((a) => a === x).length;
+const countIf = <T>(p: (x: T) => boolean, xs: T[]) => xs.filter(p).length;
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set#基本的な集合演算の実装
 const difference = <T>(setA: Set<T>, setB: Set<T>) => {
   const _difference = new Set(setA);
