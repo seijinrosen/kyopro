@@ -153,11 +153,7 @@ def input_pair() -> Tuple[str, str]:
     return tuple(input().split())
 
 
-def input_int_pair_list(n: int) -> List[Pair]:
-    return [tuple(map(int, input().split())) for _ in range(n)]
-
-
-def input_int_tuple_list(n: int) -> List[Triple]:
+def input_int_tuple_list(n: int) -> List[Tuple[int, int]]:
     return [tuple(map(int, input().split())) for _ in range(n)]
 
 
