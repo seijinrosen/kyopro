@@ -20,6 +20,13 @@ const accumulateMax = (array: number[]) => {
   return array.map((v) => (now = Math.max(now, v)));
 };
 const bin2int = (b: string) => parseInt(b, 2);
+const combinations2 = <T>(array: T[]) => {
+  const x = array.length - 2;
+  const ret: [T, T][] = [];
+  for (let i = 0; i < x + 1; i++)
+    for (let j = i + 1; j < x + 2; j++) ret.push([array[i], array[j]]);
+  return ret;
+};
 const combinations3 = <T>(array: T[]): [T, T, T][] => {
   const n = array.length;
   const ret: [T, T, T][] = [];
