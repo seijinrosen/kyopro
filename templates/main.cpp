@@ -58,6 +58,15 @@ bool all(P pred, const vector<T> &vec) {
 }
 
 template <typename T>
+vector<pair<T, T>> combinations2(const vector<T> &vec) {
+  size_t x = vec.size() - 2;
+  vector<pair<T, T>> ret;
+  for (size_t i = 0; i < x + 1; i++)
+    for (size_t j = i + 1; j < x + 2; j++) ret.push_back({vec[i], vec[j]});
+  return ret;
+}
+
+template <typename T>
 vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
   size_t n = vec.size();
   vector<tuple<T, T, T>> ret;
