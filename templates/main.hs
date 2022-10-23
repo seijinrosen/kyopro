@@ -3,6 +3,7 @@ import Data.Char (digitToInt, intToDigit)
 import Data.Function ((&))
 import Data.List (find, isPrefixOf, stripPrefix)
 import qualified Data.Map as Map
+import Data.Maybe (fromMaybe)
 
 main :: IO ()
 main = do
@@ -142,6 +143,9 @@ sumOfEachDigit i = sum $ map digitToInt $ show i
 
 toLowerAlphabet :: Int -> Char
 toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
+
+translate :: Ord k => Map.Map k k -> k -> k
+translate mp x = fromMaybe x $ Map.lookup x mp
 
 yesNo :: Bool -> String
 yesNo False = "No"
