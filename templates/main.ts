@@ -109,6 +109,11 @@ const takeWhile = <T>(predicate: (a: T) => boolean, array: T[]): T[] => {
 const tail = <T>(array: T[]) => array.slice(1);
 const tails = (str: string): string[] =>
   [...Array(str.length + 1)].map((_, i) => str.slice(i));
+const translate = (mp: Map<string, string>, s: string) =>
+  s
+    .split("")
+    .map((c) => mp.get(c) || c)
+    .join("");
 const yesNo = (b: boolean | number) => (b ? "Yes" : "No");
 // const zip = <T1, T2>(a: T1[], b: T2[]): [T1, T2][] =>
 //   [...Array(Math.min(a.length, b.length))].map((_, i) => [a[i], b[i]]);
