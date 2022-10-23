@@ -147,6 +147,16 @@ string int2bin(int number, int width) {
 
 bool odd(int n) { return n % 2 == 1; }
 
+template <typename T>
+T max(const vector<T> &vec) {
+  return *max_element(vec.begin(), vec.end());
+}
+
+template <typename T>
+T min(const vector<T> &vec) {
+  return *min_element(vec.begin(), vec.end());
+}
+
 string my_slice(string &s, int start, int stop) {
   return s.substr(start, stop - start);
 }
