@@ -282,6 +282,12 @@ vector<T> take(int n, const vector<T> &vec) {
   return {vec.begin(), vec.begin() + n};
 }
 
+string translate(const map<char, char> &mp, const string &s) {
+  string ret;
+  for (auto &&c : s) ret += mp.count(c) ? mp.at(c) : c;
+  return ret;
+}
+
 string yes_no(bool b) { return b ? "Yes" : "No"; }
 
 vector<pair<char, char>> zip(const string &a, const string &b) {
