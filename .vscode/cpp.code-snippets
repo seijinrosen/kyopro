@@ -26,5 +26,10 @@
       "vector<${1:int}> ${2:vec}(${3:N});",
       "for (auto &&${4:x} : ${2:vec}) cin >> ${4:x};"
     ]
+  },
+  "log": {
+    "scope": "cpp",
+    "prefix": "log",
+    "body": "cout << ${ans} << endl;"
   }
 }
