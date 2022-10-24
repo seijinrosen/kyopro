@@ -1,9 +1,9 @@
 N, S = map(int, input().split())
 A = list(map(int, input().split()))
 
-dp = [[True] + [False] * S]
+dp = [{0}]
 for a in A:
-    dp += [[dp[-1][j] or (a <= j and dp[-1][j - a]) for j in range(S + 1)]]
+    dp += [{j for j in range(S + 1) if j in dp[-1] or (a <= j and j - a in dp[-1])}]
 
-ans = dp[N][S]
+ans = S in dp[N]
 print("Yes" if ans else "No")
