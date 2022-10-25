@@ -89,6 +89,9 @@ count x = length . filter (== x)
 counter :: (Ord k, Num a) => [k] -> Map.Map k a
 counter xs = Map.fromListWith (+) $ zip xs (repeat 1)
 
+divCeil :: Integral a => a -> a -> a
+a `divCeil` b = (a + b - 1) `div` b
+
 enumerate :: [b] -> [(Int, b)]
 enumerate = zip [0 ..]
 
