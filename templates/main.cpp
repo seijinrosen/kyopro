@@ -111,6 +111,8 @@ vector<pair<char, int>> run_length_encoding(const string &str) {
 
 int ctoi(char c) { return c - '0'; }
 
+int div_ceil(int a, int b) { return (a + b - 1) / b; }
+
 template <typename T>
 vector<pair<int, T>> enumerate(const vector<T> &vec) {
   vector<pair<int, T>> ret(vec.size());
