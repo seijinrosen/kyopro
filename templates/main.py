@@ -50,6 +50,10 @@ def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
     return [d[x] for x in lst]
 
 
+def div_ceil(a: int, b: int) -> int:
+    return (a + b - 1) // b
+
+
 def even(n: int) -> bool:
     return n % 2 == 0
 
