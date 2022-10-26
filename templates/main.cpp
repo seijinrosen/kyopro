@@ -237,6 +237,15 @@ vector<T> sort(const vector<T> &vec, bool reverse = false) {
     sort(ret.begin(), ret.end());
   return ret;
 }
+template <typename T>
+vector<T> sort(const initializer_list<T> &vec, bool reverse = false) {
+  vector<T> ret = {vec.begin(), vec.end()};
+  if (reverse)
+    sort(ret.begin(), ret.end(), greater());
+  else
+    sort(ret.begin(), ret.end());
+  return ret;
+}
 
 vector<string> split(char x, const string &s) {
   vector<string> ret;
