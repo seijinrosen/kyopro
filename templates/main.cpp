@@ -114,9 +114,9 @@ int ctoi(char c) { return c - '0'; }
 int div_ceil(int a, int b) { return (a + b - 1) / b; }
 
 template <typename T>
-vector<pair<int, T>> enumerate(const vector<T> &vec) {
+vector<pair<int, T>> enumerate(const vector<T> &vec, int start = 0) {
   vector<pair<int, T>> ret(vec.size());
-  for (size_t i = 0; i < vec.size(); i++) ret[i] = {i, vec[i]};
+  for (size_t i = 0; i < vec.size(); i++) ret[i] = {start + i, vec[i]};
   return ret;
 }
 vector<pair<int, char>> enumerate(const string &s) {
