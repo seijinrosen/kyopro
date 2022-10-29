@@ -67,7 +67,8 @@ const int2bin = (num: number, width: number): string =>
   num.toString(2).padStart(width, "0");
 const odd = (n: number) => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
-const max = (array: number[]) => array.reduce((a, b) => Math.max(a, b));
+const max = <T extends number | bigint>(array: T[]) =>
+  array.reduce((a, b) => (a < b ? b : a));
 const min = (array: number[]) => array.reduce((a, b) => Math.min(a, b));
 const pairwise = <T>(array: T[]) => zip(array, array.slice(1));
 const prime_factorize = (n: number) => {
