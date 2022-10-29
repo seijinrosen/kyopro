@@ -1,4 +1,4 @@
-from itertools import combinations
+from itertools import combinations, product
 from typing import Tuple
 
 S = [input() for _ in range(9)]
@@ -10,10 +10,11 @@ def dist(p: Tuple[int, int], q: Tuple[int, int]) -> int:
     return (x1 - x2) ** 2 + (y1 - y2) ** 2
 
 
+pawn_coordinates = [(i, j) for i, j in product(range(9), repeat=2) if S[i][j] == "#"]
+
 ans = [
     (a, b, c, d)
-    for a, b, c, d in combinations(((x, y) for x in range(9) for y in range(9)), 4)
-    if all(S[x][y] == "#" for x, y in (a, b, c, d))
+    for a, b, c, d in combinations(pawn_coordinates, 4)
     if dist(a, b) == dist(b, d) == dist(d, c) == dist(c, a)
     if dist(a, d) == dist(b, c)
 ]
