@@ -17,8 +17,8 @@ def dist(p: Tuple[int, int], q: Tuple[int, int]) -> float:
 
 
 for i, j, k in product(range(2**N), range(N), range(N)):
-    if (i // 2**k) % 2 == 0:
-        dp[2**k + i][k] = min(dp[2**k + i][k], dp[i][j] + dist(XY[j], XY[k]))
+    v = i | 2**k
+    dp[v][k] = min(dp[v][k], dp[i][j] + dist(XY[j], XY[k]))
 
 ans = dp[-1][0]
 print(ans)
