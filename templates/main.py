@@ -1,6 +1,8 @@
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
+from functools import reduce
 from itertools import accumulate, compress, groupby, product, tee
+from operator import mul
 from typing import Any, Iterable, Iterator, List, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
@@ -103,6 +105,10 @@ def prime_factorize(n: int) -> "Counter[int]":
     if n != 1:
         counter[n] = 1
     return counter
+
+
+def prod(iterable: Iterable[int]) -> int:
+    return reduce(mul, iterable)
 
 
 def round_half_up(number: int, ndigits: int) -> int:
