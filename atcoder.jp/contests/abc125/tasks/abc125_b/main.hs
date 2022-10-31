@@ -7,5 +7,5 @@ main = do
   vs <- getIntList
   cs <- getIntList
 
-  let ans = sum $ zipWith (\v c -> max 0 (v - c)) vs cs
+  let ans = sum . filter (0 <) $ zipWith (-) vs cs
   print ans
