@@ -2,13 +2,28 @@ from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
-from itertools import accumulate, compress, groupby, product, tee
+from itertools import accumulate, compress, groupby, islice, product, tee
 from operator import mul
-from typing import Any, Iterable, Iterator, List, Tuple, TypeVar, Union
+from typing import Any, Callable, Iterable, Iterator, List, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
+_U = TypeVar("_U")
 
 
+# more-itertools
+def iterate(func: Callable[[_T], _T], start: _T) -> Iterator[_T]:
+    # https://more-itertools.readthedocs.io/en/stable/api.html#more_itertools.iterate
+    while True:
+        yield start
+        start = func(start)
+
+
+def nth(iterable: Iterable[_T], n: int, default: _U = None) -> Union[_T, _U]:
+    # https://more-itertools.readthedocs.io/en/stable/api.html#more_itertools.nth
+    return next(islice(iterable, n, None), default)
+
+
+# functions
 def run_length_encoding(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
 
