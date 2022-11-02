@@ -229,6 +229,13 @@ string repeat(const string &s, int n) {
 string reverse(const string &s) { return {s.rbegin(), s.rend()}; }
 
 template <typename T>
+vector<T> scanl1(function<T(T, T)> func, const vector<T> &vec) {
+  vector<T> result(vec.size());
+  partial_sum(vec.begin(), vec.end(), result.begin(), func);
+  return result;
+}
+
+template <typename T>
 vector<T> sort(const vector<T> &vec, bool reverse = false) {
   vector<T> ret = {vec.begin(), vec.end()};
   if (reverse)
