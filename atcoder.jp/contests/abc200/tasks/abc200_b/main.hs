@@ -7,5 +7,5 @@ main :: IO ()
 main = do
   [n, k] <- map read . words <$> getLine
 
-  let ans = foldl (\a _ -> func a) n [1 .. k]
+  let ans = iterate func n !! k
   print ans
