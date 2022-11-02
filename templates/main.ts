@@ -92,6 +92,15 @@ const prime_factorize = (n: number) => {
 const range = (a: number, b?: number) =>
   b ? [...Array(b - a)].map((_, i) => a + i) : [...Array(a)].map((_, i) => i);
 const reverse = (s: string) => s.split("").reverse().join("");
+const scanl1 = <T>(func: (a: T, b: T) => T, array: T[]) => {
+  const ret = [array[0]];
+  array.reduce((a, b) => {
+    const x = func(a, b);
+    ret.push(x);
+    return x;
+  });
+  return ret;
+};
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/BigInt#比較演算
 const sort = <T extends number | bigint>(array: T[], reverse = false) =>
   reverse
