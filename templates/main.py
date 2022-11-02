@@ -1,3 +1,4 @@
+from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
@@ -80,6 +81,18 @@ def odd(n: int) -> bool:
 
 def is_same_parity(x: int, y: int) -> bool:
     return x % 2 == y % 2
+
+
+def lis(xs: Iterable[int]) -> int:
+    """最長増加部分列 (Longest increasing subsequence)"""
+    L: List[int] = []
+    for x in xs:
+        pos = bisect_left(L, x)
+        if pos == len(L):
+            L.append(x)
+        else:
+            L[pos] = x
+    return len(L)
 
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
