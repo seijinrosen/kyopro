@@ -84,7 +84,16 @@ def is_same_parity(x: int, y: int) -> bool:
 
 
 def lis(xs: Iterable[int]) -> int:
-    """最長増加部分列 (Longest increasing subsequence)"""
+    """最長増加部分列 (Longest increasing subsequence) の長さ
+    >>> lis([2, 3, 1, 6, 4, 5])
+    4
+    >>> lis([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    1
+    >>> lis([30, 50, 60, 10, 20])
+    3
+    >>> lis([90, 80, 70, 60, 50, 40, 30, 20, 10])
+    1
+    """
     L: List[int] = []
     for x in xs:
         pos = bisect_left(L, x)
