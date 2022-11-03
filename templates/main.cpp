@@ -235,6 +235,11 @@ vector<T> scanl1(function<T(T, T)> func, const vector<T> &vec) {
   return result;
 }
 
+template <typename Predicate, typename T>
+bool some(Predicate pred, const vector<T> &vec) {
+  return any_of(vec.begin(), vec.end(), pred);
+}
+
 template <typename T>
 vector<T> sort(const vector<T> &vec, bool reverse = false) {
   vector<T> ret = {vec.begin(), vec.end()};
