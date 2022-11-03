@@ -1,6 +1,8 @@
+from functools import partial
+from operator import mul
+
 X, Y = map(int, input().split())
 
-Z = 4 * X - Y
-ans = any(2 * crane == Z for crane in range(X + 1))
+ans = 4 * X - Y in map(partial(mul, 2), range(X + 1))
 
 print("Yes" if ans else "No")
