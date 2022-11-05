@@ -1,7 +1,7 @@
 import Control.Monad (replicateM)
 import Data.Char (digitToInt, intToDigit)
 import Data.Function ((&))
-import Data.List (find, isPrefixOf, stripPrefix)
+import Data.List (find, findIndices, isPrefixOf, stripPrefix)
 import qualified Data.Map as Map
 import Data.Maybe (fromMaybe)
 
@@ -97,6 +97,13 @@ enumerate = zip [0 ..]
 
 evenOdd :: Int -> String
 evenOdd x = if odd x then "Odd" else "Even"
+
+findIndexR :: (a -> Bool) -> [a] -> Int
+findIndexR p xs
+  | null indices = -1
+  | otherwise = last indices
+  where
+    indices = findIndices p xs
 
 findPrefix :: String -> [String] -> Maybe String
 findPrefix s = find (`isPrefixOf` s)
