@@ -119,7 +119,12 @@ def is_same_parity(x: int, y: int) -> bool:
 
 
 def lcm(x: int, y: int) -> int:
-    """最小公倍数 (least common multiple)"""
+    """最小公倍数 (least common multiple)
+    >>> lcm(25, 30)
+    150
+    >>> lcm(998244353, 998244853)
+    996492287418565109
+    """
     return x // gcd(x, y) * y
 
 
