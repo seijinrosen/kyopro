@@ -3,6 +3,7 @@ from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, compress, groupby, islice, product, tee
+from math import gcd
 from operator import mul
 from typing import Any, Callable, Iterable, Iterator, List, Tuple, TypeVar, Union
 
@@ -115,6 +116,11 @@ def is_prime(x: int) -> bool:
 
 def is_same_parity(x: int, y: int) -> bool:
     return x % 2 == y % 2
+
+
+def lcm(x: int, y: int) -> int:
+    """最小公倍数 (least common multiple)"""
+    return x // gcd(x, y) * y
 
 
 def lis(xs: Iterable[int]) -> int:
