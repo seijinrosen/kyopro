@@ -134,6 +134,9 @@ primeFactor2 n
   | odd n = 0
   | otherwise = primeFactor2 (n `div` 2) + 1
 
+readIntAtBase :: Int -> String -> Int
+readIntAtBase k s = sum [k ^ i * digitToInt c | (i, c) <- zip [0 ..] $ reverse s]
+
 showIntList :: [Int] -> String
 showIntList = unwords . map show
 
