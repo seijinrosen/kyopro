@@ -220,6 +220,12 @@ vector<int> range(int start, int stop) {
   return ret;
 }
 
+ll read_int_at_base(int base, const string &s) {
+  ll ret = 0;
+  for (auto &&c : s) ret = ret * base + c - '0';
+  return ret;
+}
+
 string repeat(const string &s, int n) {
   string ret;
   for (size_t i = 0; i < n; i++) ret += s;
