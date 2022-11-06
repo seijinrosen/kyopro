@@ -3,7 +3,7 @@ from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, compress, groupby, islice, product, tee
-from math import gcd
+from math import factorial, gcd
 from operator import mul
 from typing import Any, Callable, Iterable, Iterator, List, Tuple, TypeVar, Union
 
@@ -147,6 +147,12 @@ def lis(xs: Iterable[int]) -> int:
         else:
             L[pos] = x
     return len(L)
+
+
+def nCr(n: int, r: int) -> int:
+    if n < r:
+        return 0
+    return factorial(n) // factorial(r) // factorial(n - r)
 
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
