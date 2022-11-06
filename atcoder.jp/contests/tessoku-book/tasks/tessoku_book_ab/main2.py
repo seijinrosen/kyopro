@@ -1,4 +1,4 @@
-from itertools import accumulate, islice
+from itertools import accumulate
 from operator import add, mul, sub
 from typing import Callable, Tuple
 
@@ -19,16 +19,15 @@ def input_pair() -> Pair:
     return convert2operator(t), int(a)
 
 
-def func(p1: Pair, p2: Pair) -> Pair:
-    _, a1 = p1
-    t2, a2 = p2
-    return t2, t2(a1, a2) % 10000
+def func(x: int, p: Pair) -> int:
+    t, a = p
+    return t(x, a) % 10000
 
 
 N = int(input())
 TA = [input_pair() for _ in range(N)]
 
-acc = accumulate(TA, func, initial=(add, 0))
-ans = map(lambda t: t[1], islice(acc, 1, None))
+ans = accumulate(TA, func, initial=0)
+next(ans)
 
 print(*ans, sep="\n")
