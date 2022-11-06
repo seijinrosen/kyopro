@@ -150,6 +150,10 @@ def lis(xs: Iterable[int]) -> int:
 
 
 def nCr(n: int, r: int) -> int:
+    """組み合わせの数
+    >>> nCr(4, 2)
+    6
+    """
     if n < r:
         return 0
     return factorial(n) // factorial(r) // factorial(n - r)
