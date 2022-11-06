@@ -149,14 +149,18 @@ def lis(xs: Iterable[int]) -> int:
     return len(L)
 
 
-def nCr(n: int, r: int) -> int:
+def nCr(n: int, r: int, mod: int = 0) -> int:
     """組み合わせの数
     >>> nCr(4, 2)
     6
     """
     if n < r:
         return 0
-    return factorial(n) // factorial(r) // factorial(n - r)
+    a = factorial(n)
+    b = factorial(r) * factorial(n - r)
+    if mod == 0:
+        return a // b
+    return a * pow(b, mod - 2, mod) % mod
 
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
