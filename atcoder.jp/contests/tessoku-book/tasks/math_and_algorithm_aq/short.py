@@ -1,0 +1,1 @@
+print(pow(*map(int,input().split()),10**9+7))
