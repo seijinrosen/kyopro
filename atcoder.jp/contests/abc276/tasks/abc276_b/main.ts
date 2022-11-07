@@ -20,8 +20,7 @@ const main = () => {
     G[b - 1].push(a);
   }
 
-  for (const g of G)
-    console.log(g.length ? g.length + " " + sort(g).join(" ") : g.length);
+  for (const g of G) console.log([g.length, ...sort(g)].join(" "));
 };
 
 main();
