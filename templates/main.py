@@ -4,7 +4,7 @@ from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, compress, groupby, islice, product, tee
 from math import factorial, gcd
-from operator import mul
+from operator import mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
@@ -186,6 +186,16 @@ def nCr(n: int, r: int, mod: int = 0) -> int:
     a = factorial_mod(n)
     b = factorial_mod(r) * factorial_mod(n - r)
     return a * pow(b, mod - 2, mod) % mod
+
+
+def nim(iterable: Iterable[int]) -> bool:
+    """ニム和を計算し、先手必勝なら True を返す。
+    >>> nim([7, 7])
+    False
+    >>> nim([5, 8])
+    True
+    """
+    return 0 < reduce(xor, iterable)
 
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
