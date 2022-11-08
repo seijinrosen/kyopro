@@ -5,7 +5,7 @@ from functools import reduce
 from itertools import accumulate, compress, groupby, islice, product, tee
 from math import factorial, gcd
 from operator import mul
-from typing import Any, Callable, Iterable, Iterator, List, Tuple, TypeVar, Union
+from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
 _U = TypeVar("_U")
@@ -147,6 +147,22 @@ def lis(xs: Iterable[int]) -> int:
         else:
             L[pos] = x
     return len(L)
+
+
+def mex(st: Set[int]) -> int:
+    """集合 st に含まれない最小の非負整数 (minimum excluded value)
+    >>> mex({})
+    0
+    >>> mex({1})
+    0
+    >>> mex({0, 2})
+    1
+    >>> mex({0, 1, 3})
+    2
+    >>> mex({0, 1, 2})
+    3
+    """
+    return next(i for i in range(len(st) + 1) if i not in st)
 
 
 def nCr(n: int, r: int, mod: int = 0) -> int:
