@@ -1,8 +1,13 @@
 from functools import reduce
 from operator import xor
+from typing import Iterable
+
+
+def nim(iterable: Iterable[int]) -> bool:
+    return 0 < reduce(xor, iterable)
+
 
 N = int(input())
-A = list(map(int, input().split()))
+A = map(int, input().split())
 
-nim = reduce(xor, A)
-print("First" if nim != 0 else "Second")
+print("First" if nim(A) else "Second")
