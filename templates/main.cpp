@@ -226,9 +226,9 @@ ll read_int_at_base(int base, const string &s) {
   return ret;
 }
 
-string repeat(const string &s, int n) {
+string repeat(int n, const string &s) {
   string ret;
-  for (size_t i = 0; i < n; i++) ret += s;
+  for (int i = 0; i < n; i++) ret += s;
   return ret;
 }
 
