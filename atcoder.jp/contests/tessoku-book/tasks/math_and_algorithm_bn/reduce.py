@@ -1,4 +1,5 @@
 from functools import reduce
+from operator import itemgetter
 from typing import List, Tuple
 
 N = int(input())
@@ -13,5 +14,5 @@ def func(now_and_ans: Tuple[int, int], lr: Tuple[int, int]) -> Tuple[int, int]:
     return now_and_ans
 
 
-ans = reduce(func, sorted(LR, key=lambda t: t[1]), (0, 0))
+ans = reduce(func, sorted(LR, key=itemgetter(1)), (0, 0))
 print(ans[1])
