@@ -3,7 +3,7 @@ using namespace std;
 
 string repeat(int n, const string &s) {
   string ret;
-  for (size_t i = 0; i < n; i++) ret += s;
+  for (int i = 0; i < n; i++) ret += s;
   return ret;
 }
 
