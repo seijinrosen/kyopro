@@ -137,6 +137,9 @@ primeFactor2 n
 readIntAtBase :: Int -> String -> Int
 readIntAtBase k s = sum [k ^ i * digitToInt c | (i, c) <- zip [0 ..] $ reverse s]
 
+repeatStr :: Int -> [a] -> [a]
+repeatStr n = concat . replicate n
+
 showIntList :: [Int] -> String
 showIntList = unwords . map show
 
