@@ -17,11 +17,8 @@ A = list(map(int, input().split()))
 
 dp = [A]
 for i in reversed(range(N - 1)):
-    if i % 2 == 0:
-        row = [*map(max, pairwise(dp[-1]))]
-    else:
-        row = [*map(min, pairwise(dp[-1]))]
-    dp.append(row)
+    f = max if i % 2 == 0 else min
+    dp.append([*map(f, pairwise(dp[-1]))])
 
 ans = dp[-1][0]
 print(ans)
