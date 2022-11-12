@@ -7,7 +7,7 @@ clipboard_message = "Create: ${url}"
 
 [judge]
 copy_source_code_when_ac = true
-clipboard_message = "AC: ${url} ${lang}"
+clipboard_message = "AC: ${url} ${source_file_name}"
 
 
 [language]
