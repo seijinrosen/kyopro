@@ -9,12 +9,7 @@ current_sum = 0
 card_count = 0
 
 for a in sorted(A) * 2:
-    if a < top_card:
-        if top_card + 1 == M and a == 0:
-            card_count += 1
-        else:
-            break
-    elif a in [top_card, top_card + 1]:
+    if (a in [top_card, top_card + 1]) or (top_card + 1 == M and a == 0):
         current_sum += a
         card_count += 1
     else:
