@@ -14,6 +14,14 @@ clipboard_message = "AC: ${url} ${lang}"
 default = "pypy3"
 
 
+[language.settings.bash]
+source_file_name = "main.bash"
+template_file_path = "templates/main.bash"
+[language.settings.bash.commands]
+pre_execute = ["bash --version"]
+execute = "bash ${dir_path}/${source_file_name}"
+
+
 [language.settings.cpp]
 source_file_name = "main.cpp"
 template_file_path = "templates/main.cpp"
