@@ -1,2 +1,2 @@
-from collections import Counter
-print(sum(a*(a-1)*(a-2)//6for a in Counter(map(int,[*open(0)][1].split())).values()))
+*A,=map(int,[*open(0)][1].split())
+print(sum(c*(c-1)*(c-2)//6for c in[A.count(i)for i in range(1,101)]))
