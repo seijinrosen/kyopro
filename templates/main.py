@@ -165,6 +165,26 @@ def mex(st: Set[int]) -> int:
     return next(i for i in range(len(st) + 1) if i not in st)
 
 
+def mod_index1(x: int, y: int) -> int:
+    """
+    >>> mod_index1(1, 7)
+    1
+    >>> mod_index1(6, 7)
+    6
+    >>> mod_index1(7, 7)
+    7
+    >>> mod_index1(8, 7)
+    1
+    >>> mod_index1(13, 7)
+    6
+    >>> mod_index1(14, 7)
+    7
+    >>> mod_index1(15, 7)
+    1
+    """
+    return (x - 1) % y + 1
+
+
 def nCr(n: int, r: int, mod: int = 0) -> int:
     """組み合わせの数
     >>> nCr(4, 2)
