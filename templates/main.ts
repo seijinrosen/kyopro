@@ -49,6 +49,8 @@ const difference = <T>(setA: Set<T>, setB: Set<T>) => {
   for (const elem of setB) _difference.delete(elem);
   return _difference;
 };
+const countText = (countString: string, s: string) =>
+  [...s.matchAll(RegExp(countString, "g"))].length;
 const div = (x: number, y: number) => Math.floor(x / y);
 const divCeil = (a: number, b: number) => Math.trunc((a + b - 1) / b);
 const enumerate = <T>(array: T[], start: number = 0): [number, T][] =>
