@@ -106,6 +106,17 @@ def int2bin(number: int, width: int) -> str:
     return bin(number)[2:].zfill(width)
 
 
+def int2bitset(n: int) -> Set[int]:
+    """
+    https://algo-method.com/tasks/1082
+    >>> int2bitset(13)
+    {0, 2, 3}
+    >>> int2bitset(1)
+    {0}
+    """
+    return {i for i, x in enumerate(reversed(bin(n)[2:])) if x == "1"}
+
+
 def odd(n: int) -> bool:
     return n % 2 == 1
 
