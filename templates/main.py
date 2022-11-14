@@ -24,6 +24,12 @@ def nth(iterable: Iterable[_T], n: int, default: _U = None) -> Union[_T, _U]:
     return next(islice(iterable, n, None), default)
 
 
+def triplewise(iterable: Iterable[_T]) -> Iterator[Tuple[_T, _T, _T]]:
+    # https://more-itertools.readthedocs.io/en/stable/api.html#more_itertools.triplewise
+    for (a, _), (b, c) in pairwise(pairwise(iterable)):
+        yield a, b, c
+
+
 # functions
 def run_length_encoding(s: str) -> "list[tuple[str, int]]":
     return [(k, len(list(g))) for k, g in groupby(s)]
@@ -231,7 +237,6 @@ def nim(iterable: Iterable[int]) -> bool:
 
 def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     # https://docs.python.org/ja/3/library/itertools.html#itertools.pairwise
-    # pairwise('ABCDEFG') --> AB BC CD DE EF FG
     a, b = tee(iterable)
     next(b, None)
     return zip(a, b)
