@@ -78,6 +78,12 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
 }
 
 int count(char x, const string &s) { return count(s.begin(), s.end(), x); }
+int count(const string &count_string, const string &s) {
+  int ret = 0;
+  for (size_t i = 0; i < s.size(); i++)
+    if (s.substr(i, count_string.size()) == count_string) ret++;
+  return ret;
+}
 template <typename P, typename T>
 int count(P pred, const vector<T> &vec) {
   return count_if(vec.begin(), vec.end(), pred);
