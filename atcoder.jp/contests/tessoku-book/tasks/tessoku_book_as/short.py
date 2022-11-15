@@ -1,3 +1,2 @@
 S="WBR"
-N,C,A=open(0).read().split()
-print("YNeos"[sum(map(S.find,A))%3!=S.find(C)::2])
+print("YNeos"[S.find(input()[-1])!=sum(map(S.find,input()))%3::2])
