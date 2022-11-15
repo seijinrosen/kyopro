@@ -1,2 +1,2 @@
 S="WBR"
-print("YNeos"[S.find(input()[-1])!=sum(map(S.find,input()))%3::2])
+print("YNeos"[input()[-1]!=S[sum(map(S.find,input()))%3]::2])
