@@ -9,13 +9,7 @@ def input_nc() -> Tuple[int, str]:
 N, C = input_nc()
 A = input()
 
-score_dict = {
-    "W": 0,
-    "B": 1,
-    "R": 2,
-}
-
-score = sum(score_dict[c] for c in A)
-ans = score % 3 == score_dict[C]
+score_list = "WBR"
+ans = sum(map(score_list.index, A)) % 3 == score_list.index(C)
 
 print("Yes" if ans else "No")
