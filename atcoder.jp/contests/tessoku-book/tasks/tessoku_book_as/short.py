@@ -1,4 +1,3 @@
-N,C=input().split()
-A=input()
-s="WBR"
-print("YNeos"[sum(map(s.index,A))%3!=s.find(C)::2])
+S="WBR"
+N,C,A=open(0).read().split()
+print("YNeos"[sum(map(S.find,A))%3!=S.find(C)::2])
