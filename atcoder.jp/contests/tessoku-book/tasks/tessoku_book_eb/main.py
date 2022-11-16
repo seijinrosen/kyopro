@@ -24,10 +24,10 @@ for q, x in QUERIES:
         i = bisect(lst, x)
 
         if i == 0:
-            ans = abs(x - lst[i])
+            ans = lst[i] - x
         elif i == len(st):
-            ans = abs(x - lst[i - 1])
+            ans = x - lst[i - 1]
         else:
-            ans = min(abs(x - lst[i]), abs(x - lst[i - 1]))
+            ans = min(lst[i] - x, x - lst[i - 1])
 
         print(ans)
