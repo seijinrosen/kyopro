@@ -23,11 +23,10 @@ for q, x in QUERIES:
 
         i = bisect(lst, x)
 
-        if i == 0:
-            ans = lst[i] - x
-        elif i == len(st):
-            ans = x - lst[i - 1]
-        else:
-            ans = min(lst[i] - x, x - lst[i - 1])
+        ans: List[int] = []
+        if 0 < i:
+            ans.append(x - lst[i - 1])
+        if i < len(lst):
+            ans.append(lst[i] - x)
 
-        print(ans)
+        print(min(ans))
