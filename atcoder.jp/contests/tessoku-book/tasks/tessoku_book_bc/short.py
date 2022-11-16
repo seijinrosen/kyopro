@@ -1,7 +1,7 @@
 from bisect import*
-l=[]
+L=[]
 for r in[*open(0)][1:]:
- i=bisect_left(l,x:=int(r[2:]))
- if r[0]<"2":l.insert(i,x)
- elif r[0]<"3":l.pop(i)
- else:print(l[i]if i<len(l)else-1)
+ i=bisect_left(L,x:=int(r[2:]))
+ if"2">r[0]:L.insert(i,x)
+ elif"3">r[0]:L.pop(i)
+ else:print(L[i]if i<len(L)else-1)
