@@ -8,6 +8,7 @@ from operator import mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
 _T = TypeVar("_T")
+_S = TypeVar("_S")
 _U = TypeVar("_U")
 
 
@@ -38,6 +39,17 @@ def run_length_encoding(s: str) -> "list[tuple[str, int]]":
 def accumulate_2d(table: "list[list[int]]") -> "list[list[int]]":
     acc = [[0, *accumulate(row)] for row in table]
     return transpose([[0, *accumulate(column)] for column in transpose(acc)])
+
+
+def accumulate_with_initial(
+    iterable: Iterable[_S], func: Callable[[_T, _S], _T], initial: _T
+) -> Iterator[_T]:
+    # https://docs.python.org/ja/3/library/itertools.html#itertools.accumulate
+    total = initial
+    yield total
+    for element in iter(iterable):
+        total = func(total, element)
+        yield total
 
 
 def bin2int(b: str) -> int:
