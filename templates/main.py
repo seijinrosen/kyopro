@@ -1,3 +1,4 @@
+import sys
 from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
@@ -7,6 +8,7 @@ from math import factorial, gcd
 from operator import mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
+sys.setrecursionlimit(10**9)
 _T = TypeVar("_T")
 _S = TypeVar("_S")
 _U = TypeVar("_U")
