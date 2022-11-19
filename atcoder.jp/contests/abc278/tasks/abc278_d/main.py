@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, List, TypeVar, Union
+from typing import Callable, DefaultDict, TypeVar
 
 _T = TypeVar("_T")
 
@@ -9,18 +9,18 @@ def constant_factory(value: _T) -> Callable[[], _T]:
 
 
 N = int(input())
-A = list(map(int, input().split()))
+A = map(int, input().split())
 Q = int(input())
-QUERIES = [map(int, input().split()) for _ in range(Q)]
+QUERIES = (map(int, input().split()) for _ in range(Q))
 
-data: Union[List[int], DefaultDict[int, int]] = A
+d: DefaultDict[int, int] = defaultdict(int, enumerate(A))
 
 for query in QUERIES:
     q = next(query)
 
     if q == 1:
-        data = defaultdict(constant_factory(next(query)))
+        d = defaultdict(constant_factory(next(query)))
     elif q == 2:
-        data[next(query) - 1] += next(query)
+        d[next(query) - 1] += next(query)
     elif q == 3:
-        print(data[next(query) - 1])
+        print(d[next(query) - 1])
