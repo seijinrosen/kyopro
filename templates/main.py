@@ -78,6 +78,10 @@ def bool2score(x: Union[bool, int]) -> int:
     return 2 * x - 1
 
 
+def constant_factory(value: _T) -> Callable[[], _T]:
+    return lambda: value
+
+
 def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
     """座標圧縮
     >>> coordinate_compression([46, 80, 11, 77, 46], start=1)
