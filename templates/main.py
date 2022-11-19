@@ -239,6 +239,11 @@ def nCr(n: int, r: int, mod: int = 0) -> int:
     return a * pow(b, mod - 2, mod) % mod
 
 
+def neighborhood(i: int, j: int) -> Iterator[Tuple[int, int]]:
+    for di, dj in zip((-1, 0, 0, 1), (0, -1, 1, 0)):
+        yield i + di, j + dj
+
+
 def nim(iterable: Iterable[int]) -> bool:
     """ニム和を計算し、先手必勝なら True を返す。
     >>> nim([7, 7])
