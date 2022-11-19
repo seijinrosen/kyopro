@@ -1,42 +1,26 @@
-from typing import Set
+from collections import defaultdict
+from typing import Callable, DefaultDict, List, TypeVar, Union
+
+_T = TypeVar("_T")
+
+
+def constant_factory(value: _T) -> Callable[[], _T]:
+    return lambda: value
+
 
 N = int(input())
 A = list(map(int, input().split()))
 Q = int(input())
 QUERIES = [map(int, input().split()) for _ in range(Q)]
 
-current_value = -1
-b = [0] * N
-changed: Set[int] = set()
+data: Union[List[int], DefaultDict[int, int]] = A
 
 for query in QUERIES:
     q = next(query)
 
     if q == 1:
-        x = next(query)
-
-        current_value = x
-        changed: Set[int] = set()
-
+        data = defaultdict(constant_factory(next(query)))
     elif q == 2:
-        i, x = query
-
-        if current_value == -1:
-            A[i - 1] += x
-        else:
-            if i - 1 in changed:
-                b[i - 1] += x
-            else:
-                b[i - 1] = x
-            changed.add(i - 1)
-
+        data[next(query) - 1] += next(query)
     elif q == 3:
-        i = next(query)
-
-        if current_value == -1:
-            print(A[i - 1])
-        else:
-            if i - 1 in changed:
-                print(current_value + b[i - 1])
-            else:
-                print(current_value)
+        print(data[next(query) - 1])
