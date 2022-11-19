@@ -14,7 +14,5 @@ for t, a, b in TAB:
         G[a].discard(b)
 
     elif t == 3:
-        if b in G[a] and a in G[b]:
-            print("Yes")
-        else:
-            print("No")
+        ans = b in G[a] and a in G[b]
+        print("Yes" if ans else "No")
