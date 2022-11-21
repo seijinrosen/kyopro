@@ -2,8 +2,7 @@ def odd(n: int) -> bool:
     return n % 2 == 1
 
 
-N = int(input())
-A = map(int, input().split())
+N, *A = map(int, open(0).read().split())
 
-ans = sum(odd(i) and odd(a) for i, a in enumerate(A, 1))
+ans = sum(map(odd, A[::2]))
 print(ans)
