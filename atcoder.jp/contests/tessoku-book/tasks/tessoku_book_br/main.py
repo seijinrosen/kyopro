@@ -1,5 +1,6 @@
 from collections import deque
 from functools import partial, reduce
+from itertools import compress
 from operator import lshift, xor
 from typing import List, Tuple
 
@@ -9,7 +10,8 @@ XYZ: List[Tuple[int, int, int]] = [
     tuple(int(x) - 1 for x in input().split()) for _ in range(M)
 ]
 
-start = sum((1 << i) * a for i, a in enumerate(A))
+# start = sum(1 << i for i, a in enumerate(A) if a)
+start = sum(1 << i for i in compress(range(N), A))
 goal = (1 << N) - 1
 
 dist = [-1] * (1 << N)
