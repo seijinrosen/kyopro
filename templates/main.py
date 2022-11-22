@@ -126,6 +126,10 @@ def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
     return [d[x] for x in lst]
 
 
+def count_2d(value: _T, table: Iterable[List[_T]]) -> int:
+    return sum(row.count(value) for row in table)
+
+
 def div_ceil(a: int, b: int) -> int:
     return (a + b - 1) // b
 
