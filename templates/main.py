@@ -357,6 +357,10 @@ def transpose(table: "list[list[_T]]") -> "list[list[_T]]":
     return list(map(list, zip(*table)))
 
 
+def transpose_str(table: List[str]) -> List[str]:
+    return list(map("".join, zip(*table)))
+
+
 def yes_no(b: Union[bool, int]) -> str:
     return "Yes" if b else "No"
 
