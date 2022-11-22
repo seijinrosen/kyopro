@@ -1,2 +1,2 @@
-H,W,X,Y=map(int,input().split())
-for r in[input()for _ in range(H)][X-1:X+2]:print(r[Y-1:Y+2])
+H,W,X,Y,*S=open(0).read().split()
+for r in S[int(X)-1:int(X)+2]:print(r[int(Y)-1:int(Y)+2])
