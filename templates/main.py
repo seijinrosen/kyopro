@@ -357,7 +357,7 @@ def tails(s: str) -> "list[str]":
     return [s[i:] for i in range(len(s) + 1)]
 
 
-def transpose(table: "list[list[_T]]") -> "list[list[_T]]":
+def transpose(table: Iterable[Iterable[_T]]) -> List[List[_T]]:
     return list(map(list, zip(*table)))
 
 
