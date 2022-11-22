@@ -1,7 +1,9 @@
 from copy import deepcopy
 from itertools import compress, product
 from operator import itemgetter
-from typing import Iterator, List, Tuple
+from typing import Iterable, Iterator, List, Tuple, TypeVar
+
+_T = TypeVar("_T")
 
 
 def bitset(n: int) -> Iterator[Tuple[int, ...]]:
@@ -10,12 +12,16 @@ def bitset(n: int) -> Iterator[Tuple[int, ...]]:
         yield bits
 
 
-def transpose_str(table: List[str]) -> List[str]:
-    return list(map("".join, zip(*table)))
+def count_2d(value: _T, table: Iterable[List[_T]]) -> int:
+    return sum(row.count(value) for row in table)
+
+
+def transpose(table: Iterable[Iterable[_T]]) -> List[List[_T]]:
+    return list(map(list, zip(*table)))
 
 
 H, W, K = map(int, input().split())
-C = [input() for _ in range(H)]
+C = [list(input()) for _ in range(H)]
 
 ans = 0
 
@@ -26,15 +32,15 @@ for bits in bitset(H):
 
     grid = deepcopy(C)
     for i in compress(range(H), bits):
-        grid[i] = "#" * W
+        grid[i] = ["#"] * W
 
-    grid = transpose_str(grid)
+    grid = transpose(grid)
     w = [row.count(".") for row in grid]
     ww = sorted(enumerate(w), key=itemgetter(1), reverse=True)
 
     for i, _ in ww[: K - sum_bits]:
-        grid[i] = "#" * H
+        grid[i] = ["#"] * H
 
-    ans = max(ans, sum(row.count("#") for row in grid))
+    ans = max(ans, count_2d("#", grid))
 
 print(ans)
