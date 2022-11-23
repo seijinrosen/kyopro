@@ -3,7 +3,7 @@ from bisect import bisect_left
 from collections import Counter
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
-from itertools import accumulate, compress, groupby, islice, product, tee
+from itertools import accumulate, combinations, compress, groupby, islice, product, tee
 from math import factorial, gcd
 from operator import mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
@@ -176,6 +176,16 @@ def int2bitset(n: int) -> Set[int]:
     {0}
     """
     return {i for i, x in enumerate(reversed(bin(n)[2:])) if x == "1"}
+
+
+def inversion(iterable: Iterable[int]) -> int:
+    """転倒数
+    >>> inversion([2, 3, 4, 1])
+    3
+    >>> inversion([3, 1, 2, 4])
+    2
+    """
+    return sum(y < x for x, y in combinations(iterable, 2))
 
 
 def odd(n: int) -> bool:
