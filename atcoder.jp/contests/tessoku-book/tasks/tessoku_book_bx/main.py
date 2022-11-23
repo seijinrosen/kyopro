@@ -7,7 +7,7 @@ MOD = 10**9 + 7
 dp = [1]
 dp_sum = [1]
 
-for i, x in enumerate(X[1:], start=1):
+for x in X[1:]:
     pos_l = bisect_left(X, x - R) - 1
     pos_r = bisect_left(X, x - L + 1) - 1
 
