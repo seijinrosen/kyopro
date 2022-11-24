@@ -84,9 +84,6 @@ combinations _ 0 = [[]]
 combinations [] _ = []
 combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs n
 
-count :: Eq a => a -> [a] -> Int
-count x = length . filter (== x)
-
 countText :: String -> String -> Int
 countText s = T.count (T.pack s) . T.pack
 
