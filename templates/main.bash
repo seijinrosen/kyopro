@@ -12,3 +12,6 @@ for ((i = 0; i < N; i += 2)); do
 done
 
 echo "$ans"
+
+# tr
+# wc
