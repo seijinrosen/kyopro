@@ -420,6 +420,7 @@ def input_int_tuple_list(n: int) -> List[Tuple[int, int]]:
 # N, M = map(int, input().split())
 # A = list(map(int, input().split()))
 # AB: List[Tuple[int, int]] = [tuple(map(int, input().split())) for _ in range(N)]
+# N, *A = map(int, open(0).read().split())
 
 
 if __name__ == "__main__":
