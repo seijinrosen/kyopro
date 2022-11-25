@@ -308,8 +308,13 @@ def nCr(n: int, r: int, mod: int = 0) -> int:
     return a * pow(b, mod - 2, mod) % mod
 
 
-def neighborhood(i: int, j: int) -> Iterator[Tuple[int, int]]:
-    for di, dj in zip((-1, 0, 0, 1), (0, -1, 1, 0)):
+def neighborhood(i: int, j: int, n: int = 4) -> Iterator[Tuple[int, int]]:
+    x = (-1, 0, 0, 1)
+    y = (0, -1, 1, 0)
+    if n == 8:
+        x = (-1, -1, -1, 0, 0, 1, 1, 1)
+        y = (-1, 0, 1, -1, 1, -1, 0, 1)
+    for di, dj in zip(x, y):
         yield i + di, j + dj
 
 
