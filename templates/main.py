@@ -134,6 +134,11 @@ def div_ceil(a: int, b: int) -> int:
     return (a + b - 1) // b
 
 
+def division(a: int, b: int, mod: int) -> int:
+    """a ÷ b を mod で割った余り"""
+    return a * pow(b, mod - 2, mod) % mod
+
+
 def divisors(n: int) -> List[int]:
     """約数列挙
     >>> divisors(12)
@@ -305,7 +310,7 @@ def nCr(n: int, r: int, mod: int = 0) -> int:
 
     a = factorial_mod(n)
     b = factorial_mod(r) * factorial_mod(n - r)
-    return a * pow(b, mod - 2, mod) % mod
+    return division(a, b, mod)
 
 
 def neighborhood(i: int, j: int, n: int = 4) -> Iterator[Tuple[int, int]]:
