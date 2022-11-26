@@ -1,0 +1,1 @@
+print(len(S:=input())+S.count("w"))
