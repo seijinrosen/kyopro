@@ -12,6 +12,9 @@ main = do
   as <- map read . words <$> getLine :: IO [Int]
   [a, b] <- getIntList
   ps <- getIntList
+  -- st <- replicateM n $ do
+  --   [s, t] <- words <$> getLine
+  --   return (s, read t)
 
   let ans = a `elem` ps
   let acc = scanl1 max as
