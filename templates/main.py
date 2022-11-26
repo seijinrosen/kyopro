@@ -1,10 +1,10 @@
 import sys
 from bisect import bisect_left
-from collections import Counter
+from collections import Counter, deque
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, combinations, compress, groupby, islice, product, tee
-from math import factorial, gcd
+from math import factorial, gcd, inf
 from operator import mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
@@ -128,6 +128,19 @@ def coordinate_compression(lst: List[Any], start: int = 0) -> List[int]:
 
 def count_2d(value: _T, table: Iterable[List[_T]]) -> int:
     return sum(row.count(value) for row in table)
+
+
+def dist_from(start: int, graph: List[List[Tuple[int, int]]]) -> List[float]:
+    dist = [inf] * len(graph)
+    dist[start] = 0
+    que = deque([start])
+    while que:
+        v = que.popleft()
+        for nv, c in graph[v]:
+            if dist[v] + c < dist[nv]:
+                dist[nv] = dist[v] + c
+                que.append(nv)
+    return dist
 
 
 def div_ceil(a: int, b: int) -> int:
