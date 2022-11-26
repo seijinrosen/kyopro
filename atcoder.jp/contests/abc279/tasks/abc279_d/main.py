@@ -1,26 +1,20 @@
 A, B = map(int, input().split())
 
+
+def fall_time(g: int) -> float:
+    return A / g**0.5
+
+
 lo = 1
 hi = 10**18
-g = 1
-
-for _ in range(100000):
-    g = (lo + hi) // 2
-
-    a = A / (g**0.5)
-    b = A / ((g + 1) ** 0.5)
-
-    if a - b > B:
-        lo = g + 1
+while lo < hi:
+    mid = (lo + hi) // 2
+    if fall_time(mid + 1) + B < fall_time(mid):
+        lo = mid + 1
     else:
-        hi = g
+        hi = mid
 
-if g == 1:
-    a = A / g**0.5 + B * (g - 1)
-    c = A / (g + 1) ** 0.5 + B * g
-    print(min(a, c))
-else:
-    a = A / g**0.5 + B * (g - 1)
-    b = A / (g - 1) ** 0.5 + B * (g - 2)
-    c = A / (g + 1) ** 0.5 + B * g
-    print(min(a, b, c))
+g = lo
+ans = fall_time(g) + B * (g - 1)
+
+print(ans)
