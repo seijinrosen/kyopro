@@ -370,8 +370,10 @@ def prime_factorize(n: int) -> "Counter[int]":
     return counter
 
 
-def prod(iterable: Iterable[int]) -> int:
-    return reduce(mul, iterable)
+def prod(iterable: Iterable[int], *, start: int = 1, mod: int = 0) -> int:
+    if mod:
+        return reduce(lambda a, b: a * b % mod, iterable, start)
+    return reduce(mul, iterable, start)
 
 
 def round_half_up(number: int, ndigits: int) -> int:
