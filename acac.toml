@@ -72,3 +72,11 @@ pre_execute = [
 ]
 execute = "node ${dir_path}/main.js"
 post_execute = ["rm ${dir_path}/main.js"]
+
+
+[language.settings.zsh]
+source_file_name = "main.zsh"
+template_file_path = "templates/main.zsh"
+[language.settings.zsh.commands]
+pre_execute = ["zsh --version"]
+execute = "zsh ${dir_path}/${source_file_name}"
