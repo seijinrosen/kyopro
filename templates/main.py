@@ -76,8 +76,8 @@ def accumulate_2d(table: "list[list[int]]") -> "list[list[int]]":
     return transpose([[0, *accumulate(column)] for column in transpose(acc)])
 
 
-def accumulate_with_initial(
-    iterable: Iterable[_S], func: Callable[[_T, _S], _T], initial: _T
+def accumulate_initial(
+    iterable: Iterable[_S], func: Callable[[_T, _S], _T], *, initial: _T
 ) -> Iterator[_T]:
     # https://docs.python.org/ja/3/library/itertools.html#itertools.accumulate
     total = initial
@@ -241,6 +241,10 @@ def inversion(iterable: Iterable[int]) -> int:
 
 def odd(n: int) -> bool:
     return n % 2 == 1
+
+
+def is_natural(n: int) -> bool:
+    return 0 <= n
 
 
 def is_prime(x: int) -> bool:
