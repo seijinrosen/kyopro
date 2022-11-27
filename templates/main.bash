@@ -1,5 +1,6 @@
 read -r N
 read -ra A
+
 for ((i = 0; i < N; i++)); do
     read -r s t
     S[i]=$s
@@ -7,16 +8,12 @@ for ((i = 0; i < N; i++)); do
 done
 
 ans=$((10 - N / 200))
-echo $ans
 
-ans=0
 for ((i = 0; i < N; i += 2)); do
     if ((A[i] % 2 == 1)); then
         ((ans++))
     fi
 done
-
-echo "$ans"
 
 for ((i = 0; i < N; i++)); do
     if $asleep; then
@@ -26,6 +23,13 @@ for ((i = 0; i < N; i++)); do
         asleep=true
     fi
 done
+
+prize=(0 300000 200000 100000)
+ans=$((prize[X] + prize[Y]))
+if ((X == 1 && Y == 1)); then
+    ((ans += 400000))
+fi
+echo $ans
 
 # tr
 # wc
