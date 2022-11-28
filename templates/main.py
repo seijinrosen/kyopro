@@ -20,6 +20,7 @@ class UnionFind:
         self.par = [-1] * n
         self.rank = [0] * n
         self.siz = [1] * n
+        self.group = n
 
     def root(self, x: int) -> int:
         if self.par[x] == -1:
@@ -41,6 +42,7 @@ class UnionFind:
         if self.rank[rx] == self.rank[ry]:
             self.rank[rx] += 1
         self.siz[rx] += self.siz[ry]
+        self.group -= 1
         return True
 
     def size(self, x: int) -> int:
