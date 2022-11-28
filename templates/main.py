@@ -5,7 +5,7 @@ from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, combinations, compress, groupby, islice, product, tee
 from math import factorial, gcd, inf
-from operator import mul, xor
+from operator import itemgetter, mul, xor
 from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
 
 sys.setrecursionlimit(10**9)
@@ -47,6 +47,14 @@ class UnionFind:
 
     def size(self, x: int) -> int:
         return self.siz[self.root(x)]
+
+    def kruskal(
+        self, edges: Iterable[Tuple[int, int, int]], already_sorted: bool = False
+    ) -> int:
+        """クラスカル法: 最小全域木 (Minimum spanning tree) の重みの総和"""
+        if not already_sorted:
+            edges = sorted(edges, key=itemgetter(2))
+        return sum(w for u, v, w in edges if self.unite(u, v))
 
 
 # more-itertools
