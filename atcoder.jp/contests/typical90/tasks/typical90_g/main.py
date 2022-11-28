@@ -1,4 +1,4 @@
-from bisect import bisect_left
+from bisect import bisect
 
 N = int(input())
 A = list(map(int, input().split()))
@@ -8,6 +8,6 @@ B = [int(input()) for _ in range(Q)]
 A.sort()
 
 for b in B:
-    i = bisect_left(A, b, hi=N - 1)
-    ans = min(abs(A[i] - b), abs(A[i - 1] - b))
+    i = bisect(A, b) % N
+    ans = min(abs(A[i] - b), abs(b - A[i - 1]))
     print(ans)
