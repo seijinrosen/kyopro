@@ -8,6 +8,6 @@ B = [int(input()) for _ in range(Q)]
 A.sort()
 
 for b in B:
-    i = bisect_left(A, b)
-    ans = min(abs(A[j] - b) for j in [i - 1, i] if 0 <= j < N)
+    i = bisect_left(A, b, hi=N - 1)
+    ans = min(abs(A[i] - b), abs(A[i - 1] - b))
     print(ans)
