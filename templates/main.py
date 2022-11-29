@@ -1,12 +1,23 @@
 import sys
 from bisect import bisect_left
-from collections import Counter, deque
+from collections import deque
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
 from itertools import accumulate, combinations, compress, groupby, islice, product, tee
 from math import factorial, gcd, inf
 from operator import itemgetter, mul, xor
-from typing import Any, Callable, Iterable, Iterator, List, Set, Tuple, TypeVar, Union
+from typing import (
+    Any,
+    Callable,
+    Counter,
+    Iterable,
+    Iterator,
+    List,
+    Set,
+    Tuple,
+    TypeVar,
+    Union,
+)
 
 sys.setrecursionlimit(10**9)
 _T = TypeVar("_T")
@@ -386,7 +397,7 @@ def pairwise(iterable: Iterable[_T]) -> "zip[tuple[_T, _T]]":
     return zip(a, b)
 
 
-def prime_factorize(n: int) -> "Counter[int]":
+def prime_factorize(n: int) -> Counter[int]:
     """素因数分解"""
     counter: Counter[int] = Counter()
     p = 2
