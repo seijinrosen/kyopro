@@ -140,6 +140,10 @@ def count_2d(value: _T, table: Iterable[List[_T]]) -> int:
     return sum(row.count(value) for row in table)
 
 
+def diff(iterable: Iterable[int]) -> Iterator[int]:
+    return (y - x for x, y in pairwise(iterable))
+
+
 def dist_from(start: int, graph: List[List[Tuple[int, int]]]) -> List[float]:
     dist = [inf] * len(graph)
     dist[start] = 0
