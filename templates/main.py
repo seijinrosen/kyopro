@@ -95,7 +95,8 @@ def triplewise(iterable: Iterable[_T]) -> Iterator[Tuple[_T, _T, _T]]:
 
 
 # functions
-def run_length_encoding(s: str) -> "list[tuple[str, int]]":
+def run_length_encoding(s: str) -> List[Tuple[str, int]]:
+    """ランレングス圧縮"""
     return [(k, len(list(g))) for k, g in groupby(s)]
 
 
