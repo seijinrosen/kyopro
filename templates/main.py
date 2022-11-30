@@ -67,6 +67,13 @@ class UnionFind:
             edges = sorted(edges, key=itemgetter(2))
         return sum(w for u, v, w in edges if self.unite(u, v))
 
+    def kruskal2(
+        self, edges: Iterable[Tuple[int, int, int]]
+    ) -> Tuple[List[Tuple[int, int, int]], int]:
+        """クラスカル法: 最小全域木 (Minimum spanning tree) を構成する辺の一例と重みの総和"""
+        mst_edges = [(u, v, w) for u, v, w in edges if self.unite(u, v)]
+        return mst_edges, sum(map(itemgetter(2), mst_edges))
+
 
 # more-itertools
 def iterate(func: Callable[[_T], _T], start: _T) -> Iterator[_T]:
