@@ -448,9 +448,12 @@ def snd(x: Tuple[Any, _T]) -> _T:
     return x[1]
 
 
-def sum_of_arithmetic_progression(head: int, last: int, count: int) -> int:
+def sum_of_arithmetic_progression(head: int, last: int, n: int = 0) -> int:
     """等差数列の和"""
-    return (head + last) * count // 2
+    if n == 0:
+        # 公差 d = 1 の場合、項数 n は省略可
+        n = last - head + 1
+    return n * (head + last) // 2
 
 
 def sum_of_each_digit(i: int) -> int:
