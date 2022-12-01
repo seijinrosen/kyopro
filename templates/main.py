@@ -449,6 +449,10 @@ def snd(x: Tuple[Any, _T]) -> _T:
     return x[1]
 
 
+def sum_2d(table: Iterable[Iterable[int]]) -> int:
+    return sum(map(sum, table))
+
+
 def sum_of_arithmetic_progression(head: int, last: int, n: int = 0) -> int:
     """等差数列の和"""
     if n == 0:
