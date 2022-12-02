@@ -252,6 +252,14 @@ bool some(Predicate pred, const vector<T> &vec) {
   return any_of(vec.begin(), vec.end(), pred);
 }
 
+string sort(const string &s, bool reverse = false) {
+  string ret = {s.begin(), s.end()};
+  if (reverse)
+    sort(ret.begin(), ret.end(), greater());
+  else
+    sort(ret.begin(), ret.end());
+  return ret;
+}
 template <typename T>
 vector<T> sort(const vector<T> &vec, bool reverse = false) {
   vector<T> ret = {vec.begin(), vec.end()};
