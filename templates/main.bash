@@ -31,16 +31,23 @@ if ((X == 1 && Y == 1)); then
 fi
 echo $ans
 
-ABCD=$(tr " " "\n" | sort -n)
-array=($ABCD)
-A=${array[0]}
-B=${array[1]}
-C=${array[2]}
-D=${array[3]}
+# ABCD=$(tr " " "\n" | sort -n)
+# array=($ABCD)
+# A=${array[0]}
+# B=${array[1]}
+# C=${array[2]}
+# D=${array[3]}
 ans=$((A + B + C == D || A + D == B + C))
 ((ans)) && echo "Yes" || echo "No"
 
 N=$(tr " " "\n" | sort -n | tr -d "\n")
 [ "$N" == "1479" ] && echo "YES" || echo "NO"
+
+read -r S
+if ((${#S} == 2)); then
+    ans=$S
+else
+    ans=$(echo "$S" | rev)
+fi
 
 # wc
