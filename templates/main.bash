@@ -40,5 +40,7 @@ D=${array[3]}
 ans=$((A + B + C == D || A + D == B + C))
 ((ans)) && echo "Yes" || echo "No"
 
-# tr
+N=$(tr " " "\n" | sort -n | tr -d "\n")
+[ "$N" == "1479" ] && echo "YES" || echo "NO"
+
 # wc
