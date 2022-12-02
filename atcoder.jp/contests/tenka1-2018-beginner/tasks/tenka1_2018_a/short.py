@@ -1,0 +1,1 @@
+print([S:=input(),S[::-1]][2<len(S)])
