@@ -126,6 +126,11 @@ def bitset(n: int) -> Iterator[Tuple[int, ...]]:
         yield bits
 
 
+def bitset_2d(h: int, w: int) -> Iterator[Tuple[Tuple[int, ...]]]:
+    for bits in product(bitset(w), repeat=h):
+        yield bits
+
+
 def bool2score(x: Union[bool, int]) -> int:
     """
     >>> bool2score(False)
@@ -378,14 +383,20 @@ def nCr(n: int, r: int, mod: int = 0) -> int:
     return division(a, b, mod)
 
 
-def neighborhood(i: int, j: int, n: int = 4) -> Iterator[Tuple[int, int]]:
+def neighborhood(
+    i: int, j: int, h: int, w: int, include_self: bool = False, n: int = 4
+) -> Iterator[Tuple[int, int]]:
     x = (-1, 0, 0, 1)
     y = (0, -1, 1, 0)
     if n == 8:
         x = (-1, -1, -1, 0, 0, 1, 1, 1)
         y = (-1, 0, 1, -1, 1, -1, 0, 1)
+    if include_self:
+        yield i, j
     for di, dj in zip(x, y):
-        yield i + di, j + dj
+        ni, nj = i + di, j + dj
+        if 0 <= ni < h and 0 <= nj < w:
+            yield ni, nj
 
 
 def nim(iterable: Iterable[int]) -> bool:
