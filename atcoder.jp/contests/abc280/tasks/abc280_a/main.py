@@ -1,10 +1,12 @@
+from typing import Iterable
+
+
+def sum_2d(table: Iterable[Iterable[int]]) -> int:
+    return sum(map(sum, table))
+
+
 H, W = map(int, input().split())
-S = [input() for _ in range(H)]
+S = [[c == "#" for c in input()] for _ in range(H)]
 
-cnt = 0
-for row in S:
-    for c in row:
-        if c == "#":
-            cnt += 1
-
-print(cnt)
+ans = sum_2d(S)
+print(ans)
