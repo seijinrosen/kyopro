@@ -1,11 +1,7 @@
+from itertools import zip_longest
+
 S = input()
 T = input()
 
-i = 1
-for s, t in zip(S, T):
-    if s != t:
-        ans = i
-        break
-    i += 1
-
-print(i)
+ans = next(i for i, (s, t) in enumerate(zip_longest(S, T), 1) if s != t)
+print(ans)
