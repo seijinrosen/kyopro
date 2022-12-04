@@ -120,6 +120,17 @@ def bin2int(b: str) -> int:
     return int(b, 2)
 
 
+def binary_search(lo: int, hi: int, pred: Callable[[int], bool]) -> int:
+    """二分探索の雛形"""
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if pred(mid):
+            hi = mid
+        else:
+            lo = mid + 1
+    return hi
+
+
 def bitset(n: int) -> Iterator[Tuple[int, ...]]:
     """bit 全探索"""
     for bits in product((0, 1), repeat=n):
@@ -301,6 +312,16 @@ def lcm(x: int, y: int) -> int:
     996492287418565109
     """
     return x // gcd(x, y) * y
+
+
+def legendre(n: int, p: int) -> int:
+    """ルジャンドルの公式: n! は 素数 p で何回割り切れるか"""
+    ret = 0
+    i = 1
+    while n // p**i:
+        ret += n // p**i
+        i += 1
+    return ret
 
 
 def lis(xs: Iterable[int]) -> int:
