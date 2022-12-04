@@ -1,3 +1,4 @@
+from itertools import count, takewhile
 from typing import Callable, Counter
 
 
@@ -18,14 +19,13 @@ def prime_factorize(n: int) -> Counter[int]:
     return counter
 
 
+def is_positive(n: int) -> bool:
+    return 0 < n
+
+
 def legendre(n: int, p: int) -> int:
     """ルジャンドルの公式: n! は 素数 p で何回割り切れるか"""
-    ret = 0
-    i = 1
-    while n // p**i:
-        ret += n // p**i
-        i += 1
-    return ret
+    return sum(takewhile(is_positive, (n // p**i for i in count(1))))
 
 
 K = int(input())
@@ -38,7 +38,6 @@ def pred(n: int) -> bool:
 
 
 def binary_search(lo: int, hi: int, pred: Callable[[int], bool]) -> int:
-    """二分探索の雛形"""
     while lo < hi:
         mid = (lo + hi) // 2
         if pred(mid):
