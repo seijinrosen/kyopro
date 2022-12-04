@@ -9,15 +9,13 @@ def bitset(n: int) -> Iterator[Tuple[int, ...]]:
 
 
 def solve(bits: Tuple[int, ...]) -> int:
-    stack: list[int] = []
-    now = 1
+    stack = [1]
     for i, op in enumerate(bits, 2):
         if op:
-            now *= i
+            stack[-1] *= i
         else:
-            stack.append(now)
-            now = i
-    return sum(stack) + now
+            stack.append(i)
+    return sum(stack)
 
 
 N = int(input())
