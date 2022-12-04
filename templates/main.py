@@ -126,6 +126,12 @@ def accumulate_initial(
         yield total
 
 
+def apply_n_times(func: Callable[[_T], _T], start: _T, n: int) -> _T:
+    for _ in range(n):
+        start = func(start)
+    return start
+
+
 def bin2int(b: str) -> int:
     return int(b, 2)
 
