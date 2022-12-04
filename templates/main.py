@@ -333,6 +333,11 @@ def legendre(n: int, p: int) -> int:
     return sum(takewhile(is_positive, (n // p**i for i in count(1))))
 
 
+def legendre2(n: int, k: int) -> bool:
+    """n! は k の倍数か？"""
+    return all(e <= legendre(n, p) for p, e in prime_factorize(k).items())
+
+
 def lis(xs: Iterable[int]) -> int:
     """最長増加部分列 (Longest increasing subsequence) の長さ
     >>> lis([2, 3, 1, 6, 4, 5])
