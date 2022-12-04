@@ -3,7 +3,17 @@ from bisect import bisect_left
 from collections import deque
 from decimal import ROUND_HALF_UP, Decimal
 from functools import reduce
-from itertools import accumulate, combinations, compress, groupby, islice, product, tee
+from itertools import (
+    accumulate,
+    combinations,
+    compress,
+    count,
+    groupby,
+    islice,
+    product,
+    takewhile,
+    tee,
+)
 from math import factorial, gcd, inf
 from operator import itemgetter, mul, xor
 from typing import (
@@ -296,6 +306,10 @@ def is_natural(n: int) -> bool:
     return 0 <= n
 
 
+def is_positive(n: int) -> bool:
+    return 0 < n
+
+
 def is_prime(x: int) -> bool:
     return all(x % i != 0 for i in range(2, int(x**0.5) + 1))
 
@@ -316,12 +330,7 @@ def lcm(x: int, y: int) -> int:
 
 def legendre(n: int, p: int) -> int:
     """ルジャンドルの公式: n! は 素数 p で何回割り切れるか"""
-    ret = 0
-    i = 1
-    while n // p**i:
-        ret += n // p**i
-        i += 1
-    return ret
+    return sum(takewhile(is_positive, (n // p**i for i in count(1))))
 
 
 def lis(xs: Iterable[int]) -> int:
