@@ -50,4 +50,8 @@ else
     ans=$(echo "$S" | rev)
 fi
 
+b=$(echo "$S" | tr -cd 'B' | wc -c)
+r=$(echo "$S" | tr -cd 'R' | wc -c)
+((b < r)) && echo "Yes" || echo "No"
+
 # wc
