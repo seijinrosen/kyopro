@@ -14,7 +14,7 @@ from itertools import (
     takewhile,
     tee,
 )
-from math import factorial, gcd, inf
+from math import factorial, gcd, inf, sqrt
 from operator import itemgetter, mul, xor
 from typing import (
     Any,
@@ -193,6 +193,11 @@ def count_2d(value: _T, table: Iterable[List[_T]]) -> int:
 
 def diff(iterable: Iterable[int]) -> Iterator[int]:
     return (y - x for x, y in pairwise(iterable))
+
+
+def dist(p: Iterable[float], q: Iterable[float]) -> float:
+    # https://docs.python.org/ja/3/library/math.html#math.dist
+    return sqrt(sum((px - qx) ** 2.0 for px, qx in zip(p, q)))
 
 
 def dist_from(start: int, graph: List[List[Tuple[int, int]]]) -> List[float]:
