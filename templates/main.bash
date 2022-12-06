@@ -54,4 +54,10 @@ b=$(echo "$S" | tr -cd 'B' | wc -c)
 r=$(echo "$S" | tr -cd 'R' | wc -c)
 ((b < r)) && echo "Yes" || echo "No"
 
+read -r A
+read -r B
+x=$((B * 5))
+# 数値 x と 文字列 A を文字列として連結
+x+=$A
+
 # wc
