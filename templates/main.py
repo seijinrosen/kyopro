@@ -373,7 +373,7 @@ def lis(xs: Iterable[int]) -> int:
 def meguru(pred: Callable[[int], bool], ok: int, ng: int) -> int:
     """めぐる式二分探索
     最大値を求める場合: ok < ng
-    最小値を求める場合: ng < ok
+    最小値を求める場合: ok > ng
     """
     while 1 < abs(ok - ng):
         mid = (ok + ng) // 2
