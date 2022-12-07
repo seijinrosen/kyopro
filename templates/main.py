@@ -23,6 +23,7 @@ from typing import (
     Iterable,
     Iterator,
     List,
+    Sequence,
     Set,
     Tuple,
     TypeVar,
@@ -33,6 +34,31 @@ sys.setrecursionlimit(10**9)
 _T = TypeVar("_T")
 _S = TypeVar("_S")
 _U = TypeVar("_U")
+
+
+class Graph:
+    nodes: List[List[Tuple[int, int]]]
+
+    def __init__(self, n: int, edges: Iterable[Tuple[int, int, int]]) -> None:
+        self.nodes = [[] for _ in range(n)]
+        for u, v, w in edges:
+            self.nodes[u].append((v, w))
+            self.nodes[v].append((u, w))
+
+    def diameter(self) -> float:
+        return max(self.dist_from(argmax(self.dist_from(0))))
+
+    def dist_from(self, start: int) -> List[float]:
+        dist = [inf] * len(self.nodes)
+        dist[start] = 0
+        que = deque([start])
+        while que:
+            v = que.popleft()
+            for nv, w in self.nodes[v]:
+                if dist[v] + w < dist[nv]:
+                    dist[nv] = dist[v] + w
+                    que.append(nv)
+        return dist
 
 
 class UnionFind:
@@ -130,6 +156,10 @@ def apply_n_times(func: Callable[[_T], _T], start: _T, n: int) -> _T:
     for _ in range(n):
         start = func(start)
     return start
+
+
+def argmax(sequence: Sequence[float]) -> int:
+    return sequence.index(max(sequence))
 
 
 def bin2int(b: str) -> int:
