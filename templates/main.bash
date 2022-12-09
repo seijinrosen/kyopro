@@ -29,7 +29,6 @@ ans=$((prize[X] + prize[Y]))
 if ((X == 1 && Y == 1)); then
     ((ans += 400000))
 fi
-echo $ans
 
 # ABCD=$(tr " " "\n" | sort -n)
 # array=($ABCD)
@@ -61,3 +60,6 @@ x=$((B * 5))
 x+=$A
 
 echo "$S" | tr -c "${S:K-1:1}"\\n '*'
+
+result=$(grep -E "^(hi)+$" | wc -c)
+((result == 0)) && echo "No" || echo "Yes"
