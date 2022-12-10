@@ -1,5 +1,4 @@
-N,t,*A=map(int,open(0).read().split())
+N,t,*A=map(int,open(i:=0).read().split())
 t%=sum(A)
-for i,a in enumerate(A,1):
- if t<a:print(i,t);break
- t-=a
+while A[i]<t:t-=A[i];i+=1
+print(i+1,t)
