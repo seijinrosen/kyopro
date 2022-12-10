@@ -63,3 +63,5 @@ echo "$S" | tr -c "${S:K-1:1}"\\n '*'
 
 result=$(grep -E "^(hi)+$" | wc -c)
 ((result == 0)) && echo "No" || echo "Yes"
+
+grep -Eq "^[A-Z][^0][0-9]{5}[A-Z]$" && echo "Yes" || echo "No"
