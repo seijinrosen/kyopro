@@ -74,6 +74,8 @@ function* iterate<T>(func: (arg: T) => T, start: T) {
     start = func(start);
   }
 }
+const isLower = (s: string) => isNaN(+s) && s.toLowerCase() === s;
+const isUpper = (s: string) => isNaN(+s) && s.toUpperCase() === s;
 const odd = (n: number) => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
 const max = <T extends number | bigint>(array: T[]) =>
