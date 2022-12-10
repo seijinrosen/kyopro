@@ -6,6 +6,9 @@ import qualified Data.Map as Map
 import Data.Maybe (fromMaybe)
 import qualified Data.Text as T
 
+solve :: String -> Bool
+solve s = True
+
 main :: IO ()
 main = do
   n <- readLn :: IO Int
@@ -21,6 +24,7 @@ main = do
 
   print ans
   putStrLn $ yesNo ans
+  getLine >>= putStrLn . yesNo . solve
 
 -- input functions
 
@@ -177,3 +181,10 @@ zfill width s
   | otherwise = replicate diff '0' ++ s
   where
     diff = width - length s
+
+-- misc
+
+cond2 :: String -> Bool
+cond2 s = case reads s of
+  [(n, _)] -> 100000 <= n && n <= 999999
+  _ -> False
