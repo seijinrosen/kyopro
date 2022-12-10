@@ -1,2 +1,2 @@
 import re
-print(re.sub("\D[^0]\d{5}\D","",input())and"No"or"Yes")
+print(re.match("\D[^0]\d{5}\D",input())and"Yes"or"No")
