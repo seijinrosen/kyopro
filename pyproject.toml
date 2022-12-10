@@ -13,7 +13,7 @@ numpy = "1.18.2"
 scipy = "1.4.1"
 
 [tool.poetry.group.dev.dependencies]
-acac = "^0.2.0"
+acac = "^0.3.0"
 bandit = "^1.7.4"
 black = "^22.8.0"
 isort = "^5.10.1"
