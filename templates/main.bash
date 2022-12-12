@@ -65,3 +65,6 @@ result=$(grep -E "^(hi)+$" | wc -c)
 ((result == 0)) && echo "No" || echo "Yes"
 
 grep -Eq "^[A-Z][^0][0-9]{5}[A-Z]$" && echo "Yes" || echo "No"
+
+# https://atcoder.jp/contests/abc281/tasks/abc281_a
+seq "$N" -1 0
