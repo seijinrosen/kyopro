@@ -1,3 +1,9 @@
+div_ceil() {
+    echo $((($1 + $2 - 1) / $2))
+}
+
+echo $(($(div_ceil "$Y"*"$Z" "$X") - 1))
+
 read -r N
 read -ra A
 
