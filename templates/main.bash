@@ -74,3 +74,6 @@ grep -Eq "^[A-Z][^0][0-9]{5}[A-Z]$" && echo "Yes" || echo "No"
 
 # https://atcoder.jp/contests/abc281/tasks/abc281_a
 seq "$N" -1 0
+
+# https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_b
+(($(tr -cd 'x' | wc -c) <= 7)) && echo "YES" || echo "NO"
