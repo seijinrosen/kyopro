@@ -77,3 +77,17 @@ seq "$N" -1 0
 
 # https://atcoder.jp/contests/m-solutions2019/tasks/m_solutions2019_b
 (($(tr -cd 'x' | wc -c) <= 7)) && echo "YES" || echo "NO"
+
+# https://atcoder.jp/contests/jsc2019-qual/tasks/jsc2019_qual_a
+is_product_day() {
+    local m=$1
+    local d=$2
+    local d10=$((d / 10))
+    local d1=$((d % 10))
+    echo $((d1 >= 2 && d10 >= 2 && d1 * d10 <= m))
+}
+for ((d = 1; d <= D; d++)); do
+    if (($(is_product_day "$M" $d))); then
+        ((ans++))
+    fi
+done
