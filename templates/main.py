@@ -14,7 +14,7 @@ from itertools import (
     takewhile,
     tee,
 )
-from math import factorial, gcd, inf, sqrt
+from math import factorial, gcd, inf, modf, sqrt
 from operator import itemgetter, mul, xor
 from typing import (
     Any,
@@ -162,6 +162,18 @@ def argmax(sequence: Sequence[float]) -> int:
     return sequence.index(max(sequence))
 
 
+def baseN2float(x: str, base: int) -> float:
+    """base 進法で x と表される数を 10 進法にする
+    https://algo-method.com/tasks/1182
+    >>> baseN2float("1.23", 5)
+    1.52
+    >>> baseN2float("A.C", 16)
+    10.75
+    """
+    i, f = x.split(".")
+    return int(i, base) + sum(1 / base**i * int(x, base) for i, x in enumerate(f, 1))
+
+
 def bin2int(b: str) -> int:
     return int(b, 2)
 
@@ -287,6 +299,28 @@ def eratosthenes(n: int) -> List[int]:
 
 def even(n: int) -> bool:
     return n % 2 == 0
+
+
+def float2baseN(x: float, base: int) -> str:
+    """10 進法で x と表される数を base 進法にする
+    https://algo-method.com/tasks/1182
+    >>> float2baseN(1.25, 2)
+    '1.01'
+    >>> float2baseN(2.375, 2)
+    '10.011'
+    """
+    f, i = modf(x)
+    ret = int2base(int(i), base) + "."
+    now = f
+    for i in range(1, 11):
+        if not now:
+            break
+        d, m = divmod(now, 1 / base**i)
+        ret += str(int(d)) if d else "0"
+        now = m
+    else:
+        ret += "..."
+    return ret
 
 
 def fst(x: Tuple[_T, Any]) -> _T:
