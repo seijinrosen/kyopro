@@ -64,6 +64,9 @@ getIntTupleList n = replicateM n getIntTuple
 
 -- print functions
 
+printList :: Show a => [a] -> IO ()
+printList = putStrLn . unwords . map show
+
 printVertically :: (Foldable t, Show a) => t a -> IO ()
 printVertically = mapM_ print
 
