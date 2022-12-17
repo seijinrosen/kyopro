@@ -3,17 +3,12 @@ from typing import List
 N = int(input())
 S = input()
 
-is_kukurare = False
-
+is_bracketed = False
 ans: List[str] = []
 
 for c in S:
-    if not is_kukurare and c == ",":
-        ans.append(".")
-    else:
-        ans.append(c)
-
+    ans.append("." if c == "," and not is_bracketed else c)
     if c == '"':
-        is_kukurare = not is_kukurare
+        is_bracketed = not is_bracketed
 
 print("".join(ans))
