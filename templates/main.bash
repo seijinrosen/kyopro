@@ -1,3 +1,7 @@
+# https://atcoder.jp/contests/abc282/tasks/abc282_a
+ascii_uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+echo $ascii_uppercase | head -c "$K"
+
 div_ceil() {
     echo $((($1 + $2 - 1) / $2))
 }
