@@ -5,6 +5,7 @@ const input = () => inputLines[inputLinesIndex++];
 const print = (...messages: any) => console.log(...messages);
 
 const asciiLowercase = "abcdefghijklmnopqrstuvwxyz";
+const asciiUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const Counter = <T>(arr: T[]) => {
   const counter = new Map<T, number>();
