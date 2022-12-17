@@ -6,6 +6,7 @@ using namespace std;
 using ll = long long;
 
 const string ascii_lowercase = "abcdefghijklmnopqrstuvwxyz";
+const string ascii_uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // print functions -------------------------------------------------------------
 template <typename T>
