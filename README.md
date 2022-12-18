@@ -18,3 +18,10 @@
 - [GRAPH × GRAPH：競技プログラミングにおけるグラフ可視化サイト](https://hello-world-494ec.firebaseapp.com/)
 - [AtCoder Companions](https://atcoder-companions.kakira.dev/)
 - [AtCoder Clans](https://kato-hiro.github.io/AtCoderClans/)
+
+## 問題の種類
+
+### 二部グラフ
+
+- [典型 90 | 026 - Independent Set on a Tree（★4）](https://atcoder.jp/contests/typical90/tasks/typical90_z)
+- [ABC282 | D - Make Bipartite 2](https://atcoder.jp/contests/abc282/tasks/abc282_d)
