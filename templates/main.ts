@@ -44,12 +44,21 @@ const count: {
     ? iterable.split("").filter((a) => a === x).length
     : iterable.filter((a) => a === x).length;
 const countIf = <T>(p: (x: T) => boolean, xs: T[]) => xs.filter(p).length;
+
 // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Set#基本的な集合演算の実装
 const difference = <T>(setA: Set<T>, setB: Set<T>) => {
   const _difference = new Set(setA);
   for (const elem of setB) _difference.delete(elem);
   return _difference;
 };
+const symmetricDifference = <T>(setA: Set<T>, setB: Set<T>) => {
+  const _difference = new Set(setA);
+  for (const elem of setB)
+    if (_difference.has(elem)) _difference.delete(elem);
+    else _difference.add(elem);
+  return _difference;
+};
+
 const countText = (countString: string, s: string) =>
   [...s.matchAll(RegExp(countString, "g"))].length;
 const div = (x: number, y: number) => Math.floor(x / y);
