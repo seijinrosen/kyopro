@@ -6,3 +6,8 @@ node_modules/
 a.out
 cache.html
 main.js
+
+
+# Added by cargo
+
+/target
