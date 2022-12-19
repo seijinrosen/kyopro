@@ -320,6 +320,14 @@ int sum_of_each_digit(int i) {
 }
 
 template <typename T>
+set<T> symmetric_difference(const set<T> &set1, const set<T> &set2) {
+  set<T> result;
+  set_symmetric_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                           inserter(result, result.end()));
+  return result;
+}
+
+template <typename T>
 vector<T> tail(const vector<T> &vec) {
   return {vec.begin() + 1, vec.end()};
 }
@@ -334,6 +342,11 @@ string take(int n, const string &s) { return s.substr(0, n); }
 template <typename T>
 vector<T> take(int n, const vector<T> &vec) {
   return {vec.begin(), vec.begin() + n};
+}
+
+template <typename C, typename T = typename C::value_type>
+vector<T> to_vector(const C &container) {
+  return {container.begin(), container.end()};
 }
 
 string translate(const map<char, char> &mp, const string &s) {
