@@ -2,6 +2,9 @@
 ascii_uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 echo $ascii_uppercase | head -c "$K"
 
+count() {
+    tr -cd "$1" | wc -c
+}
 div_ceil() {
     echo $((($1 + $2 - 1) / $2))
 }
