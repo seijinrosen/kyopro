@@ -1,15 +1,15 @@
 use std::io;
 
-fn main() {
-    let n = read_ln();
-    let h = read_ln();
-    let w = read_ln();
+const ASCII_UPPERCASE: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    let ans = (n - h + 1) * (n - w + 1);
+fn main() {
+    let k = read_ln();
+
+    let ans = &ASCII_UPPERCASE[..k];
     println!("{}", ans);
 }
 
-fn read_ln() -> i32 {
+fn read_ln() -> usize {
     let mut buf = String::new();
     io::stdin()
         .read_line(&mut buf)
