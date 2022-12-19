@@ -10,8 +10,9 @@ fn main() {
 }
 
 fn read_ln() -> i32 {
-    let mut n = String::new();
-    io::stdin().read_line(&mut n).expect("Failed to read line");
-    let n: i32 = n.trim().parse().expect("Please type a number!");
-    n
+    let mut buf = String::new();
+    io::stdin()
+        .read_line(&mut buf)
+        .expect("Failed to read line");
+    buf.trim().parse().expect("Please type a number!")
 }
