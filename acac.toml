@@ -63,6 +63,18 @@ pre_execute = ["python3 --version"]
 execute = "python3 ${dir_path}/${source_file_name}"
 
 
+[language.settings.rs]
+source_file_name = "main.rs"
+template_file_path = "src/main.rs"
+[language.settings.rs.commands]
+pre_execute = [
+    "cargo --version",
+    "cargo build",
+]
+execute = "target/debug/kyopro"
+post_execute = ["cp src/main.rs ${dir_path}"]
+
+
 [language.settings.ts]
 source_file_name = "main.ts"
 template_file_path = "templates/main.ts"
