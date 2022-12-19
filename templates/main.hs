@@ -2,9 +2,13 @@ import Control.Monad (replicateM)
 import Data.Char (digitToInt, intToDigit)
 import Data.Function ((&))
 import Data.List (find, findIndices, isPrefixOf, stripPrefix)
+import Data.Map (Map)
 import qualified Data.Map as Map
 import Data.Maybe (fromMaybe)
+import Data.Set (Set)
+import qualified Data.Set as Set
 import qualified Data.Text as T
+import Util (count)
 
 solve :: String -> Bool
 solve s = True
@@ -97,7 +101,7 @@ combinations (x : xs) n = map (x :) (combinations xs (n - 1)) ++ combinations xs
 countText :: String -> String -> Int
 countText s = T.count (T.pack s) . T.pack
 
-counter :: (Ord k, Num a) => [k] -> Map.Map k a
+counter :: (Ord k, Num a) => [k] -> Map k a
 counter xs = Map.fromListWith (+) $ zip xs (repeat 1)
 
 divCeil :: Integral a => a -> a -> a
@@ -168,10 +172,13 @@ stripPrefixFromList (prefix : prefixes) s = case stripPrefix prefix s of
 sumOfEachDigit :: Int -> Int
 sumOfEachDigit i = sum $ map digitToInt $ show i
 
+symmetricDifference :: Ord a => Set a -> Set a -> Set a
+symmetricDifference s1 s2 = Set.union s1 s2 `Set.difference` Set.intersection s1 s2
+
 toLowerAlphabet :: Int -> Char
 toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
 
-translate :: Ord k => Map.Map k k -> k -> k
+translate :: Ord k => Map k k -> k -> k
 translate mp x = fromMaybe x $ Map.lookup x mp
 
 yesNo :: Bool -> String
