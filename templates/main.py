@@ -334,6 +334,16 @@ def full_enumerate(lst: List[_T]) -> "Iterator[compress[_T]]":
 
 
 def int2base(number: int, base: int) -> str:
+    """10 進法の整数 number を、base 進法表記にする
+    >>> int2base(13, 2)
+    '1101'
+    >>> int2base(2022, 5)
+    '31042'
+    >>> int2base(0, 3)
+    '0'
+    >>> int2base(18014398509481983, 8)
+    '777777777777777777'
+    """
     d = {2: bin, 8: oct, 16: hex}
     if base in d:
         return d[base](number)[2:]
