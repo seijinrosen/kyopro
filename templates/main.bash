@@ -16,6 +16,13 @@ max() {
 min() {
     echo $(($1 < $2 ? $1 : $2))
 }
+sum() {
+    local result=0
+    for x in $1; do
+        ((result += x))
+    done
+    echo $result
+}
 
 echo $(($(div_ceil "$Y"*"$Z" "$X") - 1))
 
@@ -106,3 +113,23 @@ for ((d = 1; d <= D; d++)); do
         ((ans++))
     fi
 done
+
+# https://atcoder.jp/contests/arc117/tasks/arc117_a
+array=()
+if ((A < B)); then
+    for ((i = 1; i <= B; i++)); do
+        array+=(-"$i")
+    done
+    for ((i = 1; i < A; i++)); do
+        array+=("$i")
+    done
+else
+    for ((i = 1; i <= A; i++)); do
+        array+=("$i")
+    done
+    for ((i = 1; i < B; i++)); do
+        array+=(-"$i")
+    done
+fi
+array+=($((-$(sum "${array[*]}"))))
+echo "${array[@]}"
