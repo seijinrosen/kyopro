@@ -14,9 +14,15 @@ fn main() {
     // main
     // let ans = &ASCII_UPPERCASE[..k];
     let ans = cmp::max(a, c) <= cmp::min(b, d);
+    // let mut vec: Vec<i32> = Vec::new();
+    // for i in 1..=a {
+    //     vec.push(i);
+    // }
+    // vec.push(-vec.iter().sum::<i32>());
 
     // output
     println!("{}", if ans { "Yes" } else { "No" });
+    // println!("{}", itertools::join(vec, " "));
 }
 
 // fn read_ln() -> usize {
