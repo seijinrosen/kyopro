@@ -21,6 +21,7 @@ fn main() {
     // vec.push(-vec.iter().sum::<i32>());
 
     // output
+    println!("{}", ans);
     println!("{}", if ans { "Yes" } else { "No" });
     // println!("{}", itertools::join(vec, " "));
 }
