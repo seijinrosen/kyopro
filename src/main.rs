@@ -19,6 +19,11 @@ fn main() {
     //     vec.push(i);
     // }
     // vec.push(-vec.iter().sum::<i32>());
+    // let ans = match day.as_str() {
+    //     "Monday" => 5,
+    //     "Tuesday" => 4,
+    //     _ => 0,
+    // };
 
     // output
     println!("{}", ans);
