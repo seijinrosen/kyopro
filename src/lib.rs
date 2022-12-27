@@ -1,3 +1,5 @@
+use std::io;
+
 /// うるう年かどうかを判定する。
 ///
 /// # Examples
@@ -16,4 +18,13 @@ pub fn is_leap(year: i32) -> bool {
         y if y % 100 == 0 => false,
         _ => year % 4 == 0,
     }
+}
+
+/// 一行読み込んで、数値に変換する。
+pub fn read_ln() -> usize {
+    let mut buf = String::new();
+    io::stdin()
+        .read_line(&mut buf)
+        .expect("Failed to read line");
+    buf.trim().parse().expect("Please type a number!")
 }
