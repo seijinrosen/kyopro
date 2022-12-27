@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
+def leap?(year)
+  return true if (year % 400).zero?
+  return false if (year % 100).zero?
+
+  (year % 4).zero?
+end
+
 day = gets.chomp
+Y = gets.to_i
 
 ans = case day
       when 'Monday'
@@ -18,3 +26,4 @@ ans = case day
       end
 
 p ans
+puts (leap? Y) && 'YES' || 'NO'
