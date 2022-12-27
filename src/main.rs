@@ -38,11 +38,3 @@ fn main() {
 //         .expect("Failed to read line");
 //     buf.trim().parse().expect("Please type a number!")
 // }
-
-// fn is_leap(y: i32) -> bool {
-//     match y {
-//         y if y % 400 == 0 => true,
-//         y if y % 100 == 0 => false,
-//         _ => y % 4 == 0,
-//     }
-// }
