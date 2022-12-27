@@ -1,11 +1,8 @@
 {
-  "evenBetterToml.schema.enabled": false,
-  "ruby.useBundler": true,
-  "ruby.useLanguageServer": true,
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": true
-    }
+  "[ruby]": {
+    "editor.tabSize": 2
   },
-  "ruby.format": "rubocop"
+  "evenBetterToml.schema.enabled": false,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true
 }
