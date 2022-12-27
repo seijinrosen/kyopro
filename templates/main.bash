@@ -8,6 +8,16 @@ count() {
 div_ceil() {
     echo $((($1 + $2 - 1) / $2))
 }
+is_leap() {
+    local year=$1
+    if ((year % 400 == 0)); then
+        echo 1
+    elif ((year % 100 == 0)); then
+        echo 0
+    else
+        echo $((year % 4 == 0))
+    fi
+}
 # len(S)
 # ${#S}
 max() {
@@ -22,6 +32,9 @@ sum() {
         ((result += x))
     done
     echo $result
+}
+yes_no() {
+    (($1)) && echo "YES" || echo "NO"
 }
 
 echo $(($(div_ceil "$Y"*"$Z" "$X") - 1))
