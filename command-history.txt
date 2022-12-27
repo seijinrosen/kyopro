@@ -1,3 +1,4 @@
 cargo init
 bundle init
 bundle install
+bundle add solargraph

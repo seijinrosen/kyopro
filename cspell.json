@@ -15,12 +15,10 @@
     "Neos",
     "popleft",
     "proconio",
-    "progressbar",
-    "rexml",
-    "rubocop",
     "scanl",
     "seijinrosen",
     "setrecursionlimit",
+    "solargraph",
     "Takahashi",
     "tessoku",
     "TJQK",
@@ -29,5 +27,8 @@
     "unwords",
     "WBWBWWBWBWBW",
     "zfill"
+  ],
+  "ignorePaths": [
+    "Gemfile.lock"
   ]
 }
