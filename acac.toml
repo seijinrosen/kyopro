@@ -63,6 +63,14 @@ pre_execute = ["python3 --version"]
 execute = "python3 ${dir_path}/${source_file_name}"
 
 
+[language.settings.rb]
+source_file_name = "main.rb"
+template_file_path = "templates/main.rb"
+[language.settings.rb.commands]
+pre_execute = ["ruby --version"]
+execute = "ruby ${dir_path}/${source_file_name}"
+
+
 [language.settings.rs]
 source_file_name = "main.rs"
 template_file_path = "src/main.rs"
