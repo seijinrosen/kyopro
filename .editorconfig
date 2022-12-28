@@ -17,3 +17,6 @@ indent_size = 2
 [*.ts]
 indent_style = space
 indent_size = 2
+
+[.editorconfig]
+trim_trailing_whitespace = true
