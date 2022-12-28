@@ -1,4 +1,5 @@
 {
+  "ignorePaths": ["Gemfile.lock"],
   "words": [
     "argmax",
     "atcoder",
@@ -27,8 +28,5 @@
     "unwords",
     "WBWBWWBWBWBW",
     "zfill"
-  ],
-  "ignorePaths": [
-    "Gemfile.lock"
   ]
 }
