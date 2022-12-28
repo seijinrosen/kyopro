@@ -6,6 +6,14 @@ root = true
 indent_style = space
 indent_size = 2
 
+[*.hs]
+indent_style = space
+indent_size = 2
+
 [*.rb]
+indent_style = space
+indent_size = 2
+
+[*.ts]
 indent_style = space
 indent_size = 2
