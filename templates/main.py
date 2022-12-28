@@ -391,6 +391,10 @@ def is_natural(n: int) -> bool:
     return 0 <= n
 
 
+def is_palindrome(s: str) -> bool:
+    return s[::-1] == s
+
+
 def is_positive(n: int) -> bool:
     return 0 < n
 
