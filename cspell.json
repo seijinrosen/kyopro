@@ -1,5 +1,7 @@
 {
-  "ignorePaths": ["Gemfile.lock"],
+  "ignorePaths": [
+    "Gemfile.lock"
+  ],
   "words": [
     "argmax",
     "atcoder",
@@ -16,6 +18,7 @@
     "Neos",
     "popleft",
     "proconio",
+    "rstrip",
     "scanl",
     "seijinrosen",
     "setrecursionlimit",

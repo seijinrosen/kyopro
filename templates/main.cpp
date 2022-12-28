@@ -156,6 +156,11 @@ string int2bin(int number, int width) {
 
 bool odd(int n) { return n % 2 == 1; }
 
+bool is_palindrome(const string &s) {
+  string reversed = {s.rbegin(), s.rend()};
+  return s == reversed;
+}
+
 template <typename T>
 T max(const vector<T> &vec) {
   return *max_element(vec.begin(), vec.end());
@@ -240,6 +245,15 @@ string repeat(int n, const string &s) {
 }
 
 string reverse(const string &s) { return {s.rbegin(), s.rend()}; }
+
+string rstrip(const string &s, char c) {
+  int n = s.size();
+  for (int i = n - 1; i >= 0; i--) {
+    if (s[i] != c) break;
+    n--;
+  }
+  return s.substr(0, n);
+}
 
 template <typename T>
 vector<T> scanl1(function<T(T, T)> func, const vector<T> &vec) {
