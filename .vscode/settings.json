@@ -8,6 +8,7 @@
   },
   "evenBetterToml.formatter.arrayAutoCollapse": false,
   "evenBetterToml.schema.enabled": false,
+  "haskell.manageHLS": "GHCup",
   "solargraph.diagnostics": true,
   "solargraph.formatting": true
 }
