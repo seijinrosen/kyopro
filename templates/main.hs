@@ -138,8 +138,14 @@ isLeapYear n
   | n `mod` 4 == 0 = True
   | otherwise = False
 
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome s = reverse s == s
+
 itertoolsProduct :: [a] -> [b] -> [(a, b)]
 itertoolsProduct ps qs = [(p, q) | p <- ps, q <- qs]
+
+lstrip :: Eq a => a -> [a] -> [a]
+lstrip c = dropWhile (== c)
 
 pairwise :: [b] -> [(b, b)]
 pairwise iterable = zip iterable $ tail iterable
@@ -154,6 +160,9 @@ readIntAtBase k s = sum [k ^ i * digitToInt c | (i, c) <- zip [0 ..] $ reverse s
 
 repeatStr :: Int -> [a] -> [a]
 repeatStr n = concat . replicate n
+
+rstrip :: Eq a => a -> [a] -> [a]
+rstrip c = reverse . dropWhile (== c) . reverse
 
 showIntList :: [Int] -> String
 showIntList = unwords . map show
