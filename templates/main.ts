@@ -85,6 +85,7 @@ function* iterate<T>(func: (arg: T) => T, start: T) {
   }
 }
 const isLower = (s: string) => isNaN(+s) && s.toLowerCase() === s;
+const isPalindrome = (s: string) => s.split("").reverse().join("") === s;
 const isUpper = (s: string) => isNaN(+s) && s.toUpperCase() === s;
 const odd = (n: number) => n % 2 === 1;
 const last = <T>(array: T[]): T => array[array.length - 1];
@@ -118,6 +119,14 @@ const prime_factorize = (n: number) => {
 const range = (a: number, b?: number) =>
   b ? [...Array(b - a)].map((_, i) => a + i) : [...Array(a)].map((_, i) => i);
 const reverse = (s: string) => s.split("").reverse().join("");
+const rstrip = (s: string, c: string) => {
+  let n = s.length;
+  for (let i = n - 1; i >= 0; i--) {
+    if (s[i] !== c) break;
+    n--;
+  }
+  return s.slice(0, n);
+};
 const scanl1 = <T>(func: (a: T, b: T) => T, array: T[]) => {
   const ret = [array[0]];
   array.reduce((a, b) => {
