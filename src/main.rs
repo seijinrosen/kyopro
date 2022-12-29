@@ -1,3 +1,4 @@
+// use kyopro::MyString;
 use proconio::input;
 use std::cmp;
 
@@ -25,6 +26,7 @@ fn main() {
     // };
 
     // let ans = is_palindrome(n.trim_end_matches('0'));
+    // let ans = n.trim_end_matches('0').is_palindrome();
 
     println!("{}", ans);
     println!("{}", if ans { "Yes" } else { "No" });
