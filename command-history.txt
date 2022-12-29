@@ -2,3 +2,5 @@ cargo init
 bundle init
 bundle install
 bundle add solargraph
+go install golang.org/dl/go1.14.1@latest
+go1.14.1 download
