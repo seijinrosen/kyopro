@@ -24,6 +24,8 @@ fn main() {
     //     _ => 0,
     // };
 
+    // let ans = is_palindrome(n.trim_end_matches('0'));
+
     println!("{}", ans);
     println!("{}", if ans { "Yes" } else { "No" });
     // println!("{}", itertools::join(vec, " "));
