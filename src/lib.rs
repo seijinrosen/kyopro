@@ -20,6 +20,33 @@ pub fn is_leap(year: i32) -> bool {
     }
 }
 
+/// 回文かどうかを判定する。
+///
+/// # Examples
+///
+/// ```
+/// use kyopro::is_palindrome;
+///
+/// assert_eq!(is_palindrome("abc"), false);
+/// assert_eq!(is_palindrome("abcba"), true);
+/// ```
+pub fn is_palindrome(s: &str) -> bool {
+    reverse(&s) == s
+}
+
+/// 文字列を反転させる。
+///
+/// # Examples
+///
+/// ```
+/// use kyopro::reverse;
+///
+/// assert_eq!(reverse("abc"), "cba");
+/// ```
+pub fn reverse(s: &str) -> String {
+    s.chars().rev().collect()
+}
+
 /// 一行読み込んで、数値に変換する。
 pub fn read_ln() -> usize {
     let mut buf = String::new();
