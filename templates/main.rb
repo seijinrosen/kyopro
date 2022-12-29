@@ -7,23 +7,35 @@ def leap?(year)
   (year % 4).zero?
 end
 
-day = gets.chomp
-Y = gets.to_i
+def palindrome?(str = '')
+  str.reverse == str
+end
 
+def rstrip(str = '', char = '')
+  n = str.size
+  (0...n).reverse_each do |i|
+    break if str[i] != char
+
+    n -= 1
+  end
+  str[0...n]
+end
+
+# input
+Y = gets.to_i
+N = String gets.chomp
+
+# main
 ans = case day
       when 'Monday'
         5
       when 'Tuesday'
         4
-      when 'Wednesday'
-        3
-      when 'Thursday'
-        2
-      when 'Friday'
-        1
       else
         0
       end
 
+# output
 p ans
 puts (leap? Y) && 'YES' || 'NO'
+puts ans ? 'Yes' : 'No'
