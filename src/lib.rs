@@ -47,6 +47,20 @@ pub fn reverse(s: &str) -> String {
     s.chars().rev().collect()
 }
 
+pub trait MyString {
+    fn is_palindrome(&self) -> bool;
+    fn reverse(&self) -> String;
+}
+
+impl MyString for str {
+    fn is_palindrome(&self) -> bool {
+        self.reverse() == self
+    }
+    fn reverse(&self) -> String {
+        self.chars().rev().collect()
+    }
+}
+
 /// 一行読み込んで、数値に変換する。
 pub fn read_ln() -> usize {
     let mut buf = String::new();
