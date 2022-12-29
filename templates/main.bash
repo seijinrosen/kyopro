@@ -18,6 +18,9 @@ is_leap() {
         echo $((year % 4 == 0))
     fi
 }
+is_palindrome() {
+    (($1)) && echo $(($(echo "$1" | rev) == $1)) || echo 1
+}
 # len(S)
 # ${#S}
 max() {
@@ -25,6 +28,18 @@ max() {
 }
 min() {
     echo $(($1 < $2 ? $1 : $2))
+}
+rstrip() {
+    local s=$1
+    local c=$2
+    local n=${#s}
+    for ((i = n - 1; i >= 0; i--)); do
+        if ((${s:i:1} != c)); then
+            break
+        fi
+        ((n--))
+    done
+    echo "${s:0:n}"
 }
 sum() {
     local result=0
@@ -34,7 +49,7 @@ sum() {
     echo $result
 }
 yes_no() {
-    (($1)) && echo "YES" || echo "NO"
+    (($1)) && echo "Yes" || echo "No"
 }
 
 echo $(($(div_ceil "$Y"*"$Z" "$X") - 1))
