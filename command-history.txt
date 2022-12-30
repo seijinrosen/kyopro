@@ -4,3 +4,4 @@ bundle install
 bundle add solargraph
 go install golang.org/dl/go1.14.1@latest
 go1.14.1 download
+go install golang.org/x/tools/gopls@v0.9.5
