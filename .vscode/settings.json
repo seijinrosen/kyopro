@@ -6,6 +6,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "evenBetterToml.formatter.arrayAutoCollapse": false,
   "evenBetterToml.schema.enabled": false,
   "haskell.manageHLS": "GHCup",
