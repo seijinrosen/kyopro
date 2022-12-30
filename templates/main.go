@@ -2,8 +2,19 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
+
+func Compare(x, y float64) string {
+	if x < y {
+		return "<"
+	}
+	if x > y {
+		return ">"
+	}
+	return "="
+}
 
 func IsPalindrome(s string) bool {
 	return Reverse(s) == s
@@ -26,11 +37,23 @@ func YesNo(b bool) string {
 	}
 }
 
+func Solve(a, b float64, c int) string {
+	if c%2 == 0 {
+		return Compare(math.Abs(a), math.Abs(b))
+	} else {
+		return Compare(a, b)
+	}
+}
+
 func main() {
 	var N string
 	fmt.Scanf("%s", &N)
+	var A, B float64
+	var C int
+	fmt.Scanf("%g %g %d", &A, &B, &C)
 
 	ans := IsPalindrome(strings.TrimRight(N, "0"))
 
 	fmt.Println(YesNo(ans))
+	fmt.Println(ans)
 }
