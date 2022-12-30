@@ -1,4 +1,27 @@
+use std::cmp::Ordering;
 use std::io;
+
+pub trait ToChar {
+    fn to_char(&self) -> char;
+}
+impl ToChar for Ordering {
+    fn to_char(&self) -> char {
+        match self {
+            Ordering::Less => '<',
+            Ordering::Equal => '=',
+            Ordering::Greater => '>',
+        }
+    }
+}
+
+pub trait MyInt {
+    fn is_even(&self) -> bool;
+}
+impl MyInt for i32 {
+    fn is_even(&self) -> bool {
+        self % 2 == 0
+    }
+}
 
 /// うるう年かどうかを判定する。
 ///
