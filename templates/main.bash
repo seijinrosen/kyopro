@@ -2,6 +2,13 @@
 ascii_uppercase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 echo $ascii_uppercase | head -c "$K"
 
+abs() {
+    if ((0 <= $1)); then
+        echo "$1"
+    else
+        echo "${1:1}"
+    fi
+}
 count() {
     tr -cd "$1" | wc -c
 }
