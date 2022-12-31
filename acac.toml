@@ -40,8 +40,8 @@ source_file_name = "main.go"
 template_file_path = "templates/main.go"
 [language.settings.go.commands]
 pre_execute = [
-    "go1.14.1 version",
-    "go1.14.1 build -o ${dir_path} ${dir_path}/${source_file_name}",
+    "go1.16 version",
+    "go1.16 build -o ${dir_path} ${dir_path}/${source_file_name}",
 ]
 execute = "${dir_path}/main"
 post_execute = ["rm ${dir_path}/main"]
