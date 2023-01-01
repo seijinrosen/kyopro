@@ -24,11 +24,12 @@ main = do
   --   return (s, read t)
 
   let ans = a `elem` ps
-  let acc = scanl1 max as
+  -- let acc = scanl1 max as
 
   print ans
   putStrLn $ yesNo ans
   getLine >>= putStrLn . yesNo . solve
+  putStrLn $ if ans then "Yes" else "No"
 
 -- input functions
 
@@ -189,6 +190,9 @@ toLowerAlphabet x = ['a' .. 'z'] !! (x - 1)
 
 translate :: Ord k => Map k k -> k -> k
 translate mp x = fromMaybe x $ Map.lookup x mp
+
+uniqLen :: Ord a => [a] -> Int
+uniqLen = length . Set.fromList
 
 yesNo :: Bool -> String
 yesNo False = "No"
