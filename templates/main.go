@@ -46,14 +46,18 @@ func Solve(a, b float64, c int) string {
 }
 
 func main() {
-	var N string
-	fmt.Scanf("%s", &N)
+	var N int
+	fmt.Scanf("%d", &N)
+
+	var S string
+	fmt.Scanf("%s", &S)
+
 	var A, B float64
 	var C int
 	fmt.Scanf("%g %g %d", &A, &B, &C)
 
-	ans := IsPalindrome(strings.TrimRight(N, "0"))
+	ans := IsPalindrome(strings.TrimRight(S, "0"))
 
-	fmt.Println(YesNo(ans))
 	fmt.Println(ans)
+	fmt.Println(YesNo(ans))
 }
