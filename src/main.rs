@@ -1,17 +1,20 @@
 // use kyopro::MyString;
 use proconio::input;
-use std::cmp;
+// use std::cmp;
+// use std::collections::HashSet;
 
 // const ASCII_UPPERCASE: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 fn main() {
     input! {
-        (a, b, c, d): (i64, i64, i64, i64),
+        n: usize,
+        // a: [i32; n],
+        // (x, y): (i64, i64),
     }
 
+    let ans = n;
     // let ans = &ASCII_UPPERCASE[..k];
-
-    let ans = cmp::max(a, c) <= cmp::min(b, d);
+    // let ans = cmp::max(a, c) <= cmp::min(b, d);
 
     // let mut vec: Vec<i32> = Vec::new();
     // for i in 1..=a {
@@ -27,8 +30,9 @@ fn main() {
 
     // let ans = is_palindrome(n.trim_end_matches('0'));
     // let ans = n.trim_end_matches('0').is_palindrome();
+    // let hs: HashSet<i32> = a.into_iter().collect();
 
     println!("{}", ans);
-    println!("{}", if ans { "Yes" } else { "No" });
+    // println!("{}", if ans { "Yes" } else { "No" });
     // println!("{}", itertools::join(vec, " "));
 }
