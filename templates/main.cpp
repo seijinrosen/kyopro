@@ -420,9 +420,12 @@ vector<Tuple> input_tuple_vector(int n) {
 int main() {
   int N;
   cin >> N;
+  auto A = input_vector(N);
 
   // auto func = [&](const pair<int, int> &p) {
   //   auto [x, y] = p;
   //   return pow(x, 2) + pow(y, 2) <= pow(D, 2);
   // };
+
+  // cout << (ans ? "YES" : "NO") << endl;
 }
