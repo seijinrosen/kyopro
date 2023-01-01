@@ -35,8 +35,9 @@ def solve(a = 0, b = 0, c = 0)
 end
 
 # input
-Y = gets.to_i
-N = String gets.chomp
+N = gets.to_i
+S = String gets.chomp
+A = gets.split.map(&:to_i)
 A, B, C = gets.split.map(&:to_i)
 
 # main
