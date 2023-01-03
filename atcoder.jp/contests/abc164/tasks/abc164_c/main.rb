@@ -3,7 +3,7 @@
 require 'set'
 
 N = gets.to_i
-S = N.times.map { gets.chomp }
+S = Array.new(N) { gets.chomp }
 
 ans = Set.new(S).size
 
