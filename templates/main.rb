@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+require 'set'
+
+# @return [Integer]
+def input_int
+  gets.to_i
+end
+
 def compare(x = 0, y = 0)
   return '<' if x < y
   return '>' if x > y
@@ -39,16 +46,18 @@ N = gets.to_i
 S = String gets.chomp
 A = gets.split.map(&:to_i)
 A, B, C = gets.split.map(&:to_i)
+S = Array.new(N) { gets.chomp }
 
 # main
-ans = case day
-      when 'Monday'
-        5
-      when 'Tuesday'
-        4
-      else
-        0
-      end
+# ans = case day
+#       when 'Monday'
+#         5
+#       when 'Tuesday'
+#         4
+#       else
+#         0
+#       end
+ans = Set.new(S).size
 
 # output
 p ans
