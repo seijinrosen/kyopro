@@ -168,3 +168,6 @@ else
 fi
 array+=($((-$(sum "${array[*]}"))))
 echo "${array[@]}"
+
+# https://atcoder.jp/contests/abc164/tasks/abc164_c
+sort --unique | wc -l
