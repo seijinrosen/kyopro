@@ -35,6 +35,14 @@ def rstrip(str = '', char = '')
   str[0...n]
 end
 
+def weak2?(xs = [])
+  return true if xs.size < 2
+
+  x = xs[0]
+  y = xs[1]
+  (x + 1) % 10 == y && weak2?(xs[1..])
+end
+
 def solve(a = 0, b = 0, c = 0)
   return compare(a.abs, b.abs) if c.even?
 
@@ -47,6 +55,7 @@ S = String gets.chomp
 A = gets.split.map(&:to_i)
 A, B, C = gets.split.map(&:to_i)
 S = Array.new(N) { gets.chomp }
+XS = gets.chomp.chars.map(&:to_i)
 
 # main
 # ans = case day
