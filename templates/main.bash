@@ -48,6 +48,9 @@ rstrip() {
     done
     echo "${s:0:n}"
 }
+string_set_len() {
+    echo "$1" | fold -w1 | sort --unique | wc -l
+}
 sum() {
     local result=0
     for x in $1; do
@@ -171,3 +174,17 @@ echo "${array[@]}"
 
 # https://atcoder.jp/contests/abc164/tasks/abc164_c
 sort --unique | wc -l
+
+# https://atcoder.jp/contests/abc212/tasks/abc212_b
+is_weak2() {
+    local flag=1
+    for ((i = 0; i < 3; i++)); do
+        local x=${1:i:1}
+        local y=${1:i+1:1}
+        if (((x + 1) % 10 != y)); then
+            flag=0
+            break
+        fi
+    done
+    echo $flag
+}
