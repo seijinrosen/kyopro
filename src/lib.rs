@@ -1,5 +1,7 @@
+mod int;
 mod string;
 
+pub use crate::int::MyInt;
 pub use crate::string::MyString;
 
 use std::cmp::Ordering;
@@ -15,15 +17,6 @@ impl ToChar for Ordering {
             Ordering::Equal => '=',
             Ordering::Greater => '>',
         }
-    }
-}
-
-pub trait MyInt {
-    fn is_even(&self) -> bool;
-}
-impl MyInt for i32 {
-    fn is_even(&self) -> bool {
-        self % 2 == 0
     }
 }
 
