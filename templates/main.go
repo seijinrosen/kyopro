@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 	"strings"
 )
 
@@ -20,6 +21,17 @@ func IsPalindrome(s string) bool {
 	return Reverse(s) == s
 }
 
+func IsWeak2(xs []int) bool {
+	// https://atcoder.jp/contests/abc212/tasks/abc212_b
+	if len(xs) < 2 {
+		return true
+	}
+	x := xs[0]
+	y := xs[1]
+	xs = xs[1:]
+	return (x+1)%10 == y && IsWeak2(xs)
+}
+
 func Reverse(s string) string {
 	// https://stackoverflow.com/a/10030772
 	runes := []rune(s)
@@ -27,6 +39,14 @@ func Reverse(s string) string {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
 	return string(runes)
+}
+
+func StringToDigits(s string) []int {
+	digits := make([]int, len(s))
+	for i, c := range strings.Split(s, "") {
+		digits[i], _ = strconv.Atoi(c)
+	}
+	return digits
 }
 
 func YesNo(b bool) string {
