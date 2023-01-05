@@ -5,9 +5,29 @@ pub trait MyString {
 }
 
 impl MyString for str {
+    /// 回文かどうかを判定する。
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use kyopro::MyString;
+    ///
+    /// assert_eq!("abc".is_palindrome(), false);
+    /// assert_eq!("abcba".is_palindrome(), true);
+    /// ```
     fn is_palindrome(&self) -> bool {
         self.reverse() == self
     }
+
+    /// 文字列を反転させる。
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use kyopro::MyString;
+    ///
+    /// assert_eq!("abc".reverse(), "cba");
+    /// ```
     fn reverse(&self) -> String {
         self.chars().rev().collect()
     }
