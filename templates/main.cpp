@@ -322,6 +322,12 @@ vector<T> step2(const vector<T> &vec) {
   return ret;
 }
 
+vector<int> string_to_digits(const string &s) {
+  vector<int> digits;
+  for (auto &&c : s) digits.push_back(c - '0');
+  return digits;
+}
+
 template <typename T>
 T sum(const vector<T> &vec) {
   return accumulate(vec.begin(), vec.end(), 0.0);
