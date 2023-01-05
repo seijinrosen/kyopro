@@ -36,3 +36,13 @@ fn main() {
     // println!("{}", if ans { "Yes" } else { "No" });
     // println!("{}", itertools::join(vec, " "));
 }
+
+// fn is_weak2(xs: &[u32]) -> bool {
+//     if xs.len() < 2 {
+//         return true;
+//     }
+//     let x = xs[0];
+//     let y = xs[1];
+//     let xs = &xs[1..];
+//     (x + 1) % 10 == y && is_weak2(xs)
+// }
