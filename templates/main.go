@@ -17,6 +17,20 @@ func Compare(x, y float64) string {
 	return "="
 }
 
+func Dedup(s string) string {
+	if len(s) <= 1 {
+		return s
+	}
+	var result []byte
+	result = append(result, s[0])
+	for i := 1; i < len(s); i++ {
+		if s[i-1] != s[i] {
+			result = append(result, s[i])
+		}
+	}
+	return string(result)
+}
+
 func IsPalindrome(s string) bool {
 	return Reverse(s) == s
 }
