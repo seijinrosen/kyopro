@@ -188,3 +188,6 @@ is_weak2() {
     done
     echo $flag
 }
+
+# https://atcoder.jp/contests/abc143/tasks/abc143_c
+fold -w1 | uniq | wc -l
