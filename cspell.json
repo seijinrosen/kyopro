@@ -9,6 +9,7 @@
     "concat",
     "cond",
     "ctoi",
+    "dedup",
     "Feicrosntd",
     "HDCS",
     "itertools",
