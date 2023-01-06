@@ -14,6 +14,16 @@ def compare(x = 0, y = 0)
   '='
 end
 
+def dedup(s = '')
+  return s if s.size <= 1
+
+  array = [s[0]]
+  (1...s.size).each do |i|
+    array.push(s[i]) if s[i - 1] != s[i]
+  end
+  array.join
+end
+
 def leap?(year)
   return true if (year % 400).zero?
   return false if (year % 100).zero?
