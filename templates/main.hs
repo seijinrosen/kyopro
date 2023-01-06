@@ -105,6 +105,14 @@ countText s = T.count (T.pack s) . T.pack
 counter :: (Ord k, Num a) => [k] -> Map k a
 counter xs = Map.fromListWith (+) $ zip xs (repeat 1)
 
+dedup :: Eq a => [a] -> [a]
+dedup [] = []
+dedup [x] = [x]
+dedup (x : y : xs) =
+  if x == y
+    then dedup (y : xs)
+    else x : dedup (y : xs)
+
 divCeil :: Integral a => a -> a -> a
 a `divCeil` b = (a + b - 1) `div` b
 
