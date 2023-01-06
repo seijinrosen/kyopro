@@ -1,10 +1,28 @@
 pub trait MyString {
+    fn dedup(&self) -> String;
     fn is_palindrome(&self) -> bool;
     fn reverse(&self) -> String;
     fn to_digits(&self) -> Vec<u32>;
 }
 
 impl MyString for str {
+    /// 連続する文字を削除する。
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use kyopro::MyString;
+    ///
+    /// assert_eq!("aabbbbaaca".dedup(), "abaca");
+    /// assert_eq!("aaaaa".dedup(), "a");
+    /// assert_eq!("xxzaffeeeeddfkkkkllq".dedup(), "xzafedfklq");
+    /// ```
+    fn dedup(&self) -> String {
+        let mut vec = self.as_bytes().to_vec();
+        vec.dedup();
+        String::from_utf8(vec).unwrap()
+    }
+
     /// 回文かどうかを判定する。
     ///
     /// # Examples
