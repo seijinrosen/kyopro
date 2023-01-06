@@ -90,6 +90,12 @@ int count(P pred, const vector<T> &vec) {
   return count_if(vec.begin(), vec.end(), pred);
 }
 
+string dedup(const string &s) {
+  string result = s;
+  result.erase(unique(result.begin(), result.end()), result.end());
+  return result;
+}
+
 template <typename T>
 set<T> difference(const set<T> &set_a, const set<T> &set_b) {
   set<T> result;
