@@ -21,6 +21,7 @@
     "ndigits",
     "Neos",
     "networkx",
+    "numba",
     "popleft",
     "proconio",
     "rstrip",
