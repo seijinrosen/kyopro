@@ -252,6 +252,11 @@ string repeat(int n, const string &s) {
 
 string reverse(const string &s) { return {s.rbegin(), s.rend()}; }
 
+template <typename T>
+vector<T> reverse(const vector<T> &vec) {
+  return {vec.rbegin(), vec.rend()};
+}
+
 string rstrip(const string &s, char c) {
   int n = s.size();
   for (int i = n - 1; i >= 0; i--) {
