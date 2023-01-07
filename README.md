@@ -26,3 +26,8 @@
 
 - [典型 90 | 026 - Independent Set on a Tree（★4）](https://atcoder.jp/contests/typical90/tasks/typical90_z)
 - [ABC282 | D - Make Bipartite 2](https://atcoder.jp/contests/abc282/tasks/abc282_d)
+
+### 高速な素因数分解
+
+- [ポラードのロー素因数分解法 | アルゴ式](https://algo-method.com/tasks/553/editorial)
+- [ABC284 | D - Happy New Year 2023](https://atcoder.jp/contests/abc284/tasks/abc284_d)
