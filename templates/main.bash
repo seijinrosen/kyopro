@@ -191,3 +191,6 @@ is_weak2() {
 
 # https://atcoder.jp/contests/abc143/tasks/abc143_c
 fold -w1 | uniq | wc -l
+
+# https://atcoder.jp/contests/abc284/tasks/abc284_a
+tail -"$N" | tac
