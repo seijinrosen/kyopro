@@ -9,3 +9,4 @@ go install golang.org/dl/go1.16@latest
 go1.16 download
 poetry lock --no-update
 poetry add --group=dev acac@latest
+poetry add networkx==2.4

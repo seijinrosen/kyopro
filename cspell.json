@@ -20,6 +20,7 @@
     "meguru",
     "ndigits",
     "Neos",
+    "networkx",
     "popleft",
     "proconio",
     "rstrip",
