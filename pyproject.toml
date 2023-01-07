@@ -12,6 +12,7 @@ python = "~3.8"
 more-itertools = "^9.0.0"
 networkx = "2.4"
 numpy = "1.18.2"
+scikit-learn = "0.22.2.post1"
 scipy = "1.4.1"
 
 [tool.poetry.group.dev.dependencies]
