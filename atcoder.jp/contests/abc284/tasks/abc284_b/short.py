@@ -1,0 +1,1 @@
+for _ in[0]*int(input()):input();print(sum(int(a)%2for a in input().split()))
