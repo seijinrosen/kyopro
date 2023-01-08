@@ -24,6 +24,7 @@
     "numba",
     "popleft",
     "proconio",
+    "pyperclip",
     "rstrip",
     "scanl",
     "scikit",
