@@ -3,8 +3,6 @@ use proconio::input;
 // use std::cmp;
 // use std::collections::HashSet;
 
-// const ASCII_UPPERCASE: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
 fn main() {
     input! {
         n: usize,

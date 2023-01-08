@@ -1,5 +1,5 @@
 mod int;
-mod string;
+pub mod string;
 
 pub use crate::int::MyInt;
 pub use crate::string::MyString;

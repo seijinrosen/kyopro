@@ -1,3 +1,5 @@
+pub const ASCII_UPPERCASE: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 pub trait MyString {
     fn dedup(&self) -> String;
     fn is_palindrome(&self) -> bool;
