@@ -4,7 +4,7 @@ from string import ascii_lowercase
 
 import pyperclip
 
-print("input contest url.")
+print("input contest name.")
 print("example: abc284")
 print()
 
