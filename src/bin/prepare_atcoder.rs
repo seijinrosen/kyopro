@@ -1,15 +1,11 @@
-use std::{
-    fs,
-    io::{self, Write},
-    path::Path,
-};
+use std::{fs, path::Path};
 
 fn main() {
     println!("input contest name.");
     println!("example: abc284");
     println!();
 
-    let contest_name = input("type here: ");
+    let contest_name = rspy::input("type here: ");
     let contest_dir_path = Path::new(".")
         .join("atcoder.jp")
         .join("contests")
@@ -27,14 +23,6 @@ fn main() {
         )
         .unwrap();
     }
-}
-
-fn input(prompt: &str) -> String {
-    print!("{}", prompt);
-    io::stdout().flush().unwrap();
-    let mut buf = String::new();
-    io::stdin().read_line(&mut buf).unwrap();
-    buf.trim().to_string()
 }
 
 trait MyPath {
