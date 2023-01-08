@@ -61,6 +61,15 @@ class Graph:
         return dist
 
 
+def undirected_graph(n: int, uv: List[Tuple[int, int]]) -> List[List[int]]:
+    """単純無向グラフを構築する"""
+    g: list[list[int]] = [[] for _ in range(n)]
+    for u, v in uv:
+        g[u - 1].append(v - 1)
+        g[v - 1].append(u - 1)
+    return g
+
+
 class UnionFind:
     # https://algo-method.com/descriptions/136
     def __init__(self, n: int) -> None:
