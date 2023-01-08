@@ -4,6 +4,9 @@ dummy:
 open:
 	gh repo view --web
 
+prepare-atcoder:
+	cargo run --bin prepare_atcoder
+
 update:
 	python -m pip install --upgrade pip setuptools
 	poetry update
