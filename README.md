@@ -27,6 +27,10 @@
 - [典型 90 | 026 - Independent Set on a Tree（★4）](https://atcoder.jp/contests/typical90/tasks/typical90_z)
 - [ABC282 | D - Make Bipartite 2](https://atcoder.jp/contests/abc282/tasks/abc282_d)
 
+### 単純無向グラフの単純パス(同じ頂点を複数回通らないパス)の数え上げ
+
+- [ABC284 | E - Count Simple Paths](https://atcoder.jp/contests/abc284/tasks/abc284_e)
+
 ### 高速な素因数分解
 
 - [ポラードのロー素因数分解法 | アルゴ式](https://algo-method.com/tasks/553/editorial)
