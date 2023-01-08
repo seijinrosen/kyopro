@@ -187,6 +187,9 @@ stripPrefixFromList (prefix : prefixes) s = case stripPrefix prefix s of
   Just x -> Just x
   Nothing -> stripPrefixFromList prefixes s
 
+substr :: Int -> Int -> [a] -> [a]
+substr start len = take len . drop start
+
 sumOfEachDigit :: Int -> Int
 sumOfEachDigit i = sum $ map digitToInt $ show i
 
