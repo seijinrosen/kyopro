@@ -7,6 +7,9 @@ end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+[*.code-snippets]
+indent_size = 2
+
 [*.cpp]
 indent_style = space
 indent_size = 2

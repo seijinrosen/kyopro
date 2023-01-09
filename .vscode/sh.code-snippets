@@ -3,5 +3,11 @@
     "scope": "shellscript",
     "prefix": "len",
     "body": "${#${string}}"
+  },
+  // https://manpages.debian.org/unstable/manpages-ja/bash.1.ja.html#:~:text=parameter%3Aoffset%3Alength
+  "部分文字列展開": {
+    "scope": "shellscript",
+    "prefix": "substr",
+    "body": "${${parameter}:${offset}:${length}}"
   }
 }
