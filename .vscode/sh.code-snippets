@@ -1,0 +1,7 @@
+{
+  "文字列の長さ": {
+    "scope": "shellscript",
+    "prefix": "len",
+    "body": "${#${string}}"
+  }
+}
