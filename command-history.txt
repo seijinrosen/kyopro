@@ -12,3 +12,4 @@ poetry add --group=dev acac@latest
 poetry add networkx==2.4
 poetry add scikit-learn==0.22.2.post1
 poetry add numba==0.48.0
+cargo update --package=rspy
