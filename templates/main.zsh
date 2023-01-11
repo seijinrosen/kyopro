@@ -22,3 +22,7 @@ sum() {
 s=$(sum $array)
 array+=$((-s))
 echo $array
+
+# read array
+# bash: read -ra H
+read -A H
