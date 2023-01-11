@@ -12,16 +12,14 @@ fn main() {
 }
 
 fn solve(x: i32, hs: &[i32]) -> i32 {
-    if hs.is_empty() {
-        return 0;
+    match hs {
+        [] => 0,
+        [h, hs @ ..] => {
+            if x <= *h {
+                solve(*h, hs) + 1
+            } else {
+                solve(x, hs)
+            }
+        }
     }
-
-    let h = hs[0];
-    let hs = &hs[1..];
-
-    if x <= h {
-        return solve(h, hs) + 1;
-    }
-
-    solve(x, hs)
 }
