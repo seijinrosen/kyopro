@@ -85,6 +85,14 @@ func InputInt() int {
 	return n
 }
 
+func InputIntArray(n int) []int {
+	result := make([]int, n)
+	for i := range result {
+		fmt.Scanf("%d", &result[i])
+	}
+	return result
+}
+
 func InputStringArrayVertically(n int) []string {
 	result := make([]string, n)
 	for i := range result {
