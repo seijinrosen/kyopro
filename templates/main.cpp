@@ -78,6 +78,12 @@ vector<tuple<T, T, T>> combinations3(const vector<T> &vec) {
   return ret;
 }
 
+bool contains(const string &search_string, const string &s) {
+  for (size_t i = 0; i < s.size(); i++)
+    if (s.substr(i, search_string.size()) == search_string) return true;
+  return false;
+}
+
 int count(char x, const string &s) { return count(s.begin(), s.end(), x); }
 int count(const string &count_string, const string &s) {
   int ret = 0;
