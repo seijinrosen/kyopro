@@ -3,6 +3,12 @@
 version = 3
 
 [[package]]
+name = "anyhow"
+version = "1.0.68"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2cb2f989d18dd141ab8ae82f64d1a8cdd37e0840f73a406896cf5e99502fab61"
+
+[[package]]
 name = "either"
 version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -73,9 +79,12 @@ dependencies = [
 
 [[package]]
 name = "rspy"
-version = "0.1.6"
+version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa6a1b06a4f3939945de64aa98e9c608b17dc6efcd554ee623754c32f65f188e"
+checksum = "8111cd994e3d4925f9e89587ecde13f0241ed4de6991308b643751b5493ea61b"
+dependencies = [
+ "anyhow",
+]
 
 [[package]]
 name = "syn"
