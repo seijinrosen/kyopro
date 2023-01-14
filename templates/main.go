@@ -55,6 +55,13 @@ func Reverse(s string) string {
 	return string(runes)
 }
 
+func ReverseInts(ints []int) {
+	// https://stackoverflow.com/a/10030772
+	for i, j := 0, len(ints)-1; i < j; i, j = i+1, j-1 {
+		ints[i], ints[j] = ints[j], ints[i]
+	}
+}
+
 func ReverseStringArray(array []string) []string {
 	result := make([]string, len(array))
 	for i, s := range array {
@@ -69,6 +76,14 @@ func StringToDigits(s string) []int {
 		digits[i], _ = strconv.Atoi(c)
 	}
 	return digits
+}
+
+func Sum(ints []int) int {
+	result := 0
+	for _, v := range ints {
+		result += v
+	}
+	return result
 }
 
 func YesNo(b bool) string {
