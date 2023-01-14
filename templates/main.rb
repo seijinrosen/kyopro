@@ -7,6 +7,11 @@ def input_int
   gets.to_i
 end
 
+# @return [Array(Integer)]
+def input_int_array
+  gets.split.map(&:to_i)
+end
+
 def compare(x = 0, y = 0)
   return '<' if x < y
   return '>' if x > y
