@@ -79,9 +79,9 @@ dependencies = [
 
 [[package]]
 name = "rspy"
-version = "0.1.8"
+version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8111cd994e3d4925f9e89587ecde13f0241ed4de6991308b643751b5493ea61b"
+checksum = "859b01c3acf16356f946a6b56a66f71a35a3cee04b85e32b4224b569658102b8"
 dependencies = [
  "anyhow",
 ]
