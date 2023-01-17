@@ -13,6 +13,7 @@ fn main() {
         // a: [i32; n],
         // (x, y): (i64, i64),
         // mut s: [String; n],
+        // a: [[usize]; n],
     }
 
     let ans = n;
