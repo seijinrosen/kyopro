@@ -1,11 +1,15 @@
-// use kyopro::MyString;
-use proconio::input;
 // use std::cmp;
 // use std::collections::HashSet;
+
+use proconio::input;
+// use proconio::marker::Chars;
+
+// use kyopro::MyString;
 
 fn main() {
     input! {
         n: usize,
+        // s: Chars,
         // a: [i32; n],
         // (x, y): (i64, i64),
         // mut s: [String; n],
