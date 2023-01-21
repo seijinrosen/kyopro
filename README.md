@@ -31,6 +31,11 @@
 
 - [ABC284 | E - Count Simple Paths](https://atcoder.jp/contests/abc284/tasks/abc284_e)
 
+### ワーシャルフロイド法（すべての 2 頂点間の最短経路）
+
+- [ABC286 | E - Souvenir](https://atcoder.jp/contests/abc286/tasks/abc286_e)
+- 鉄則本 p406
+
 ### 高速な素因数分解
 
 - [ポラードのロー素因数分解法 | アルゴ式](https://algo-method.com/tasks/553/editorial)
