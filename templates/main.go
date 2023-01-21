@@ -7,6 +7,14 @@ import (
 	"strings"
 )
 
+func PrintIntArray(arr []int) {
+	var result []string
+	for _, v := range arr {
+		result = append(result, strconv.Itoa(v))
+	}
+	fmt.Println(strings.Join(result, " "))
+}
+
 func Compare(x, y float64) string {
 	if x < y {
 		return "<"
