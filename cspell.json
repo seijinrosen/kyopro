@@ -23,6 +23,7 @@
     "Neos",
     "networkx",
     "numba",
+    "OPKL",
     "popleft",
     "proconio",
     "pyperclip",
