@@ -176,6 +176,9 @@ rstrip c = reverse . dropWhile (== c) . reverse
 showIntList :: [Int] -> String
 showIntList = unwords . map show
 
+showPair :: (Show a1, Show a2) => (a1, a2) -> String
+showPair p = show (fst p) ++ " " ++ show (snd p)
+
 slice :: Int -> Int -> [a] -> [a]
 slice start end = drop start . take end
 
