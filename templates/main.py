@@ -416,6 +416,10 @@ def is_same_parity(x: int, y: int) -> bool:
     return x % 2 == y % 2
 
 
+def is_square_number(n: int) -> bool:
+    return sqrt(n).is_integer()
+
+
 def lcm(x: int, y: int) -> int:
     """最小公倍数 (least common multiple)
     >>> lcm(25, 30)
