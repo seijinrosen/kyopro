@@ -128,7 +128,7 @@ def iterate(func: Callable[[_T], _T], start: _T) -> Iterator[_T]:
         start = func(start)
 
 
-def nth(iterable: Iterable[_T], n: int, default: _U = None) -> Union[_T, _U]:
+def nth(iterable: Iterable[_T], n: int, default: _U = None) -> Union[_T, _U, None]:
     # https://more-itertools.readthedocs.io/en/stable/api.html#more_itertools.nth
     return next(islice(iterable, n, None), default)
 
