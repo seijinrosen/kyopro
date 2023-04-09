@@ -1,4 +1,4 @@
 import math
-x,*A=map(int,[*open(0)][1].split())
-for a in A:x=math.gcd(x,a)
+x=0
+for a in[*open(0)][1].split():x=math.gcd(x,int(a))
 print(x)
