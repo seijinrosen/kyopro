@@ -1,0 +1,2 @@
+{'aruru': 80, 'iruru': 95, 'ururu': 85}
+{'math': 95, 'science': 100, 'english': 65}
